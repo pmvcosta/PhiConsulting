@@ -10,11 +10,28 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 } else {
   //Not in browser (we are on the server) or metamask isnt available
   //Set up our own provider using infura
-  /*  const provider = new Web3.providers.HttpProvider(
-    'https://rinkeby.infura.io/v3/3a47dfdd4321468da86e76aa75ee63d3'
-  );*/
-  const provider = new Web3.providers.HttpProvider(process.env.INFURA_PROVIDER);
-  web3 = new Web3(provider);
+  const options = {
+    keepAlive: true,
+    timeout: 20000, // milliseconds,
+    headers: [
+      {
+        name: 'Access-Control-Allow-Origin',
+        value: process.env.INFURA_PROVIDER,
+      },
+    ],
+    reconnect: {
+      auto: true,
+      delay: 5000, // ms
+      maxAttempts: 5,
+      onTimeout: false,
+    },
+  };
+  const provider = new Web3.providers.HttpProvider(
+    process.env.INFURA_PROVIDER,
+    options
+  );
+  //web3 = new Web3(provider);
+  web3 = new Web3(process.env.INFURA_WSSPROVIDER);
   //Should add security measures for infura link
 }
 

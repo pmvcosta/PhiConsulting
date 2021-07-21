@@ -1,4 +1,4 @@
-import web3 from './web3.js'; //retrieving the created instance of Web3
+import web3 from './web3'; //retrieving the created instance of Web3
 import CampaignFactory from './build/CampaignFactory.json';
 
 //give the location of the deployed factory Contract
