@@ -47,8 +47,6 @@ class Subscribe extends Component {
         errorMessage: '',
         successMessage: 'Success! 🎉 You are now subscribed to the newsletter.',
       });
-
-      Router.pushRoute('/');
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
