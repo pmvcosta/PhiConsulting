@@ -42,6 +42,12 @@ class Subscribe extends Component {
         },
         method: 'POST',
       });
+
+      this.setState({
+        errorMessage: '',
+        successMessage: 'Success! 🎉 You are now subscribed to the newsletter.',
+      });
+
       Router.pushRoute('/');
     } catch (err) {
       this.setState({ errorMessage: err.message });
@@ -49,8 +55,6 @@ class Subscribe extends Component {
 
     this.setState({
       loading: false,
-      errorMessage: '',
-      successMessage: 'Success! 🎉 You are now subscribed to the newsletter.',
     });
   };
 
