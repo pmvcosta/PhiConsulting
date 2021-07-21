@@ -1,0 +1,100 @@
+import React from 'react';
+import {
+  Menu,
+  Segment,
+  Grid,
+  List,
+  Header,
+  Container,
+  Button,
+} from 'semantic-ui-react';
+
+export default () => {
+  return (
+    <Segment
+      color="green"
+      inverted
+      vertical
+      style={{
+        padding: '5em 0em',
+        backgroundImage:
+          'url(https://images.unsplash.com/photo-1602168431602-9bfa3722a472?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80)',
+
+        /* Set a specific height */
+        minHeight: '400px',
+
+        /* Create the parallax scrolling effect */
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no - repeat',
+        backgroundSize: 'cover',
+      }}
+    >
+      <Container>
+        <Grid divided inverted stackable>
+          <Grid.Row>
+            <Grid.Column width={3}>
+              <Header inverted as="h4" content="About" />
+              <List link inverted>
+                <List.Item as="a" href="/aboutUs">
+                  About us
+                </List.Item>
+                <List.Item as="a" href="/aboutUs">
+                  Contact Us
+                </List.Item>
+                <List.Item
+                  as="a"
+                  href="https://coinmarketcap.com/alexandria/glossary/asset-backed-tokens"
+                  target="_blank"
+                >
+                  What are Tokens?
+                </List.Item>
+                <List.Item as="a" href="/subscribe">
+                  Roadmap
+                </List.Item>
+              </List>
+            </Grid.Column>
+            <Grid.Column width={3}>
+              <Header inverted as="h4" content="Services" />
+              <List link inverted>
+                <List.Item as="a" href="/subscribe">
+                  Subscribe to Newsletter
+                </List.Item>
+                <List.Item
+                  as="a"
+                  href="https://forms.gle/a3HoNy1kZ5EWP9gN6"
+                  target="_blank"
+                >
+                  Participate in Survey
+                </List.Item>
+                <List.Item as="a" href="/subscribe">
+                  How To Access
+                </List.Item>
+                <List.Item as="a" href="/subscribe">
+                  FAQ
+                </List.Item>
+              </List>
+            </Grid.Column>
+            <Grid.Column width={7}>
+              <Header as="h4" inverted>
+                Additional Information
+              </Header>
+              <p>
+                Become an early adopter to help shape the future and be part of
+                what comes next. Subscribe to the newsletter to stay up to date
+                with our progress!
+              </p>
+              <Header as="h4" inverted>
+                Reach us at:
+              </Header>
+              <Button circular color="facebook" icon="facebook" />
+              <Button circular color="twitter" icon="twitter" />
+              <Button circular color="linkedin" icon="linkedin" />
+              <Button circular color="google plus" icon="google plus" />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </Segment>
+  );
+};
