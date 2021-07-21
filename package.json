@@ -18,7 +18,6 @@
     "@typeform/embed-react": "^1.0.7",
     "fs-extra": "^10.0.0",
     "ganache-cli": "^6.12.2",
-    "lodash": "^4.17.21",
     "mocha": "^9.0.1",
     "next": "^10.0.7",
     "next-routes": "^1.4.2",
