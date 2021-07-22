@@ -5,6 +5,7 @@ const routes = require('next-routes')();
 //where we route it to
 //Routes get parsed in the order they are written
 routes
+  .add('/', '/index')
   .add('/openCampaigns', '/openCampaigns')
   .add('/login', '/login')
   .add('/subscribe', '/subscribe')

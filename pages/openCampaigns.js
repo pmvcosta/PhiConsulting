@@ -10,7 +10,7 @@ import {
   Image,
 } from 'semantic-ui-react';
 import factory from '../ethereum/factory';
-
+import web3 from '../ethereum/web3';
 //import 'semantic-ui-css/semantic.min.css';
 
 import Layout from '../components/Layout';
@@ -22,12 +22,27 @@ class CampaignIndex extends Component {
   //to the class itself, CampaignIndex
 
   static async getInitialProps() {
-    const campaigns = await factory.methods.getDeployedCampaigns().call();
-    return { campaigns };
+    console.log('before');
+    try {
+      const campaigns = await factory.methods.getDeployedCampaigns().call();
+      return { campaigns };
+    } catch (e) {
+      console.log('ERROR!!!!');
+      console.log(e);
+    }
+
+    //const campaigns = await factory.methods.getDeployedCampaigns().call();
+    console.log('after');
+    //return { campaigns };
 
     //same as
 
     //return {campaigns : campaigns} //setting a class variable
+  }
+
+  async componentDidMount() {
+    if (typeof window.ethereum !== 'undefined') window.ethereum.enable(); //required for access to Metamask accounts
+    //no need to specify "from:" when working with Metamask
   }
 
   renderCampaigns() {

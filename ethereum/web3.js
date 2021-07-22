@@ -6,13 +6,14 @@ let web3; //so that it can be reassigned
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   //inside browser, metamask available
+  console.log('BLAH');
   web3 = new Web3(window.web3.currentProvider);
   console.log(web3);
 } else {
   //Not in browser (we are on the server) or metamask isnt available
   //Set up our own provider using infura
   console.log('I am here');
-  const options = {
+  /*const options = {
     keepAlive: true,
     timeout: 20000, // milliseconds,
     headers: [
@@ -27,18 +28,10 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
       maxAttempts: 5,
       onTimeout: false,
     },
-  };
-  const provider = new Web3.providers.HttpProvider(
-    process.env.INFURA_PROVIDER,
-    options
-  );
-  /*const provider = new Web3.providers.WebsocketProvider(
-    process.env.INFURA_WSSPROVIDER,
-    options
-  );*/
+  };*/
+  const provider = new Web3.providers.HttpProvider(process.env.INFURA_PROVIDER);
   web3 = new Web3(provider);
-  //web3 = new Web3(process.env.INFURA_WSSPROVIDER);
-  //Should add security measures for infura link
+  console.log(web3);
 }
 
 export default web3;

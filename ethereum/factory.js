@@ -9,9 +9,4 @@ const instance = new web3.eth.Contract(
   '0x74E13F6C7652dc847e1C3E93da22104475ABB61a'
 );
 
-/*const instance = new web3.eth.Contract(
-  JSON.parse(CampaignFactory.interface),
-  process.env.FACTORY_ADDRESS
-);*/
-
 export default instance;

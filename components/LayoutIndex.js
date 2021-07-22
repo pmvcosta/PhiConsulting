@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'; //Since Layout is always loaded it
 // is best to import this here
 
-export default (props) => {
+const LayoutIndex = (props) => {
   return (
     <Container fluid={true}>
       <Header />
@@ -14,3 +14,5 @@ export default (props) => {
     </Container>
   );
 };
+
+export default LayoutIndex;

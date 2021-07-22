@@ -29,7 +29,9 @@ class CampaignNew extends Component {
     });
 
     try {
+      console.log('Before Accounts');
       const accounts = await web3.eth.getAccounts(); //get Metamask accounts
+      console.log(accounts);
       //create check to verify submission success, i.e. if address now exists...
       await factory.methods
         .createCampaign(this.state.minimumContribution)
