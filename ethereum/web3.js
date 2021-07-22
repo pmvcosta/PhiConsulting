@@ -13,24 +13,15 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   //Not in browser (we are on the server) or metamask isnt available
   //Set up our own provider using infura
   console.log('I am here');
-  /*const options = {
-    keepAlive: true,
-    timeout: 20000, // milliseconds,
-    headers: [
-      {
-        name: 'Access-Control-Allow-Origin',
-        value: process.env.INFURA_PROVIDER,
-      },
-    ],
-    reconnect: {
-      auto: true,
-      delay: 5000, // ms
-      maxAttempts: 5,
-      onTimeout: false,
-    },
-  };*/
-  const provider = new Web3.providers.HttpProvider(process.env.INFURA_PROVIDER);
-  web3 = new Web3(provider);
+
+  //Environment variables seems to be messing up here
+  //Doesn't work for some reason. Defaults to localhost
+  //web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_PROVIDER));
+  web3 = new Web3(
+    new Web3.providers.WebsocketProvider(
+      'wss://rinkeby.infura.io/ws/v3/3a47dfdd4321468da86e76aa75ee63d3'
+    )
+  );
   console.log(web3);
 }
 
