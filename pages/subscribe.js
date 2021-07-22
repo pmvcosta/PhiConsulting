@@ -12,7 +12,7 @@ import Layout from '../components/Layout';
 import factory from '../ethereum/factory';
 import web3 from '../ethereum/web3';
 import { Link, Router } from '../routes'; //Not going to use Link, but it exists
-import { Widget } from '@typeform/embed-react';
+import { PopupButton } from '@typeform/embed-react';
 
 class Subscribe extends Component {
   state = {
@@ -134,13 +134,23 @@ class Subscribe extends Component {
             <br />
           </Grid.Row>
           <Grid.Row centered>
-            <Grid.Column>
+            <Grid.Column textAlign="center">
               <br />
-              <Widget
+              <PopupButton
                 id="CnjqMpxq"
-                style={{ width: '100%', height: '800px' }}
-                className="my-form"
-              />
+                style={{
+                  fontSize: 20,
+                  'background-color': ' rgba(18, 115, 222, 0.9)   ',
+                  color: 'white',
+                  'font-size': '20px',
+                  padding: '10px 60px',
+                  'border-radius': '10px',
+                  margin: '10px 0px',
+                  cursor: 'pointer',
+                }}
+              >
+                Open Form
+              </PopupButton>
             </Grid.Column>
           </Grid.Row>
         </Grid>
