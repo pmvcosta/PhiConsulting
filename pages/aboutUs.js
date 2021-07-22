@@ -68,7 +68,17 @@ class AboutUs extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <Image bordered circular size="small" src="/DAntao.jpg" />
+                <Image
+                  className="photo"
+                  bordered
+                  circular
+                  size="small"
+                  src="/DAntao.jpg"
+                  style={{
+                    height: '180px',
+                    width: '180px',
+                  }}
+                />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -117,7 +127,17 @@ class AboutUs extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <Image bordered circular size="small" src="/PCosta.jpg" />
+                <Image
+                  className="photo"
+                  bordered
+                  circular
+                  size="small"
+                  src="/PCosta.jpg"
+                  style={{
+                    height: '180px',
+                    width: '180px',
+                  }}
+                />
               </Grid.Column>
             </Grid.Row>
           </Grid>
