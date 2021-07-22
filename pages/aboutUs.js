@@ -68,7 +68,7 @@ class AboutUs extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <Image bordered circular size="medium" src="/DAntao.jpg" />
+                <Image bordered circular size="small" src="/DAntao.jpg" />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -117,7 +117,7 @@ class AboutUs extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <Image bordered circular size="medium" src="/PCosta.jpg" />
+                <Image bordered circular size="small" src="/PCosta.jpg" />
               </Grid.Column>
             </Grid.Row>
           </Grid>
