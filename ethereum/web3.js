@@ -16,7 +16,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
     headers: [
       {
         name: 'Access-Control-Allow-Origin',
-        value: process.env.WSSINFURA_PROVIDER,
+        value: process.env.INFURA_PROVIDER,
       },
     ],
     reconnect: {
@@ -26,13 +26,14 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
       onTimeout: false,
     },
   };
-  /*const provider = new Web3.providers.HttpProvider(
+  const provider = new Web3.providers.HttpProvider(
     process.env.INFURA_PROVIDER,
     options
-  );*/
-  const provider = new Web3.providers.WebsocketProvider(
-    process.env.INFURA_WSSPROVIDER
   );
+  /*const provider = new Web3.providers.WebsocketProvider(
+    process.env.INFURA_WSSPROVIDER,
+    options
+  );*/
   web3 = new Web3(provider);
   //web3 = new Web3(process.env.INFURA_WSSPROVIDER);
   //Should add security measures for infura link
