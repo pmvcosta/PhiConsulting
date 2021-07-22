@@ -50,7 +50,7 @@ class AboutUs extends Component {
                     content={<a href="dbruto@gmail.com">dbruto@gmail.com</a>}
                   />
                 </List>
-                <p style={{ fontSize: '1.33em' }}>
+                <p style={{ fontSize: '1.em' }}>
                   Have you met our CEO? She's a woman of great skill and even
                   greater enthusiasm!
                   <br />
@@ -93,7 +93,7 @@ class AboutUs extends Component {
                     }
                   />
                 </List>
-                <p style={{ fontSize: '1.33em' }}>
+                <p style={{ fontSize: '1.em' }}>
                   And here's our CTO! He's quite green, yet he is still
                   determined to give his all for our initiative!
                   <br />
