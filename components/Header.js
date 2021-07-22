@@ -90,6 +90,10 @@ class DesktopContainer extends Component {
               secondary={!fixed}
               size="large"
               borderless
+              style={{
+                'border-bottom': '0 none !important',
+                'box-shadow': 'none',
+              }}
             >
               <Container>
                 <Link route="/">
