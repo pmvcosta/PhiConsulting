@@ -31,8 +31,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
     options
   );*/
   const provider = new Web3.providers.WebsocketProvider(
-    process.env.INFURA_WSSPROVIDER,
-    options
+    process.env.INFURA_WSSPROVIDER
   );
   web3 = new Web3(provider);
   //web3 = new Web3(process.env.INFURA_WSSPROVIDER);
