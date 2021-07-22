@@ -7,6 +7,7 @@ let web3; //so that it can be reassigned
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   //inside browser, metamask available
   web3 = new Web3(window.web3.currentProvider);
+  console.log(web3);
 } else {
   //Not in browser (we are on the server) or metamask isnt available
   //Set up our own provider using infura

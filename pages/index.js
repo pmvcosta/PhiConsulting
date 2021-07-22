@@ -56,12 +56,7 @@ class MainIndex extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={8}>
-                <Image
-                  bordered
-                  rounded
-                  size="massive"
-                  src="https://images.unsplash.com/photo-1591754060004-f91c95f5cf05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
-                />
+                <Image bordered rounded size="massive" src="/indexPic.webp" />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>

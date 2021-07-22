@@ -75,9 +75,7 @@ class DesktopContainer extends Component {
             style={{
               minHeight: 10,
               padding: '.2em 0em',
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1602168431602-9bfa3722a472?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80)',
-
+              backgroundImage: 'url(/HeaderPic.webp)',
               /* Create the parallax scrolling effect */
               backgroundAttachment: 'fixed',
               backgroundPosition: 'center',
