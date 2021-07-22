@@ -17,12 +17,12 @@ import { Link } from '../routes';
 class MainIndex extends Component {
   //static makes it so that function is not assigned to instances of class but
   //to the class itself, CampaignIndex
-  static async getInitialProps() {
+  /*  static async getInitialProps() {
     const campaigns = await factory.methods.getDeployedCampaigns().call();
     return { campaigns };
     //same as
     //return {campaigns : campaigns} //setting a class variable
-  }
+  }*/
 
   //Next.js adds requirements for data loading.
 

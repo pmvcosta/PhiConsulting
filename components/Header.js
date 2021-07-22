@@ -67,7 +67,6 @@ class DesktopContainer extends Component {
           onBottomPassedReverse={this.hideFixedMenu}
         >
           <link rel="shortcut icon" href="/favicon.ico" />
-
           <Segment
             color="green"
             inverted

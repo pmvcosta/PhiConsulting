@@ -11,6 +11,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 } else {
   //Not in browser (we are on the server) or metamask isnt available
   //Set up our own provider using infura
+  console.log('I am here');
   const options = {
     keepAlive: true,
     timeout: 20000, // milliseconds,
