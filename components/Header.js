@@ -92,7 +92,10 @@ class DesktopContainer extends Component {
               borderless
               style={{
                 'border-bottom': '0 none !important',
-                'box-collapse': 'collapse',
+                'box-shadow': 'none',
+                'border-top': '0 none !important',
+                'border-left': '0 none !important',
+                'border-right': '0 none !important',
               }}
             >
               <Container>
