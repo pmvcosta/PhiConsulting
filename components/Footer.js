@@ -17,7 +17,7 @@ export default () => {
       vertical
       style={{
         padding: '5em 0em',
-        backgroundImage: 'url(/HeaderPic.webp)',
+        backgroundImage: 'url(/HeaderPic.jpg)',
         /* Set a specific height */
         minHeight: '400px',
 

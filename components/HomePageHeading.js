@@ -39,7 +39,7 @@ const HomepageHeading = ({ mobile }) => (
     <Image src="/logo.png" size="large" centered />
     <Header
       as="h2"
-      content="Democratise your property! Reach new investors!"
+      content="Crowdfunding As A Service"
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -50,9 +50,12 @@ const HomepageHeading = ({ mobile }) => (
     <Link route="/subscribe">
       <a>
         <Button
-          primary
           size="huge"
-          style={{ marginBottom: mobile ? '4.5em' : '5.5em' }}
+          style={{
+            backgroundColor: 'rgba(100, 195, 74, 0.9)',
+            color: 'rgba(255,255,255,0.9)',
+            marginBottom: mobile ? '4.5em' : '5.5em',
+          }}
         >
           Get Started
           <Icon name="right arrow" />

@@ -11,6 +11,7 @@ import {
 import Layout from '../components/Layout';
 import factory from '../ethereum/factory';
 import web3 from '../ethereum/web3';
+import Newsletter from './newsletter';
 import { Link, Router } from '../routes'; //Not going to use Link, but it exists
 import { PopupButton } from '@typeform/embed-react';
 
@@ -63,55 +64,26 @@ class Subscribe extends Component {
           container
           stackable
           verticalAlign="middle"
-          style={{ padding: '8em 0em' }}
+          style={{ padding: '6em 0em' }}
         >
           <Grid.Row centered>
-            <Header as="h3" style={{ fontSize: '3em' }}>
+            <Header
+              as="h3"
+              style={{ fontSize: '3em', color: ' rgba(100, 195, 74, 0.9)' }}
+            >
               Oops! <br />
-              We are not quite ready yet!{' '}
+              We are not quite ready yet!
             </Header>
             <br />
+            <br />
           </Grid.Row>
+          <Grid.Row> </Grid.Row>
           <Grid.Row>
             <Grid.Column width={8}>
               <Header as="h3" style={{ fontSize: '2em' }}>
                 Stay up to date with the latest developments{' '}
               </Header>
-              <Form
-                onSubmit={this.onSubmit}
-                error={!!this.state.errorMessage}
-                success={!!this.state.successMessage}
-              >
-                <Form.Field>
-                  <Input
-                    className="form-control mb-4 p-4"
-                    required
-                    type="email"
-                    placeholder="Email"
-                    value={this.state.email}
-                    onChange={(event) =>
-                      this.setState({ email: event.target.value })
-                    }
-                  />
-                  <Message
-                    error
-                    header="Oops"
-                    content={this.state.errorMessage}
-                  />
-                  <Message
-                    success
-                    header="Good news everyone!"
-                    content={this.state.successMessage}
-                  />
-                  <Button
-                    loading={this.state.loading}
-                    style={{ marginTop: '10px' }}
-                    primary
-                  >
-                    Keep Me Updated!
-                  </Button>
-                </Form.Field>
-              </Form>
+              <Newsletter />
             </Grid.Column>
             <Grid.Column floated="right" width={7}>
               <Header as="h3" style={{ fontSize: '2em' }}>
@@ -140,7 +112,7 @@ class Subscribe extends Component {
                 id="CnjqMpxq"
                 style={{
                   fontSize: 20,
-                  'background-color': ' rgba(18, 115, 222, 0.9)   ',
+                  'background-color': ' rgba(100, 195, 74, 0.9)  ',
                   color: 'white',
                   'font-size': '20px',
                   padding: '10px 60px',

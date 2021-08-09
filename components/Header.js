@@ -74,7 +74,7 @@ class DesktopContainer extends Component {
             style={{
               minHeight: 10,
               padding: '.2em 0em',
-              backgroundImage: 'url(/HeaderPic.webp)',
+              backgroundImage: 'url(/HeaderPic.jpg)',
               /* Create the parallax scrolling effect */
               backgroundAttachment: 'fixed',
               backgroundPosition: 'center',
@@ -103,22 +103,54 @@ class DesktopContainer extends Component {
                 </Link>
                 <Menu.Item>
                   <Link route="/">
-                    <a>Home</a>
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
+                      }}
+                    >
+                      Home
+                    </a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link route="/openCampaigns">
-                    <a>Open Campaigns</a>
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
+                      }}
+                    >
+                      Open Campaigns
+                    </a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link route="/campaigns/new">
-                    <a>New Campaign</a>
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
+                      }}
+                    >
+                      New Campaign
+                    </a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link route="/aboutUs">
-                    <a>About Us</a>
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
+                      }}
+                    >
+                      About Us
+                    </a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item position="right">
@@ -132,7 +164,12 @@ class DesktopContainer extends Component {
                       <Button
                         inverted={!fixed}
                         primary={fixed}
-                        style={{ marginLeft: '0.5em' }}
+                        style={{
+                          marginLeft: '0.5em',
+                          backgroundColor: fixed
+                            ? 'rgba(100, 195, 74, 0.9)'
+                            : 'rgba(255, 255, 255, 0.0)',
+                        }}
                       >
                         Sign Up
                       </Button>
