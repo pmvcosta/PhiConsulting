@@ -251,6 +251,19 @@ class MobileContainer extends Component {
               textAlign="center"
               style={{ minHeight: 350, padding: '.2em 0em' }}
               vertical
+              style={{
+                minHeight: 10,
+                padding: '.2em 0em',
+                backgroundImage: 'url(/HeaderPic.jpg)',
+                /* Set a specific height */
+                minHeight: '500px',
+
+                /* Create the parallax scrolling effect */
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no - repeat',
+                backgroundSize: 'cover',
+              }}
             >
               <Container>
                 <Menu inverted pointing secondary size="large">

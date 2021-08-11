@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Card,
   Button,
@@ -10,10 +10,10 @@ import {
   Image,
   Reveal,
   Icon,
-} from "semantic-ui-react";
-import Layout from "../components/LayoutIndex";
-import { Link } from "../routes";
-import Newsletter from "./newsletter";
+} from 'semantic-ui-react';
+import Layout from '../components/LayoutIndex';
+import { Link } from '../routes';
+import Newsletter from './newsletter';
 
 class MainIndex extends Component {
   //Next.js adds requirements for data loading.
@@ -23,63 +23,74 @@ class MainIndex extends Component {
   //"primary" as written below is the same as primary={true}
   renderCard(icon, title, text) {
     return (
-      <Reveal animated="fade">
-        <Reveal.Content visible centered style={{ pointerEvents: "none" }}>
-          <Card style={{ width: "250px", height: "210px" }}>
-            <Card.Content textAlign="center">
-              <br />
-              <Icon
-                name={icon}
-                size="massive"
-                style={{ color: "rgba(100, 195, 74, 0.9)" }}
-              />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Reveal animated="fade">
+          <Reveal.Content visible centered style={{ pointerEvents: 'none' }}>
+            <Card style={{ width: '250px', height: '210px' }}>
+              <Card.Content textAlign="center">
+                <br />
+                <Icon
+                  name={icon}
+                  size="massive"
+                  style={{ color: 'rgba(100, 195, 74, 0.9)' }}
+                />
 
-              <Card.Header as="h2" centered style={{ fontSize: "1.2em" }}>
-                <br />
-                {title}
-              </Card.Header>
-            </Card.Content>
-          </Card>
-        </Reveal.Content>
-        <Reveal.Content hidden>
-          <Card
-            style={{
-              width: "250px",
-              height: "210px",
-              backgroundColor: " rgba(100, 195, 74, 0.9)",
-            }}
-          >
-            <Card.Content textAlign="center">
-              <Card.Header as="h2" style={{ fontSize: "1em", color: "white" }}>
-                <br />
-                {text}
-              </Card.Header>
-              <Link route="/subscribe">
-                <a>
-                  <Button color="white">Learn More</Button>
-                </a>
-              </Link>
-            </Card.Content>
-          </Card>
-        </Reveal.Content>
-      </Reveal>
+                <Card.Header as="h2" centered style={{ fontSize: '1.2em' }}>
+                  <br />
+                  {title}
+                </Card.Header>
+              </Card.Content>
+            </Card>
+          </Reveal.Content>
+          <Reveal.Content hidden>
+            <Card
+              style={{
+                width: '250px',
+                height: '210px',
+                backgroundColor: ' rgba(100, 195, 74, 0.9)',
+              }}
+            >
+              <Card.Content textAlign="center">
+                <Card.Header
+                  as="h2"
+                  style={{ fontSize: '1em', color: 'white' }}
+                >
+                  <br />
+                  {text}
+                </Card.Header>
+                <Link route="/subscribe">
+                  <a>
+                    <Button color="white">Learn More</Button>
+                  </a>
+                </Link>
+              </Card.Content>
+            </Card>
+          </Reveal.Content>
+        </Reveal>
+      </div>
     );
   }
 
   render() {
     return (
       <Layout>
-        <Segment style={{ padding: "8em 0em" }} vertical>
+        <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
               <Grid.Column width={7}>
                 <Header
                   as="h3"
-                  style={{ fontSize: "2em", color: " rgba(100, 195, 74, 0.9)" }}
+                  style={{ fontSize: '2em', color: ' rgba(100, 195, 74, 0.9)' }}
                 >
                   Obtain Funding and Validate Consumer Demand
                 </Header>
-                <p style={{ fontSize: "1.33em" }}>
+                <p style={{ fontSize: '1.33em' }}>
                   If you’re looking to for an alternative to classical banking
                   services, we can help. As one of the first portuguese
                   crowdfunding agencies, we have experience with every type of
@@ -88,13 +99,13 @@ class MainIndex extends Component {
                 </p>
                 <Header
                   as="h3"
-                  style={{ fontSize: "2em", color: " rgba(100, 195, 74, 0.9)" }}
+                  style={{ fontSize: '2em', color: ' rgba(100, 195, 74, 0.9)' }}
                 >
                   <br />
                   <br />
                   How We Can Support You
                 </Header>
-                <p style={{ fontSize: "1.33em" }}>
+                <p style={{ fontSize: '1.33em' }}>
                   If you are looking for an alternative means of raising funds
                   via crowdfunding and crowdlending, we can help you plan,
                   manage and optimise your approach. We assist ambitious
@@ -112,14 +123,14 @@ class MainIndex extends Component {
               <Grid.Column textAlign="center" centered>
                 <Header
                   as="h3"
-                  style={{ fontSize: "4em", color: "rgba(100, 195, 74, 0.9)" }}
+                  style={{ fontSize: '4em', color: 'rgba(100, 195, 74, 0.9)' }}
                   textAlign="center"
                 >
                   <br />
                   <br />
                   What do we offer?
                 </Header>
-                <p style={{ fontSize: "1.5em" }} textAlign="center">
+                <p style={{ fontSize: '1.5em' }} textAlign="center">
                   Our full-service capabilities allow us to handle every step of
                   the process completely in-house, from discover and strategy to
                   manufacturing social media and public relations.
@@ -129,44 +140,44 @@ class MainIndex extends Component {
                   className="header"
                   horizontal
                   style={{
-                    fontSize: "2em",
-                    margin: "3em 0em",
-                    textTransform: "uppercase",
+                    fontSize: '2em',
+                    margin: '3em 0em',
+                    textTransform: 'uppercase',
                   }}
                 >
-                  <a href="#" style={{ color: "rgba(100, 195, 74, 0.9)" }}>
+                  <a href="#" style={{ color: 'rgba(100, 195, 74, 0.9)' }}>
                     Pre-Campaign Launch
                   </a>
                 </Divider>
                 <br />
                 <Card.Group stackable centered itemsPerRow={4}>
                   {this.renderCard(
-                    "chart line",
-                    "Market Analysis and Strategy",
-                    "Our understanding of the market is the key for brand building and delivering the right messages to the  target audiences."
+                    'chart line',
+                    'Market Analysis and Strategy',
+                    'Our understanding of the market is the key for brand building and delivering the right messages to the  target audiences.'
                   )}
 
                   {this.renderCard(
-                    "users",
-                    "Community Generation",
-                    "We use paid Internet advertising to drive traffic and build your following. Our advertising team are experts at deploying your advertising dollars to maximize ROI and campaign outcome."
+                    'users',
+                    'Community Generation',
+                    'We use paid Internet advertising to drive traffic and build your following. Our advertising team are experts at deploying your advertising dollars to maximize ROI and campaign outcome.'
                   )}
 
                   {this.renderCard(
-                    "bullhorn",
-                    "Lead Generation",
-                    "Through landing page creation and the growth of your social media following, our team will collect qualified leads for your funding campaign that want to adhere to your business as soon as possible."
+                    'bullhorn',
+                    'Lead Generation',
+                    'Through landing page creation and the growth of your social media following, our team will collect qualified leads for your funding campaign that want to adhere to your business as soon as possible.'
                   )}
 
                   {this.renderCard(
-                    "balance",
-                    "Regulations and Contracts",
-                    "Contracts and legal documents are a common source of headaches. With our assistance, you can be sure all documentation is in perfect order. This way you can focus solely on your business needs!"
+                    'balance',
+                    'Regulations and Contracts',
+                    'Contracts and legal documents are a common source of headaches. With our assistance, you can be sure all documentation is in perfect order. This way you can focus solely on your business needs!'
                   )}
 
                   {this.renderCard(
-                    "share alternate",
-                    "Social Media Advertising",
+                    'share alternate',
+                    'Social Media Advertising',
                     "Social media is where the conversation is happening. We design opportunities for your product to be presented in unique and creative ways, resulting in a larger and more interactive following."
                   )}
 
