@@ -32,7 +32,7 @@ class MainIndex extends Component {
       >
         <Reveal animated="fade">
           <Reveal.Content visible centered style={{ pointerEvents: 'none' }}>
-            <Card style={{ width: '250px', height: '210px' }}>
+            <Card centered style={{ width: '250px', height: '210px' }}>
               <Card.Content textAlign="center">
                 <br />
                 <Icon
@@ -50,6 +50,7 @@ class MainIndex extends Component {
           </Reveal.Content>
           <Reveal.Content hidden>
             <Card
+              centered
               style={{
                 width: '250px',
                 height: '210px',

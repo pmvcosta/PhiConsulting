@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { createMedia } from "@artsy/fresnel";
+import React, { Component } from 'react';
+import { createMedia } from '@artsy/fresnel';
 import {
   Menu,
   Sidebar,
@@ -13,10 +13,10 @@ import {
   Divider,
   List,
   Image,
-} from "semantic-ui-react";
-import { Link } from "../routes";
-import PropTypes from "prop-types";
-import HomePageHeading from "./HomePageHeading";
+} from 'semantic-ui-react';
+import { Link } from '../routes';
+import PropTypes from 'prop-types';
+import HomePageHeading from './HomePageHeading';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -55,29 +55,29 @@ class DesktopContainer extends Component {
             textAlign="center"
             style={{
               minHeight: 10,
-              padding: ".2em 0em",
-              backgroundImage: "url(/HeaderPic.jpg)",
+              padding: '.2em 0em',
+              backgroundImage: 'url(/HeaderPic.jpg)',
               /* Set a specific height */
-              minHeight: "500px",
+              minHeight: '500px',
 
               /* Create the parallax scrolling effect */
-              backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              backgroundRepeat: "no - repeat",
-              backgroundSize: "cover",
+              backgroundAttachment: 'fixed',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no - repeat',
+              backgroundSize: 'cover',
             }}
             vertical
           >
             <Menu
               borderless
-              fixed={fixed ? "top" : null}
+              fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
               size="large"
               style={{
-                border: "0px",
-                outline: "0px",
+                border: '0px',
+                outline: '0px',
               }}
             >
               <Container>
@@ -93,8 +93,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? "rgba(100, 195, 74, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
                       }}
                     >
                       Home
@@ -106,8 +106,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? "rgba(100, 195, 74, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
                       }}
                     >
                       Open Campaigns
@@ -119,8 +119,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? "rgba(100, 195, 74, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
                       }}
                     >
                       New Campaign
@@ -132,8 +132,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? "rgba(100, 195, 74, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(100, 195, 74, 0.9)'
+                          : 'rgba(255, 255, 255, 0.9)',
                       }}
                     >
                       About Us
@@ -152,10 +152,10 @@ class DesktopContainer extends Component {
                         inverted={!fixed}
                         primary={fixed}
                         style={{
-                          marginLeft: "0.5em",
+                          marginLeft: '0.5em',
                           backgroundColor: fixed
-                            ? "rgba(100, 195, 74, 0.9)"
-                            : "rgba(255, 255, 255, 0.0)",
+                            ? 'rgba(100, 195, 74, 0.9)'
+                            : 'rgba(255, 255, 255, 0.0)',
                         }}
                       >
                         Sign Up
@@ -237,20 +237,20 @@ class MobileContainer extends Component {
             <Segment
               inverted
               textAlign="center"
-              style={{ minHeight: 350, padding: "0.2em 0em" }}
+              style={{ minHeight: 350, padding: '0.2em 0em' }}
               vertical
               style={{
                 minHeight: 10,
-                padding: ".2em 0em",
-                backgroundImage: "url(/HeaderPic.jpg)",
+                padding: '.2em 0em',
+                backgroundImage: 'url(/HeaderPic.jpg)',
                 /* Set a specific height */
-                minHeight: "500px",
+                minHeight: '500px',
 
                 /* Create the parallax scrolling effect */
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center",
-                backgroundRepeat: "no - repeat",
-                backgroundSize: "cover",
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no - repeat',
+                backgroundSize: 'cover',
               }}
             >
               <Container>
@@ -266,7 +266,7 @@ class MobileContainer extends Component {
                     </Link>
                     <Link route="/register">
                       <a>
-                        <Button inverted style={{ marginLeft: "0.5em" }}>
+                        <Button inverted style={{ marginLeft: '0.5em' }}>
                           Sign Up
                         </Button>
                       </a>
