@@ -200,6 +200,10 @@ class MobileContainer extends Component {
             onHide={this.handleSidebarHide}
             vertical
             visible={sidebarOpened}
+            style={{
+              border: '0px',
+              outline: '0px',
+            }}
           >
             <Menu.Item>
               <Link route="/">
