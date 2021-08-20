@@ -16,25 +16,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from '../routes';
 import PropTypes from 'prop-types';
-
-/*export default () => {
-  return (
-    <Menu style={{ marginTop: '10px' }}>
-      <Link route="/">
-        <a className="item">CrowdCoin</a>
-      </Link>
-
-      <Menu.Menu position="right">
-        <Link route="/">
-          <a className="item">Campaigns</a>
-        </Link>
-        <Link route="/campaigns/new">
-          <a className="item">+</a>
-        </Link>
-      </Menu.Menu>
-    </Menu>
-  );
-};*/
+import HomePageHeading from './HomePageHeading';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -61,53 +43,58 @@ class DesktopContainer extends Component {
 
     return (
       <Media greaterThan="mobile">
-        <Visibility
-          once={false}
-          onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <Segment
+          inverted
+          textAlign="center"
+          style={{
+            minHeight: 10,
+            padding: '.2em 0em',
+            backgroundImage: 'url(/backgnd.jpg)',
+            /* Set a specific height */
+            minHeight: '60px',
+
+            /* Create the parallax scrolling effect */
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
+          }}
+          vertical
         >
-          <link rel="shortcut icon" href="/favicon.ico" />
-          <Segment
-            color="green"
-            inverted
-            textAlign="center"
-            style={{
-              minHeight: 10,
-              padding: '.2em 0em',
-              backgroundImage: 'url(/HeaderPic.jpg)',
-              /* Create the parallax scrolling effect */
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no - repeat',
-              backgroundSize: 'cover',
-            }}
-            vertical
+          <Visibility
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
           >
             <Menu
+              borderless
               fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
               size="large"
-              borderless
               style={{
                 border: '0px',
                 outline: '0px',
+                backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
               }}
             >
-              <Container>
-                <Link route="/">
-                  <a>
-                    <Image src="/logo.png" size="small" centered />
-                  </a>
-                </Link>
+              <Container fluid>
+                <Menu.Item>
+                  <Link route="/">
+                    <a>
+                      <Image src="/logo.png" size="tiny" centered />
+                    </a>
+                  </Link>
+                </Menu.Item>
                 <Menu.Item>
                   <Link route="/">
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(100, 195, 74, 0.9)'
-                          : 'rgba(255, 255, 255, 0.9)',
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
                       Home
@@ -119,8 +106,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(100, 195, 74, 0.9)'
-                          : 'rgba(255, 255, 255, 0.9)',
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
                       Open Campaigns
@@ -128,15 +115,15 @@ class DesktopContainer extends Component {
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link route="/campaigns/new">
+                  <Link route="/dashboard">
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(100, 195, 74, 0.9)'
-                          : 'rgba(255, 255, 255, 0.9)',
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
-                      New Campaign
+                      Dashboard
                     </a>
                   </Link>
                 </Menu.Item>
@@ -145,8 +132,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(100, 195, 74, 0.9)'
-                          : 'rgba(255, 255, 255, 0.9)',
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
                       About Us
@@ -156,19 +143,27 @@ class DesktopContainer extends Component {
                 <Menu.Item position="right">
                   <Link route="/login">
                     <a>
-                      <Button inverted={!fixed}>Log in</Button>
+                      <Button
+                        secondary={fixed}
+                        style={{
+                          backgroundColor: fixed
+                            ? 'rgba(212, 32, 32, 0.9)'
+                            : 'rgba(255, 255, 255, 0.9)',
+                        }}
+                      >
+                        Log in
+                      </Button>
                     </a>
                   </Link>
                   <Link route="/register">
                     <a>
                       <Button
-                        inverted={!fixed}
                         primary={fixed}
                         style={{
                           marginLeft: '0.5em',
                           backgroundColor: fixed
-                            ? 'rgba(100, 195, 74, 0.9)'
-                            : 'rgba(255, 255, 255, 0.0)',
+                            ? 'rgba(212, 32, 32, 0.9)'
+                            : 'rgba(255, 255, 255, 0.9)',
                         }}
                       >
                         Sign Up
@@ -178,8 +173,8 @@ class DesktopContainer extends Component {
                 </Menu.Item>
               </Container>
             </Menu>
-          </Segment>
-        </Visibility>
+          </Visibility>
+        </Segment>
 
         {children}
       </Media>
@@ -198,112 +193,151 @@ class MobileContainer extends Component {
 
   handleToggle = () => this.setState({ sidebarOpened: true });
 
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
+
   render() {
     const { children } = this.props;
-    const { sidebarOpened } = this.state;
+    const { sidebarOpened, fixed } = this.state;
 
     return (
       <Media as={Sidebar.Pushable} at="mobile">
-        <Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            animation="overlay"
+        <Sidebar
+          as={Menu}
+          animation="overlay"
+          fixed={fixed ? 'left' : null}
+          inverted
+          onHide={this.handleSidebarHide}
+          vertical
+          visible={sidebarOpened}
+          style={{
+            border: '0px',
+            outline: '0px',
+            backgroundColor: 'rgba(212, 32, 32, 1.0)',
+          }}
+        >
+          <Menu.Item>
+            <Link route="/">
+              <a>
+                <Image src="/logoS2.png" size="tiny" centered />
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/">
+              <a>Home</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/OpenCampaigns">
+              <a>Open Campaigns</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/dashboard">
+              <a>Dashboard</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/aboutUs">
+              <a>About Us</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/login">
+              <a>Log in</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/register">
+              <a>Sign Up</a>
+            </Link>
+          </Menu.Item>
+        </Sidebar>
+
+        <Sidebar.Pusher dimmed={sidebarOpened}>
+          <Segment
             inverted
-            onHide={this.handleSidebarHide}
+            textAlign="center"
+            style={{ minHeight: 350, padding: '0.2em 0em' }}
             vertical
-            visible={sidebarOpened}
             style={{
-              border: '0px',
-              outline: '0px',
+              minHeight: 10,
+              padding: '.2em 0em',
+              backgroundImage: 'url(/backgnd.jpg)',
+              /* Create the parallax scrolling effect */
+              backgroundAttachment: 'fixed',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no - repeat',
+              backgroundSize: 'cover',
             }}
           >
-            <Menu.Item>
-              <Link route="/">
-                <a>Home</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/OpenCampaigns">
-                <a>Open Campaigns</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/campaigns/new">
-                <a>New Campaign</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/aboutUs">
-                <a>About Us</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/login">
-                <a>Log in</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/register">
-                <a>Sign Up</a>
-              </Link>
-            </Menu.Item>
-          </Sidebar>
-
-          <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Segment
-              inverted
-              textAlign="center"
-              style={{ minHeight: 350, padding: '.2em 0em' }}
-              vertical
-              style={{
-                minHeight: 10,
-                padding: '.2em 0em',
-                backgroundImage: 'url(/HeaderPic.jpg)',
-                /* Set a specific height */
-                minHeight: '500px',
-
-                /* Create the parallax scrolling effect */
-                backgroundAttachment: 'fixed',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no - repeat',
-                backgroundSize: 'cover',
-              }}
+            <Visibility
+              once={false}
+              onBottomPassed={this.showFixedMenu}
+              onBottomPassedReverse={this.hideFixedMenu}
             >
-              <Container>
-                <Menu
-                  inverted
-                  pointing
-                  secondary
-                  size="large"
-                  style={{
-                    border: '0px',
-                    outline: '0px',
-                  }}
-                >
+              <Menu
+                inverted
+                fixed={fixed ? 'top' : null}
+                pointing
+                secondary
+                size="large"
+                style={{
+                  border: '0px',
+                  outline: '0px',
+                  backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
+                }}
+              >
+                <Container>
                   <Menu.Item onClick={this.handleToggle}>
-                    <Icon name="sidebar" />
+                    <Icon
+                      name="sidebar"
+                      style={{
+                        color: fixed
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
+                      }}
+                    />
                   </Menu.Item>
                   <Menu.Item position="right">
                     <Link route="/login">
                       <a>
-                        <Button inverted>Log in</Button>
+                        <Button
+                          secondary={fixed}
+                          style={{
+                            backgroundColor: fixed
+                              ? 'rgba(212, 32, 32, 0.9)'
+                              : "rgba(255, 255, 255, 0.9)",
+                          }}
+                        >
+                          Log in
+                        </Button>
                       </a>
                     </Link>
                     <Link route="/register">
                       <a>
-                        <Button inverted style={{ marginLeft: '0.5em' }}>
+                        <Button
+                          primary={fixed}
+                          style={{
+                            marginLeft: "0.5em",
+                            backgroundColor: fixed
+                              ? "rgba(212, 32, 32, 0.9)"
+                              : "rgba(255, 255, 255, 0.9)",
+                          }}
+                        >
                           Sign Up
                         </Button>
                       </a>
                     </Link>
                   </Menu.Item>
-                </Menu>
-              </Container>
-            </Segment>
+                </Container>
+              </Menu>
+            </Visibility>
+          </Segment>
 
-            {children}
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
+          {children}
+        </Sidebar.Pusher>
       </Media>
     );
   }

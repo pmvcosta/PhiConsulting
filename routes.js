@@ -11,6 +11,8 @@ routes
   .add('/subscribe', '/subscribe')
   .add('/register', '/register')
   .add('/aboutUs', '/aboutUs')
+  .add('/getStarted', '/getStarted')
+  .add('/dashboard', '/dashboard/index') //in the future maybe include a wildcard
   .add('/campaigns/new', '/campaigns/new') //must come first!
   .add('/campaigns/:address', '/campaigns/show') //":" denotes a "wildcard"
   .add('/campaigns/:address/requests', '/campaigns/requests/index')

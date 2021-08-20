@@ -38,7 +38,7 @@ class MainIndex extends Component {
                 <Icon
                   name={icon}
                   size="massive"
-                  style={{ color: 'rgba(100, 195, 74, 0.9)' }}
+                  style={{ color: 'rgba(212, 32, 32, 0.9)' }}
                 />
 
                 <Card.Header as="h2" centered style={{ fontSize: '1.2em' }}>
@@ -54,7 +54,7 @@ class MainIndex extends Component {
               style={{
                 width: '250px',
                 height: '210px',
-                backgroundColor: ' rgba(100, 195, 74, 0.9)',
+                backgroundColor: 'rgba(212, 32, 32, 0.9)',
               }}
             >
               <Card.Content textAlign="center">
@@ -81,13 +81,20 @@ class MainIndex extends Component {
   render() {
     return (
       <Layout>
-        <Segment style={{ padding: '8em 0em' }} vertical>
+        <Segment
+          fluid
+          style={{ padding: '8em 0em' }}
+          vertical
+          style={{
+            backgroundColor: 'rgba(212, 32, 32, 0.9)',
+          }}
+        >
           <Grid container stackable verticalAlign="middle">
-            <Grid.Row>
+            <Grid.Row fluid>
               <Grid.Column width={7}>
                 <Header
                   as="h3"
-                  style={{ fontSize: '2em', color: ' rgba(100, 195, 74, 0.9)' }}
+                  style={{ fontSize: '2em', color: 'rgba(255, 255, 255, 0.9)' }}
                 >
                   Obtain Funding and Validate Consumer Demand
                 </Header>
@@ -100,7 +107,7 @@ class MainIndex extends Component {
                 </p>
                 <Header
                   as="h3"
-                  style={{ fontSize: '2em', color: ' rgba(100, 195, 74, 0.9)' }}
+                  style={{ fontSize: '2em', color: 'rgba(255, 255, 255, 0.9)' }}
                 >
                   <br />
                   <br />
@@ -115,19 +122,34 @@ class MainIndex extends Component {
                   possible light!
                 </p>
               </Grid.Column>
-              <Grid.Column floated="right" width={8}>
+              <Grid.Column floated="right" width={7}>
                 <Image bordered rounded size="big" src="/indexPic.jpg" />
               </Grid.Column>
             </Grid.Row>
+          </Grid>
+        </Segment>
 
+        <Segment
+          fluid
+          style={{
+            padding: '8em 0em',
+            backgroundImage: 'url(/backgnd.jpg)',
+            /* Create the parallax scrolling effect */
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
+          }}
+          vertical
+        >
+          <Grid container stackable verticalAlign="middle">
             <Grid.Row centered>
               <Grid.Column textAlign="center" centered>
                 <Header
                   as="h3"
-                  style={{ fontSize: '4em', color: 'rgba(100, 195, 74, 0.9)' }}
+                  style={{ fontSize: '4em', color: 'rgba(212, 32, 32, 0.9)' }}
                   textAlign="center"
                 >
-                  <br />
                   <br />
                   What do we offer?
                 </Header>
@@ -146,7 +168,7 @@ class MainIndex extends Component {
                     textTransform: 'uppercase',
                   }}
                 >
-                  <a href="#" style={{ color: 'rgba(100, 195, 74, 0.9)' }}>
+                  <a href="#" style={{ color: 'rgba(212, 32, 32, 0.9)' }}>
                     Pre-Campaign Launch
                   </a>
                 </Divider>
@@ -171,14 +193,14 @@ class MainIndex extends Component {
                   )}
 
                   {this.renderCard(
-                    'balance',
-                    'Regulations and Contracts',
-                    'Contracts and legal documents are a common source of headaches. With our assistance, you can be sure all documentation is in perfect order. This way you can focus solely on your business needs!'
+                    "balance",
+                    "Regulations and Contracts",
+                    "Contracts and legal documents are a common source of headaches. With our assistance, you can be sure all documentation is in perfect order. This way you can focus solely on your business needs!"
                   )}
 
                   {this.renderCard(
-                    'share alternate',
-                    'Social Media Advertising',
+                    "share alternate",
+                    "Social Media Advertising",
                     "Social media is where the conversation is happening. We design opportunities for your product to be presented in unique and creative ways, resulting in a larger and more interactive following."
                   )}
 
@@ -214,7 +236,7 @@ class MainIndex extends Component {
                     textTransform: "uppercase",
                   }}
                 >
-                  <a href="#" style={{ color: "rgba(100, 195, 74, 0.9)" }}>
+                  <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
                     Campaign Launch
                   </a>
                 </Divider>
@@ -253,7 +275,7 @@ class MainIndex extends Component {
                     textTransform: "uppercase",
                   }}
                 >
-                  <a href="#" style={{ color: "rgba(100, 195, 74, 0.9)" }}>
+                  <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
                     Post-Campaign Completion
                   </a>
                 </Divider>
@@ -308,7 +330,14 @@ class MainIndex extends Component {
           </Grid>
         </Segment>
 
-        <Segment style={{ padding: "8em 0em" }} vertical>
+        <Segment
+          fluid
+          style={{ padding: "8em 0em" }}
+          vertical
+          style={{
+            backgroundColor: "rgba(212, 32, 32, 0.9)",
+          }}
+        >
           <Container text>
             <Divider
               as="h4"
@@ -320,12 +349,15 @@ class MainIndex extends Component {
                 textTransform: "uppercase",
               }}
             >
-              <a href="#" style={{ color: "rgba(100, 195, 74, 0.9)" }}>
+              <a href="#" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
                 Stay Up To Date!
               </a>
             </Divider>
 
-            <Header as="h3" style={{ fontSize: "2em" }}>
+            <Header
+              as="h3"
+              style={{ fontSize: "2em", color: "rgba(255, 255, 255, 0.9)" }}
+            >
               Subscribe to our newsletter
             </Header>
             <p style={{ fontSize: "1.33em" }}>

@@ -17,7 +17,7 @@ export default () => {
       vertical
       style={{
         padding: '5em 0em',
-        backgroundImage: 'url(/HeaderPic.jpg)',
+        backgroundImage: 'url(/backgnd.jpg)',
         /* Set a specific height */
         minHeight: '400px',
 
@@ -32,8 +32,14 @@ export default () => {
         <Grid divided inverted stackable>
           <Grid.Row>
             <Grid.Column width={3}>
-              <Header inverted as="h4" content="About" />
-              <List link inverted>
+              <Header
+                as="h4"
+                content="About"
+                style={{
+                  color: 'rgba(74, 74, 74, 0.9)',
+                }}
+              />
+              <List link>
                 <List.Item as="a" href="/aboutUs">
                   About us
                 </List.Item>
@@ -53,8 +59,14 @@ export default () => {
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Header inverted as="h4" content="Services" />
-              <List link inverted>
+              <Header
+                as="h4"
+                content="Services"
+                style={{
+                  color: 'rgba(74, 74, 74, 0.9)',
+                }}
+              />
+              <List link>
                 <List.Item as="a" href="/subscribe">
                   Subscribe to Newsletter
                 </List.Item>
@@ -74,15 +86,29 @@ export default () => {
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
-              <Header as="h4" inverted>
+              <Header
+                as="h4"
+                style={{
+                  color: 'rgba(74, 74, 74, 0.9)',
+                }}
+              >
                 Additional Information
               </Header>
-              <p>
+              <p
+                style={{
+                  color: 'rgba(74, 74, 74, 0.9)',
+                }}
+              >
                 Become an early adopter to help shape the future and be part of
                 what comes next. Subscribe to the newsletter to stay up to date
                 with our progress!
               </p>
-              <Header as="h4" inverted>
+              <Header
+                as="h4"
+                style={{
+                  color: 'rgba(74, 74, 74, 0.9)',
+                }}
+              >
                 Reach us at:
               </Header>
               <Button circular color="facebook" icon="facebook" />

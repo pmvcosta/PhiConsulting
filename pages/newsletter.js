@@ -95,8 +95,8 @@ class Subscribe extends Component {
                 <Button
                   loading={this.state.loading}
                   style={{
-                    backgroundColor: 'rgba(100, 195, 74, 0.9)',
-                    color: 'rgba(255,255,255,0.9)',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    color: 'rgba(212, 32, 32, 1.0)',
                     marginTop: '10px',
                   }}
                   primary

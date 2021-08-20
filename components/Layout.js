@@ -8,8 +8,7 @@ import 'semantic-ui-css/semantic.min.css'; //Since Layout is always loaded it
 export default (props) => {
   return (
     <Container fluid={true}>
-      <Header />
-      {props.children}
+      <Header>{props.children}</Header>
       <Footer />
     </Container>
   );

@@ -69,7 +69,7 @@ class Subscribe extends Component {
           <Grid.Row centered>
             <Header
               as="h3"
-              style={{ fontSize: '3em', color: ' rgba(100, 195, 74, 0.9)' }}
+              style={{ fontSize: '3em', color: ' rgba(212, 32, 32, 1.0)' }}
             >
               Oops! <br />
               We are not quite ready yet!
@@ -112,7 +112,7 @@ class Subscribe extends Component {
                 id="CnjqMpxq"
                 style={{
                   fontSize: 20,
-                  'background-color': ' rgba(100, 195, 74, 0.9)  ',
+                  'background-color': ' rgba(212, 32, 32, 1.0)  ',
                   color: 'white',
                   'font-size': '20px',
                   padding: '10px 60px',
