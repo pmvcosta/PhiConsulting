@@ -7,6 +7,8 @@ import {
   Segment,
   Header,
   Divider,
+  Transition,
+  Visibility,
   Image,
   Reveal,
   Icon,
@@ -14,11 +16,15 @@ import {
 import Layout from '../components/LayoutIndex';
 import { Link } from '../routes';
 import Newsletter from './newsletter';
+import ScrollAppear from '../components/ScrollLayout';
 
 class MainIndex extends Component {
   //Next.js adds requirements for data loading.
 
   //Cant be done in componentDidMount
+  state = {};
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
 
   //"primary" as written below is the same as primary={true}
   renderCard(icon, title, text) {
@@ -30,55 +36,58 @@ class MainIndex extends Component {
           alignItems: 'center',
         }}
       >
-        <Reveal animated="fade">
-          <Reveal.Content visible centered style={{ pointerEvents: 'none' }}>
-            <Card centered style={{ width: '250px', height: '210px' }}>
-              <Card.Content textAlign="center">
-                <br />
-                <Icon
-                  name={icon}
-                  size="massive"
-                  style={{ color: 'rgba(212, 32, 32, 0.9)' }}
-                />
+        <ScrollAppear>
+          <Reveal animated="fade">
+            <Reveal.Content visible centered style={{ pointerEvents: 'none' }}>
+              <Card centered style={{ width: '250px', height: '210px' }}>
+                <Card.Content textAlign="center">
+                  <br />
+                  <Icon
+                    name={icon}
+                    size="massive"
+                    style={{ color: 'rgba(212, 32, 32, 0.9)' }}
+                  />
 
-                <Card.Header as="h2" centered style={{ fontSize: '1.2em' }}>
-                  <br />
-                  {title}
-                </Card.Header>
-              </Card.Content>
-            </Card>
-          </Reveal.Content>
-          <Reveal.Content hidden>
-            <Card
-              centered
-              style={{
-                width: '250px',
-                height: '210px',
-                backgroundColor: 'rgba(212, 32, 32, 0.9)',
-              }}
-            >
-              <Card.Content textAlign="center">
-                <Card.Header
-                  as="h2"
-                  style={{ fontSize: '1em', color: 'white' }}
-                >
-                  <br />
-                  {text}
-                </Card.Header>
-                <Link route="/subscribe">
-                  <a>
-                    <Button color="white">Learn More</Button>
-                  </a>
-                </Link>
-              </Card.Content>
-            </Card>
-          </Reveal.Content>
-        </Reveal>
+                  <Card.Header as="h2" centered style={{ fontSize: '1.2em' }}>
+                    <br />
+                    {title}
+                  </Card.Header>
+                </Card.Content>
+              </Card>
+            </Reveal.Content>
+            <Reveal.Content hidden>
+              <Card
+                centered
+                style={{
+                  width: '250px',
+                  height: '210px',
+                  backgroundColor: 'rgba(212, 32, 32, 0.9)',
+                }}
+              >
+                <Card.Content textAlign="center">
+                  <Card.Header
+                    as="h2"
+                    style={{ fontSize: '1em', color: 'white' }}
+                  >
+                    <br />
+                    {text}
+                  </Card.Header>
+                  <Link route="/subscribe">
+                    <a>
+                      <Button color="white">Learn More</Button>
+                    </a>
+                  </Link>
+                </Card.Content>
+              </Card>
+            </Reveal.Content>
+          </Reveal>
+        </ScrollAppear>
       </div>
     );
   }
 
   render() {
+    const { fixed } = this.state;
     return (
       <Layout>
         <Segment
@@ -92,35 +101,49 @@ class MainIndex extends Component {
           <Grid container stackable verticalAlign="middle">
             <Grid.Row fluid>
               <Grid.Column width={7}>
-                <Header
-                  as="h3"
-                  style={{ fontSize: '2em', color: 'rgba(255, 255, 255, 0.9)' }}
-                >
-                  Obtain Funding and Validate Consumer Demand
-                </Header>
-                <p style={{ fontSize: '1.33em' }}>
-                  If you’re looking to for an alternative to classical banking
-                  services, we can help. As one of the first portuguese
-                  crowdfunding agencies, we have experience with every type of
-                  project, and at every stage of the funding process. When it
-                  comes to alternative finance, we’re the easy choice.
-                </p>
-                <Header
-                  as="h3"
-                  style={{ fontSize: '2em', color: 'rgba(255, 255, 255, 0.9)' }}
-                >
-                  <br />
-                  <br />
-                  How We Can Support You
-                </Header>
-                <p style={{ fontSize: '1.33em' }}>
-                  If you are looking for an alternative means of raising funds
-                  via crowdfunding and crowdlending, we can help you plan,
-                  manage and optimise your approach. We assist ambitious
-                  businesses in all sectors, helping you to communicate with
-                  potential investors and portray your business in the best
-                  possible light!
-                </p>
+                <ScrollAppear>
+                  <Header
+                    as="h3"
+                    style={{
+                      fontSize: '2em',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                    }}
+                  >
+                    Obtain Funding and Validate Consumer Demand
+                  </Header>
+                </ScrollAppear>
+                <ScrollAppear>
+                  <p style={{ fontSize: '1.33em' }}>
+                    If you’re looking to for an alternative to classical banking
+                    services, we can help. As one of the first portuguese
+                    crowdfunding agencies, we have experience with every type of
+                    project, and at every stage of the funding process. When it
+                    comes to alternative finance, we’re the easy choice.
+                  </p>
+                </ScrollAppear>
+                <ScrollAppear>
+                  <Header
+                    as="h3"
+                    style={{
+                      fontSize: '2em',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                    }}
+                  >
+                    <br />
+                    <br />
+                    How We Can Support You
+                  </Header>
+                </ScrollAppear>
+                <ScrollAppear>
+                  <p style={{ fontSize: '1.33em' }}>
+                    If you are looking for an alternative means of raising funds
+                    via crowdfunding and crowdlending, we can help you plan,
+                    manage and optimise your approach. We assist ambitious
+                    businesses in all sectors, helping you to communicate with
+                    potential investors and portray your business in the best
+                    possible light!
+                  </p>
+                </ScrollAppear>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
                 <Image bordered rounded size="big" src="/indexPic.jpg" />
@@ -143,16 +166,19 @@ class MainIndex extends Component {
           vertical
         >
           <Grid container stackable verticalAlign="middle">
+            <Grid.Row centered></Grid.Row>
             <Grid.Row centered>
               <Grid.Column textAlign="center" centered>
-                <Header
-                  as="h3"
-                  style={{ fontSize: '4em', color: 'rgba(212, 32, 32, 0.9)' }}
-                  textAlign="center"
-                >
-                  <br />
-                  What do we offer?
-                </Header>
+                <ScrollAppear>
+                  <Header
+                    as="h3"
+                    style={{ fontSize: '4em', color: 'rgba(212, 32, 32, 0.9)' }}
+                    textAlign="center"
+                  >
+                    What do we offer?
+                    <br />
+                  </Header>
+                </ScrollAppear>
                 <p style={{ fontSize: '1.5em' }} textAlign="center">
                   Our full-service capabilities allow us to handle every step of
                   the process completely in-house, from discover and strategy to
@@ -189,7 +215,7 @@ class MainIndex extends Component {
                   {this.renderCard(
                     'bullhorn',
                     'Lead Generation',
-                    'Through landing page creation and the growth of your social media following, our team will collect qualified leads for your funding campaign that want to adhere to your business as soon as possible.'
+                    "Through landing page creation and the growth of your social media following, our team will collect qualified leads for your funding campaign that want to adhere to your business as soon as possible."
                   )}
 
                   {this.renderCard(

@@ -52,7 +52,7 @@ class DesktopContainer extends Component {
             padding: '.2em 0em',
             backgroundImage: 'url(/backgnd.jpg)',
             /* Set a specific height */
-            minHeight: '500px',
+            minHeight: '680px',
 
             /* Create the parallax scrolling effect */
             backgroundAttachment: 'fixed',
