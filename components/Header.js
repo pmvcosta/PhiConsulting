@@ -102,7 +102,7 @@ class DesktopContainer extends Component {
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link route="/openCampaigns">
+                  <Link route="/getStarted">
                     <a
                       style={{
                         color: fixed
@@ -110,12 +110,12 @@ class DesktopContainer extends Component {
                           : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
-                      Open Campaigns
+                      Solutions
                     </a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link route="/dashboard">
+                  <Link route="/subscribe">
                     <a
                       style={{
                         color: fixed
@@ -123,20 +123,7 @@ class DesktopContainer extends Component {
                           : 'rgba(74, 74, 74, 0.9)',
                       }}
                     >
-                      Dashboard
-                    </a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link route="/aboutUs">
-                    <a
-                      style={{
-                        color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
-                      }}
-                    >
-                      About Us
+                      Learn More
                     </a>
                   </Link>
                 </Menu.Item>
@@ -229,18 +216,13 @@ class MobileContainer extends Component {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/OpenCampaigns">
-              <a>Open Campaigns</a>
+            <Link route="/getStarted">
+              <a>Solutions</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/dashboard">
-              <a>Dashboard</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link route="/aboutUs">
-              <a>About Us</a>
+            <Link route="/subscribe">
+              <a>Learn More</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
@@ -308,7 +290,7 @@ class MobileContainer extends Component {
                           style={{
                             backgroundColor: fixed
                               ? 'rgba(212, 32, 32, 0.9)'
-                              : "rgba(255, 255, 255, 0.9)",
+                              : 'rgba(255, 255, 255, 0.9)',
                           }}
                         >
                           Log in
@@ -320,7 +302,7 @@ class MobileContainer extends Component {
                         <Button
                           primary={fixed}
                           style={{
-                            marginLeft: "0.5em",
+                            marginLeft: '0.5em',
                             backgroundColor: fixed
                               ? "rgba(212, 32, 32, 0.9)"
                               : "rgba(255, 255, 255, 0.9)",

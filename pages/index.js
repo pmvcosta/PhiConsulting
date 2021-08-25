@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Card,
   Button,
@@ -12,11 +12,11 @@ import {
   Image,
   Reveal,
   Icon,
-} from 'semantic-ui-react';
-import Layout from '../components/LayoutIndex';
-import { Link } from '../routes';
-import Newsletter from './newsletter';
-import ScrollAppear from '../components/ScrollLayout';
+} from "semantic-ui-react";
+import Layout from "../components/LayoutIndex";
+import { Link } from "../routes";
+import Newsletter from "./newsletter";
+import ScrollAppear from "../components/ScrollLayout";
 
 class MainIndex extends Component {
   //Next.js adds requirements for data loading.
@@ -31,24 +31,24 @@ class MainIndex extends Component {
     return (
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <ScrollAppear>
           <Reveal animated="fade">
-            <Reveal.Content visible centered style={{ pointerEvents: 'none' }}>
-              <Card centered style={{ width: '250px', height: '210px' }}>
+            <Reveal.Content visible centered style={{ pointerEvents: "none" }}>
+              <Card centered style={{ width: "250px", height: "210px" }}>
                 <Card.Content textAlign="center">
                   <br />
                   <Icon
                     name={icon}
                     size="massive"
-                    style={{ color: 'rgba(212, 32, 32, 0.9)' }}
+                    style={{ color: "rgba(212, 32, 32, 0.9)" }}
                   />
 
-                  <Card.Header as="h2" centered style={{ fontSize: '1.2em' }}>
+                  <Card.Header as="h2" centered style={{ fontSize: "1.2em" }}>
                     <br />
                     {title}
                   </Card.Header>
@@ -59,15 +59,15 @@ class MainIndex extends Component {
               <Card
                 centered
                 style={{
-                  width: '250px',
-                  height: '210px',
-                  backgroundColor: 'rgba(212, 32, 32, 0.9)',
+                  width: "250px",
+                  height: "210px",
+                  backgroundColor: "rgba(212, 32, 32, 0.9)",
                 }}
               >
                 <Card.Content textAlign="center">
                   <Card.Header
                     as="h2"
-                    style={{ fontSize: '1em', color: 'white' }}
+                    style={{ fontSize: "1em", color: "white" }}
                   >
                     <br />
                     {text}
@@ -92,10 +92,10 @@ class MainIndex extends Component {
       <Layout>
         <Segment
           fluid
-          style={{ padding: '8em 0em' }}
+          style={{ padding: "8em 0em" }}
           vertical
           style={{
-            backgroundColor: 'rgba(212, 32, 32, 0.9)',
+            backgroundColor: "rgba(212, 32, 32, 0.9)",
           }}
         >
           <Grid container stackable verticalAlign="middle">
@@ -105,15 +105,15 @@ class MainIndex extends Component {
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '2em',
-                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontSize: "2em",
+                      color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
                     Obtain Funding and Validate Consumer Demand
                   </Header>
                 </ScrollAppear>
                 <ScrollAppear>
-                  <p style={{ fontSize: '1.33em' }}>
+                  <p style={{ fontSize: "1.33em" }}>
                     If you’re looking to for an alternative to classical banking
                     services, we can help. As one of the first portuguese
                     crowdfunding agencies, we have experience with every type of
@@ -125,8 +125,8 @@ class MainIndex extends Component {
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '2em',
-                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontSize: "2em",
+                      color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
                     <br />
@@ -135,7 +135,7 @@ class MainIndex extends Component {
                   </Header>
                 </ScrollAppear>
                 <ScrollAppear>
-                  <p style={{ fontSize: '1.33em' }}>
+                  <p style={{ fontSize: "1.33em" }}>
                     If you are looking for an alternative means of raising funds
                     via crowdfunding and crowdlending, we can help you plan,
                     manage and optimise your approach. We assist ambitious
@@ -146,7 +146,9 @@ class MainIndex extends Component {
                 </ScrollAppear>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <Image bordered rounded size="big" src="/indexPic.jpg" />
+                <ScrollAppear>
+                  <Image bordered rounded size="big" src="/indexPic.jpg" />
+                </ScrollAppear>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -155,13 +157,13 @@ class MainIndex extends Component {
         <Segment
           fluid
           style={{
-            padding: '8em 0em',
-            backgroundImage: 'url(/backgnd.jpg)',
+            padding: "8em 0em",
+            backgroundImage: "url(/backgnd.jpg)",
             /* Create the parallax scrolling effect */
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no - repeat',
-            backgroundSize: 'cover',
+            backgroundAttachment: "fixed",
+            backgroundPosition: "center",
+            backgroundRepeat: "no - repeat",
+            backgroundSize: "cover",
           }}
           vertical
         >
@@ -172,49 +174,51 @@ class MainIndex extends Component {
                 <ScrollAppear>
                   <Header
                     as="h3"
-                    style={{ fontSize: '4em', color: 'rgba(212, 32, 32, 0.9)' }}
+                    style={{ fontSize: "4em", color: "rgba(212, 32, 32, 0.9)" }}
                     textAlign="center"
                   >
                     What do we offer?
                     <br />
                   </Header>
                 </ScrollAppear>
-                <p style={{ fontSize: '1.5em' }} textAlign="center">
+                <p style={{ fontSize: "1.5em" }} textAlign="center">
                   Our full-service capabilities allow us to handle every step of
                   the process completely in-house, from discover and strategy to
                   manufacturing social media and public relations.
                 </p>
-                <Divider
-                  as="h4"
-                  className="header"
-                  horizontal
-                  style={{
-                    fontSize: '2em',
-                    margin: '3em 0em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  <a href="#" style={{ color: 'rgba(212, 32, 32, 0.9)' }}>
-                    Pre-Campaign Launch
-                  </a>
-                </Divider>
+                <ScrollAppear>
+                  <Divider
+                    as="h4"
+                    className="header"
+                    horizontal
+                    style={{
+                      fontSize: "2em",
+                      margin: "3em 0em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
+                      Pre-Campaign Launch
+                    </a>
+                  </Divider>
+                </ScrollAppear>
                 <br />
                 <Card.Group stackable centered itemsPerRow={4}>
                   {this.renderCard(
-                    'chart line',
-                    'Market Analysis and Strategy',
-                    'Our understanding of the market is the key for brand building and delivering the right messages to the  target audiences.'
+                    "chart line",
+                    "Market Analysis and Strategy",
+                    "Our understanding of the market is the key for brand building and delivering the right messages to the  target audiences."
                   )}
 
                   {this.renderCard(
-                    'users',
-                    'Community Generation',
-                    'We use paid Internet advertising to drive traffic and build your following. Our advertising team are experts at deploying your advertising dollars to maximize ROI and campaign outcome.'
+                    "users",
+                    "Community Generation",
+                    "We use paid Internet advertising to drive traffic and build your following. Our advertising team are experts at deploying your advertising dollars to maximize ROI and campaign outcome."
                   )}
 
                   {this.renderCard(
-                    'bullhorn',
-                    'Lead Generation',
+                    "bullhorn",
+                    "Lead Generation",
                     "Through landing page creation and the growth of your social media following, our team will collect qualified leads for your funding campaign that want to adhere to your business as soon as possible."
                   )}
 
@@ -252,20 +256,22 @@ class MainIndex extends Component {
             </Grid.Row>
             <Grid.Row centered>
               <Grid.Column centered>
-                <Divider
-                  as="h4"
-                  className="header"
-                  horizontal
-                  style={{
-                    fontSize: "2em",
-                    margin: "3em 0em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
-                    Campaign Launch
-                  </a>
-                </Divider>
+                <ScrollAppear>
+                  <Divider
+                    as="h4"
+                    className="header"
+                    horizontal
+                    style={{
+                      fontSize: "2em",
+                      margin: "3em 0em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
+                      Campaign Launch
+                    </a>
+                  </Divider>
+                </ScrollAppear>
                 <br />
                 <Card.Group stackable centered itemsPerRow={3}>
                   {this.renderCard(
@@ -291,20 +297,22 @@ class MainIndex extends Component {
 
             <Grid.Row centered>
               <Grid.Column centered>
-                <Divider
-                  as="h4"
-                  className="header"
-                  horizontal
-                  style={{
-                    fontSize: "2em",
-                    margin: "3em 0em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
-                    Post-Campaign Completion
-                  </a>
-                </Divider>
+                <ScrollAppear>
+                  <Divider
+                    as="h4"
+                    className="header"
+                    horizontal
+                    style={{
+                      fontSize: "2em",
+                      margin: "3em 0em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
+                      Post-Campaign Completion
+                    </a>
+                  </Divider>
+                </ScrollAppear>
                 <br />
                 <Card.Group stackable centered itemsPerRow={3}>
                   {this.renderCard(
@@ -334,23 +342,32 @@ class MainIndex extends Component {
           <Grid celled="internally" columns="equal" stackable>
             <Grid.Row textAlign="center">
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-                <Header as="h3" style={{ fontSize: "2em" }}>
-                  The cannabis industry continues to be a brave new market. It’s
-                  a time of rapid change and great opportunity.
-                </Header>
-                <p style={{ fontSize: "1.33em" }}>
-                  Delloite, <b>Cannabis - Brave New Market </b>
-                </p>
+                <ScrollAppear>
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    The cannabis industry continues to be a brave new market.
+                    It’s a time of rapid change and great opportunity.
+                  </Header>
+                </ScrollAppear>
+                <ScrollAppear>
+                  <p style={{ fontSize: "1.33em" }}>
+                    Delloite, <b>Cannabis - Brave New Market </b>
+                  </p>
+                </ScrollAppear>
               </Grid.Column>
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-                <Header as="h3" style={{ fontSize: "2em" }}>
-                  "The European market for cannabis will be one of the largest
-                  untapped consumer packaged goods markets globally in the
-                  coming years."
-                </Header>
-                <p style={{ fontSize: "1.33em" }}>
-                  Prohibition Partners, <b>Global Cannabis report</b>, Edition 6
-                </p>
+                <ScrollAppear>
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    "The European market for cannabis will be one of the largest
+                    untapped consumer packaged goods markets globally in the
+                    coming years."
+                  </Header>
+                </ScrollAppear>
+                <ScrollAppear>
+                  <p style={{ fontSize: "1.33em" }}>
+                    Prohibition Partners, <b>Global Cannabis report</b>, Edition
+                    6
+                  </p>
+                </ScrollAppear>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -365,32 +382,40 @@ class MainIndex extends Component {
           }}
         >
           <Container text>
-            <Divider
-              as="h4"
-              className="header"
-              horizontal
-              style={{
-                fontSize: "1.5em",
-                margin: "0em 0em",
-                textTransform: "uppercase",
-              }}
-            >
-              <a href="#" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
-                Stay Up To Date!
-              </a>
-            </Divider>
-
-            <Header
-              as="h3"
-              style={{ fontSize: "2em", color: "rgba(255, 255, 255, 0.9)" }}
-            >
-              Subscribe to our newsletter
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              By doing so, you'll also be considered as an early adopter! We
-              will only send pertinent information, and at a reasonable pace.
-            </p>
+            <ScrollAppear>
+              <Divider
+                as="h4"
+                className="header"
+                horizontal
+                style={{
+                  fontSize: "2em",
+                  margin: "0em 0em",
+                  textTransform: "uppercase",
+                }}
+              >
+                <a href="#" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+                  Stay Up To Date!
+                </a>
+              </Divider>
+            </ScrollAppear>
+            <ScrollAppear>
+              <Header
+                as="h3"
+                style={{ fontSize: "1.5em", color: "rgba(255, 255, 255, 0.9)" }}
+              >
+                <br />
+                Subscribe to our newsletter
+              </Header>
+            </ScrollAppear>
+            <ScrollAppear>
+              <p style={{ fontSize: "1.33em" }}>
+                By doing so, you'll also be considered as an early adopter! We
+                will only send pertinent information, and at a reasonable pace.
+              </p>
+            </ScrollAppear>
+            <br />
             <Newsletter />
+            <br />
           </Container>
         </Segment>
       </Layout>

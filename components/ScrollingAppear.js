@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Card,
   Button,
@@ -12,10 +12,10 @@ import {
   Image,
   Reveal,
   Icon,
-} from 'semantic-ui-react';
-import { Link } from '../routes';
+} from "semantic-ui-react";
+import { Link } from "../routes";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class ScrollAppear extends Component {
   //Next.js adds requirements for data loading.
@@ -29,11 +29,7 @@ class ScrollAppear extends Component {
     const { children } = this.props;
     const { fixed } = this.state;
     return (
-      <Visibility
-        once={true}
-        onBottomVisible={this.showFixedMenu}
-        offset={[200, 400]}
-      >
+      <Visibility onOnScreen={this.showFixedMenu}>
         <Transition animation="scale" visible={fixed} duration={500}>
           {children}
         </Transition>
