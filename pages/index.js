@@ -348,29 +348,30 @@ class MainIndex extends Component {
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
                 <ScrollAppear>
                   <Header as="h3" style={{ fontSize: "2em" }}>
-                    The cannabis industry continues to be a brave new market.
-                    It’s a time of rapid change and great opportunity.
+                    Crowdfunding is coming of age. What started as a novel way
+                    to raise money from large numbers of people to fund projects
+                    has evolved into an industry that generated approximately
+                    $89 billion worldwide in 2020.
                   </Header>
                 </ScrollAppear>
                 <ScrollAppear>
                   <p style={{ fontSize: "1.33em" }}>
-                    Delloite, <b>Cannabis - Brave New Market </b>
+                    Delloite,{" "}
+                    <b>
+                      Crowdfunding: from novelty to viable capital-raising tool{" "}
+                    </b>
                   </p>
                 </ScrollAppear>
               </Grid.Column>
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
                 <ScrollAppear>
                   <Header as="h3" style={{ fontSize: "2em" }}>
-                    "The European market for cannabis will be one of the largest
-                    untapped consumer packaged goods markets globally in the
-                    coming years."
+                    "Crowdfunding is shaping up to be the privileged means of
+                    funding the commercialization of new technologies."
                   </Header>
                 </ScrollAppear>
                 <ScrollAppear>
-                  <p style={{ fontSize: "1.33em" }}>
-                    Prohibition Partners, <b>Global Cannabis report</b>, Edition
-                    6
-                  </p>
+                  <p style={{ fontSize: "1.33em" }}>MIT Technology Review</p>
                 </ScrollAppear>
               </Grid.Column>
             </Grid.Row>
