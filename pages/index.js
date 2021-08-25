@@ -202,7 +202,7 @@ class MainIndex extends Component {
                     }}
                   >
                     <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
-                      Pre-Campaign Launch
+                      Pre-Campaign
                     </a>
                   </Divider>
                 </ScrollAppear>
@@ -313,7 +313,7 @@ class MainIndex extends Component {
                     }}
                   >
                     <a href="#" style={{ color: "rgba(212, 32, 32, 0.9)" }}>
-                      Post-Campaign Completion
+                      Post-Campaign
                     </a>
                   </Divider>
                 </ScrollAppear>
