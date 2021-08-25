@@ -146,9 +146,13 @@ class MainIndex extends Component {
                 </ScrollAppear>
               </Grid.Column>
               <Grid.Column floated="right" width={7}>
-                <ScrollAppear>
+                <Transition
+                  animation="scale"
+                  transitionOnMount={true}
+                  duration={500}
+                >
                   <Image bordered rounded size="big" src="/indexPic.jpg" />
-                </ScrollAppear>
+                </Transition>
               </Grid.Column>
             </Grid.Row>
           </Grid>
