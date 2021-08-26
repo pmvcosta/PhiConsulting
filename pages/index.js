@@ -36,52 +36,50 @@ class MainIndex extends Component {
           alignItems: "center",
         }}
       >
-        <ScrollAppear>
-          <Reveal animated="fade">
-            <Reveal.Content visible centered style={{ pointerEvents: "none" }}>
-              <Card centered style={{ width: "250px", height: "210px" }}>
-                <Card.Content textAlign="center">
-                  <br />
-                  <Icon
-                    name={icon}
-                    size="massive"
-                    style={{ color: "rgba(212, 32, 32, 0.9)" }}
-                  />
+        <Reveal animated="fade">
+          <Reveal.Content visible centered style={{ pointerEvents: "none" }}>
+            <Card centered style={{ width: "250px", height: "210px" }}>
+              <Card.Content textAlign="center">
+                <br />
+                <Icon
+                  name={icon}
+                  size="massive"
+                  style={{ color: "rgba(212, 32, 32, 0.9)" }}
+                />
 
-                  <Card.Header as="h2" centered style={{ fontSize: "1.2em" }}>
-                    <br />
-                    {title}
-                  </Card.Header>
-                </Card.Content>
-              </Card>
-            </Reveal.Content>
-            <Reveal.Content hidden>
-              <Card
-                centered
-                style={{
-                  width: "250px",
-                  height: "210px",
-                  backgroundColor: "rgba(212, 32, 32, 0.9)",
-                }}
-              >
-                <Card.Content textAlign="center">
-                  <Card.Header
-                    as="h2"
-                    style={{ fontSize: "1em", color: "white" }}
-                  >
-                    <br />
-                    {text}
-                  </Card.Header>
-                  <Link route="/subscribe">
-                    <a>
-                      <Button color="white">Learn More</Button>
-                    </a>
-                  </Link>
-                </Card.Content>
-              </Card>
-            </Reveal.Content>
-          </Reveal>
-        </ScrollAppear>
+                <Card.Header as="h2" centered style={{ fontSize: "1.2em" }}>
+                  <br />
+                  {title}
+                </Card.Header>
+              </Card.Content>
+            </Card>
+          </Reveal.Content>
+          <Reveal.Content hidden>
+            <Card
+              centered
+              style={{
+                width: "250px",
+                height: "210px",
+                backgroundColor: "rgba(212, 32, 32, 0.9)",
+              }}
+            >
+              <Card.Content textAlign="center">
+                <Card.Header
+                  as="h2"
+                  style={{ fontSize: "1em", color: "white" }}
+                >
+                  <br />
+                  {text}
+                </Card.Header>
+                <Link route="/subscribe">
+                  <a>
+                    <Button color="white">Learn More</Button>
+                  </a>
+                </Link>
+              </Card.Content>
+            </Card>
+          </Reveal.Content>
+        </Reveal>
       </div>
     );
   }
