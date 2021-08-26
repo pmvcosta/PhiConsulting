@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { createMedia } from '@artsy/fresnel';
+import React, { Component } from "react";
+import { createMedia } from "@artsy/fresnel";
 import {
   Menu,
   Sidebar,
@@ -13,10 +13,10 @@ import {
   Divider,
   List,
   Image,
-} from 'semantic-ui-react';
-import { Link } from '../routes';
-import PropTypes from 'prop-types';
-import HomePageHeading from './HomePageHeading';
+} from "semantic-ui-react";
+import { Link } from "../routes";
+import PropTypes from "prop-types";
+import HomePageHeading from "./HomePageHeading";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -49,16 +49,16 @@ class DesktopContainer extends Component {
           textAlign="center"
           style={{
             minHeight: 10,
-            padding: '.2em 0em',
-            backgroundImage: 'url(/backgnd.jpg)',
+            padding: ".2em 0em",
+            backgroundImage: "url(/backgnd.jpg)",
             /* Set a specific height */
-            minHeight: '60px',
+            minHeight: "60px",
 
             /* Create the parallax scrolling effect */
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no - repeat',
-            backgroundSize: 'cover',
+            backgroundAttachment: "fixed",
+            backgroundPosition: "center",
+            backgroundRepeat: "no - repeat",
+            backgroundSize: "cover",
           }}
           vertical
         >
@@ -69,15 +69,15 @@ class DesktopContainer extends Component {
           >
             <Menu
               borderless
-              fixed={fixed ? 'top' : null}
+              fixed={fixed ? "top" : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
               size="large"
               style={{
-                border: '0px',
-                outline: '0px',
-                backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
+                border: "0px",
+                outline: "0px",
+                backgroundColor: fixed ? "rgba(255, 255, 255, 0.9)" : "",
               }}
             >
               <Container fluid>
@@ -93,8 +93,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
+                          ? "rgba(212, 32, 32, 0.9)"
+                          : "rgba(74, 74, 74, 0.9)",
                       }}
                     >
                       Home
@@ -106,8 +106,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
+                          ? "rgba(212, 32, 32, 0.9)"
+                          : "rgba(74, 74, 74, 0.9)",
                       }}
                     >
                       Solutions
@@ -119,8 +119,8 @@ class DesktopContainer extends Component {
                     <a
                       style={{
                         color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
+                          ? "rgba(212, 32, 32, 0.9)"
+                          : "rgba(74, 74, 74, 0.9)",
                       }}
                     >
                       Learn More
@@ -134,8 +134,8 @@ class DesktopContainer extends Component {
                         secondary={fixed}
                         style={{
                           backgroundColor: fixed
-                            ? 'rgba(212, 32, 32, 0.9)'
-                            : 'rgba(255, 255, 255, 0.9)',
+                            ? "rgba(212, 32, 32, 0.9)"
+                            : "rgba(255, 255, 255, 0.9)",
                         }}
                       >
                         Log in
@@ -147,10 +147,10 @@ class DesktopContainer extends Component {
                       <Button
                         primary={fixed}
                         style={{
-                          marginLeft: '0.5em',
+                          marginLeft: "0.5em",
                           backgroundColor: fixed
-                            ? 'rgba(212, 32, 32, 0.9)'
-                            : 'rgba(255, 255, 255, 0.9)',
+                            ? "rgba(212, 32, 32, 0.9)"
+                            : "rgba(255, 255, 255, 0.9)",
                         }}
                       >
                         Sign Up
@@ -192,15 +192,15 @@ class MobileContainer extends Component {
         <Sidebar
           as={Menu}
           animation="overlay"
-          fixed={fixed ? 'left' : null}
+          fixed={fixed ? "left" : null}
           inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
           style={{
-            border: '0px',
-            outline: '0px',
-            backgroundColor: 'rgba(212, 32, 32, 1.0)',
+            border: "0px",
+            outline: "0px",
+            backgroundColor: "rgba(212, 32, 32, 1.0)",
           }}
         >
           <Menu.Item>
@@ -226,12 +226,12 @@ class MobileContainer extends Component {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/login">
+            <Link route="/subscribe">
               <a>Log in</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/register">
+            <Link route="/subscribe">
               <a>Sign Up</a>
             </Link>
           </Menu.Item>
@@ -241,17 +241,17 @@ class MobileContainer extends Component {
           <Segment
             inverted
             textAlign="center"
-            style={{ minHeight: 350, padding: '0.2em 0em' }}
+            style={{ minHeight: 350, padding: "0.2em 0em" }}
             vertical
             style={{
               minHeight: 10,
-              padding: '.2em 0em',
-              backgroundImage: 'url(/backgnd.jpg)',
+              padding: ".2em 0em",
+              backgroundImage: "url(/backgnd.jpg)",
               /* Create the parallax scrolling effect */
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no - repeat',
-              backgroundSize: 'cover',
+              backgroundAttachment: "fixed",
+              backgroundPosition: "center",
+              backgroundRepeat: "no - repeat",
+              backgroundSize: "cover",
             }}
           >
             <Visibility
@@ -261,14 +261,14 @@ class MobileContainer extends Component {
             >
               <Menu
                 inverted
-                fixed={fixed ? 'top' : null}
+                fixed={fixed ? "top" : null}
                 pointing
                 secondary
                 size="large"
                 style={{
-                  border: '0px',
-                  outline: '0px',
-                  backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
+                  border: "0px",
+                  outline: "0px",
+                  backgroundColor: fixed ? "rgba(255, 255, 255, 0.9)" : "",
                 }}
               >
                 <Container>
@@ -277,32 +277,32 @@ class MobileContainer extends Component {
                       name="sidebar"
                       style={{
                         color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
+                          ? "rgba(212, 32, 32, 0.9)"
+                          : "rgba(74, 74, 74, 0.9)",
                       }}
                     />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    <Link route="/login">
+                    <Link route="/subscribe">
                       <a>
                         <Button
                           secondary={fixed}
                           style={{
                             backgroundColor: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
+                              ? "rgba(212, 32, 32, 0.9)"
+                              : "rgba(255, 255, 255, 0.9)",
                           }}
                         >
                           Log in
                         </Button>
                       </a>
                     </Link>
-                    <Link route="/register">
+                    <Link route="/subscribe">
                       <a>
                         <Button
                           primary={fixed}
                           style={{
-                            marginLeft: '0.5em',
+                            marginLeft: "0.5em",
                             backgroundColor: fixed
                               ? "rgba(212, 32, 32, 0.9)"
                               : "rgba(255, 255, 255, 0.9)",
