@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Menu,
   Segment,
@@ -7,7 +7,7 @@ import {
   Header,
   Container,
   Button,
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 export default () => {
   return (
@@ -16,16 +16,16 @@ export default () => {
       inverted
       vertical
       style={{
-        padding: "5em 0em",
-        backgroundImage: "url(/backgnd.jpg)",
+        padding: '5em 0em',
+        backgroundImage: 'url(/backgnd.jpg)',
         /* Set a specific height */
-        minHeight: "400px",
+        minHeight: '400px',
 
         /* Create the parallax scrolling effect */
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundRepeat: "no - repeat",
-        backgroundSize: "cover",
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no - repeat',
+        backgroundSize: 'cover',
       }}
     >
       <Container>
@@ -36,7 +36,7 @@ export default () => {
                 as="h4"
                 content="About"
                 style={{
-                  color: "rgba(74, 74, 74, 0.9)",
+                  color: 'rgba(74, 74, 74, 0.9)',
                 }}
               />
               <List link>
@@ -45,13 +45,6 @@ export default () => {
                 </List.Item>
                 <List.Item as="a" href="/subscribe">
                   Contact Us
-                </List.Item>
-                <List.Item
-                  as="a"
-                  href="https://coinmarketcap.com/alexandria/glossary/asset-backed-tokens"
-                  target="_blank"
-                >
-                  What are Tokens?
                 </List.Item>
                 <List.Item as="a" href="/subscribe">
                   Roadmap
@@ -63,7 +56,7 @@ export default () => {
                 as="h4"
                 content="Services"
                 style={{
-                  color: "rgba(74, 74, 74, 0.9)",
+                  color: 'rgba(74, 74, 74, 0.9)',
                 }}
               />
               <List link>
@@ -89,14 +82,14 @@ export default () => {
               <Header
                 as="h4"
                 style={{
-                  color: "rgba(74, 74, 74, 0.9)",
+                  color: 'rgba(74, 74, 74, 0.9)',
                 }}
               >
                 Additional Information
               </Header>
               <p
                 style={{
-                  color: "rgba(74, 74, 74, 0.9)",
+                  color: 'rgba(74, 74, 74, 0.9)',
                 }}
               >
                 Become an early adopter to help shape the future and be part of
@@ -106,7 +99,7 @@ export default () => {
               <Header
                 as="h4"
                 style={{
-                  color: "rgba(74, 74, 74, 0.9)",
+                  color: 'rgba(74, 74, 74, 0.9)',
                 }}
               >
                 Reach us at:
