@@ -347,11 +347,11 @@ class MainIndex extends Component {
             <Grid.Row textAlign="center">
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
                 <ScrollAppear>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    Crowdfunding is coming of age. What started as a novel way
+                  <Header as="h3" style={{ fontSize: "1.5em" }}>
+                    "Crowdfunding is coming of age. What started as a novel way
                     to raise money from large numbers of people to fund projects
                     has evolved into an industry that generated approximately
-                    $89 billion worldwide in 2020.
+                    $89 billion worldwide in 2020."
                   </Header>
                 </ScrollAppear>
                 <ScrollAppear>

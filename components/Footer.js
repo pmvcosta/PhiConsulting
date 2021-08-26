@@ -40,10 +40,10 @@ export default () => {
                 }}
               />
               <List link>
-                <List.Item as="a" href="/aboutUs">
+                <List.Item as="a" href="/subscribe">
                   About us
                 </List.Item>
-                <List.Item as="a" href="/aboutUs">
+                <List.Item as="a" href="/subscribe">
                   Contact Us
                 </List.Item>
                 <List.Item
