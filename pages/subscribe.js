@@ -11,8 +11,6 @@ import {
   Header,
 } from 'semantic-ui-react';
 import Layout from '../components/Layout';
-import factory from '../ethereum/factory';
-import web3 from '../ethereum/web3';
 import Newsletter from './newsletter';
 import { Link, Router } from '../routes'; //Not going to use Link, but it exists
 import { PopupButton } from '@typeform/embed-react';
@@ -169,11 +167,6 @@ class Subscribe extends Component {
               >
                 Open Form
               </PopupButton>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              <ServiceScroll />
             </Grid.Column>
           </Grid.Row>
         </Grid>
