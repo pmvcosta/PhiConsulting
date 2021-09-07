@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Popup,
   Button,
@@ -15,26 +15,26 @@ import {
   Icon,
   Image,
   Header,
-} from 'semantic-ui-react';
-import Layout from '../components/Layout';
-import { Link } from '../routes';
+} from "semantic-ui-react";
+import Layout from "../components/Layout";
+import { Link } from "../routes";
 //const { countryOptions } = require("./countryList");
 const options = [
-  { key: 'm', text: 'Within next 3 months', value: '3' },
-  { key: 'f', text: '3-6 months', value: '36' },
-  { key: 'o', text: '6+ months', value: '6' },
+  { key: "m", text: "Within next 3 months", value: "3" },
+  { key: "f", text: "3-6 months", value: "36" },
+  { key: "o", text: "6+ months", value: "6" },
 ];
 
 const countryOptions = [
-  { text: 'Afghanistan', key: 'af', value: 'af', flag: 'af' },
-  { text: 'Aland Islands', key: 'ax', value: 'ax', flag: 'ax' },
-  { text: 'Albania', key: 'al', value: 'al', flag: 'al' },
-  { text: 'Algeria', key: 'dz', value: 'dz', flag: 'dz' },
-  { text: 'American Samoa', key: 'as', value: 'as', flag: 'as' },
-  { text: 'Andorra', key: 'ad', value: 'ad', flag: 'ad' },
-  { text: 'Angola', key: 'ao', value: 'ao', flag: 'ao' },
-  { text: 'Anguilla', key: 'ai', value: 'ai', flag: 'ai' },
-  { text: 'Antigua', key: 'ag', value: 'ag', flag: 'ag' },
+  { text: "Afghanistan", key: "af", value: "af", flag: "af" },
+  { text: "Aland Islands", key: "ax", value: "ax", flag: "ax" },
+  { text: "Albania", key: "al", value: "al", flag: "al" },
+  { text: "Algeria", key: "dz", value: "dz", flag: "dz" },
+  { text: "American Samoa", key: "as", value: "as", flag: "as" },
+  { text: "Andorra", key: "ad", value: "ad", flag: "ad" },
+  { text: "Angola", key: "ao", value: "ao", flag: "ao" },
+  { text: "Anguilla", key: "ai", value: "ai", flag: "ai" },
+  { text: "Antigua", key: "ag", value: "ag", flag: "ag" },
   { text: "Argentina", key: "ar", value: "ar", flag: "ar" },
   { text: "Armenia", key: "am", value: "am", flag: "am" },
   { text: "Aruba", key: "aw", value: "aw", flag: "aw" },
@@ -602,13 +602,7 @@ class FormExampleFieldControl extends Component {
                 </Form>
               </Grid.Column>
               <Grid.Column>
-                <Transition
-                  animation="scale"
-                  transitionOnMount={true}
-                  duration={500}
-                >
-                  <Image bordered rounded size="big" src="/formPic.jpg" />
-                </Transition>
+                <Image bordered rounded size="big" src="/formPic.jpg" />
               </Grid.Column>
             </Grid.Row>
           </Grid>
