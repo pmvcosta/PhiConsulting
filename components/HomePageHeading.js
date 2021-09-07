@@ -29,7 +29,7 @@ const HomepageHeading = ({ mobile }) => (
     <br />
     <br />
     <Transition transitionOnMount="true" animation="scale" duration={500}>
-      <Image src="/logo.png" size="large" centered />
+      <Image src="/logo.png" size="big" centered />
     </Transition>
     <Transition transitionOnMount="true" animation="scale" duration={700}>
       <Header

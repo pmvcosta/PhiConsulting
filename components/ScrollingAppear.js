@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Card,
   Button,
@@ -12,10 +12,10 @@ import {
   Image,
   Reveal,
   Icon,
-} from "semantic-ui-react";
-import { Link } from "../routes";
+} from 'semantic-ui-react';
+import { Link } from '../routes';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 class ScrollAppear extends Component {
   //Next.js adds requirements for data loading.
