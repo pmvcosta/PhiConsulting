@@ -48,11 +48,10 @@ class DesktopContainer extends Component {
           inverted
           textAlign="center"
           style={{
-            minHeight: 10,
             padding: '.2em 0em',
             backgroundImage: 'url(/backgnd.jpg)',
             /* Set a specific height */
-            minHeight: '680px',
+            minHeight: '180px',
 
             /* Create the parallax scrolling effect */
             backgroundAttachment: 'fixed',
