@@ -1,0 +1,6 @@
+.env.local
+.next
+node_modules
+components - Copy
+server.js
+NextJS_ProblemFix.png

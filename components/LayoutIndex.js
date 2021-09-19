@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './HeaderIndex';
 import Footer from './Footer';
 import { Container } from 'semantic-ui-react';
+import { Provider } from 'next-auth/client';
 import 'semantic-ui-css/semantic.min.css'; //Since Layout is always loaded it
 
 import HomePageHeading from './HomePageHeading';
@@ -10,12 +11,14 @@ import HomePageHeading from './HomePageHeading';
 
 class LayoutIndex extends Component {
   render() {
-    const { children } = this.props;
+    const { children, session } = this.props;
     return (
-      <Container fluid={true}>
-        <Header>{children}</Header>
-        <Footer />
-      </Container>
+      <Provider session={session}>
+        <Container fluid={true}>
+          <Header>{children}</Header>
+          <Footer />
+        </Container>
+      </Provider>
     );
   }
 }

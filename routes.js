@@ -7,6 +7,9 @@ const routes = require('next-routes')();
 routes
   .add('/', '/index')
   .add('/openCampaigns', '/openCampaigns')
+  .add('dashboard/activeCampaigns', '/dashboard/activeCampaigns')
+  .add('dashboard/newRequest', '/dashboard/newRequest')
+  .add('dashboard/newCampaign', '/dashboard/newCampaign')
   .add('/login', '/login')
   .add('/subscribe', '/subscribe')
   .add('/register', '/register')

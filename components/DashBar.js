@@ -15,9 +15,10 @@ import {
   Image,
   Dropdown,
 } from 'semantic-ui-react';
-import { Link } from '../routes';
+import { Link, Router } from '../routes';
 import PropTypes from 'prop-types';
 import HomePageHeading from './HomePageHeading';
+import { useSession, signOut } from 'next-auth/client'; //To keep track of wether user is logged in
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -36,145 +37,314 @@ const { MediaContextProvider, Media } = createMedia({
 class DesktopContainer extends Component {
   state = {};
 
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: props.currentItem };
+  }
+
   handleSidebarHide = () => this.setState({ sidebarOpened: false });
 
   handleToggle = () => this.setState({ sidebarOpened: true });
 
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name });
+
+    try {
+      Router.pushRoute(`/dashboard/${name}`);
+      if (name === undefined) {
+        Router.pushRoute('/dashboard');
+      }
+    } catch (e) {
+      Router.pushRoute('/dashboard');
+    }
+  };
+
+  logoutHandler = () => {
+    signOut();
+  };
+
   render() {
-    const { children } = this.props;
-    const { sidebarOpened } = this.state;
+    const { children, session, currentItem } = this.props;
+    const { sidebarOpened, activeItem } = this.state;
 
     const trigger = (
-      <span>
-        <Icon name="user" /> Hello, Bob
+      <span
+        style={{
+          color: 'rgba(212, 32, 32, 1.0)',
+        }}
+      >
+        <Icon
+          name="user"
+          style={{
+            color: 'rgba(212, 32, 32, 1.0)',
+          }}
+        />{' '}
+        User Profile
       </span>
     );
 
-    const options = [
-      {
-        key: 'user',
-        text: (
-          <span>
-            Signed in as <strong>Bob Smith</strong>
-          </span>
-        ),
-        disabled: true,
-      },
-      { key: 'profile', text: 'Your Profile', href: '/subscribe' },
-      { key: 'stars', text: 'Your Stars' },
-      { key: 'explore', text: 'Explore' },
-      { key: 'integrations', text: 'Integrations' },
-      { key: 'help', text: 'Help' },
-      { key: 'settings', text: 'Settings' },
-      { key: 'sign-out', text: 'Sign Out' },
-    ];
-
     return (
-      <Media as={Sidebar.Pushable} greaterThan="mobile">
-        <Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            animation="push"
-            inverted
-            onHide={this.handleSidebarHide}
-            vertical
-            visible={sidebarOpened}
-            style={{
-              border: '0px',
-              outline: '0px',
-              backgroundColor: 'rgba(182, 12, 12, 0.9)',
-            }}
-          >
-            <Menu.Item centered>
-              <Link route="/">
-                <a>
-                  <Image src="/LogoS2.png" size="tiny" centered />
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/">
-                <a>
-                  <Icon name="home" style={{ marginRight: '10px' }} />
-                  Home
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/OpenCampaigns">
-                <a>
-                  <Icon name="trophy" style={{ marginRight: '10px' }} />
-                  Ongoing Events
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/OpenCampaigns">
-                <a>
-                  <Icon
-                    name="calendar alternate"
-                    style={{ marginRight: '10px' }}
-                  />
-                  Calendar
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/OpenCampaigns">
-                <a>
-                  <Icon name="envelope" style={{ marginRight: '10px' }} />
-                  Inbox
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/dashboard">
-                <a>
-                  <Icon name="compass" style={{ marginRight: '10px' }} />
-                  Open Events
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link route="/aboutUs">
-                <a>
-                  <Icon name="archive" style={{ marginRight: '10px' }} />
-                  Past Events
-                </a>
-              </Link>
-            </Menu.Item>
-          </Sidebar>
+      <Media greaterThan="mobile">
+        <Grid fluid>
+          <Grid.Row>
+            <Grid.Column stretched width={3}>
+              <Menu
+                vertical
+                color="red"
+                pointing
+                secondary
+                fixed="top"
+                style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                  height: '100%',
+                  marginTop: '45px',
+                  borderRight: '1px solid rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <Menu.Item centered>
+                  <br />
+                  <br />
+                </Menu.Item>
+                <Link route="/dashboard">
+                  <Menu.Item>
+                    <a>
+                      <Image src="/LogoS2.png" size="tiny" centered />
+                    </a>
+                  </Menu.Item>
+                </Link>
+                <Menu.Item
+                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                >
+                  <a
+                    style={{
+                      color: 'rgba(220, 220, 220, 1.0)',
+                    }}
+                  >
+                    <Icon
+                      name="flag"
+                      size="large"
+                      style={{
+                        marginRight: '6px',
+                        color: 'rgba(220, 220, 220, 1.0)',
+                      }}
+                    />
+                    Funding Campaigns
+                    <Link route="/dashboard/newCampaign">
+                      <Icon
+                        name="plus circle"
+                        link="/dashboard/newCampaign"
+                        style={{
+                          marginLeft: '6px',
+                          height: '10px',
+                          width: 'auto',
+                          color: 'rgba(220, 220, 220, 1.0)',
+                        }}
+                      />
+                    </Link>
+                  </a>
+                </Menu.Item>
 
-          <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Menu
-              inverted
-              pointing
-              secondary
-              size="large"
+                <Menu.Item
+                  name="activeCampaigns"
+                  active={activeItem === 'activeCampaigns'}
+                  onClick={this.handleItemClick}
+                >
+                  <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Active</a>
+                </Menu.Item>
+
+                <Menu.Item
+                  name="pendingCampaigns"
+                  active={activeItem === 'pendingCampaigns'}
+                  onClick={this.handleItemClick}
+                >
+                  <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Pending</a>
+                </Menu.Item>
+
+                <Menu.Item
+                  name="completedCampaigns"
+                  active={activeItem === 'completedCampaigns'}
+                  onClick={this.handleItemClick}
+                >
+                  <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Completed</a>
+                </Menu.Item>
+
+                <Menu.Item
+                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                >
+                  <a
+                    style={{
+                      color: 'rgba(220, 220, 220, 1.0)',
+                    }}
+                  >
+                    <Icon
+                      name="paper plane"
+                      size="large"
+                      style={{
+                        marginRight: '10px',
+                        color: 'rgba(220, 220, 220, 1.0)',
+                      }}
+                    />
+                    Service Requests
+                    <Link route="/dashboard/newRequest">
+                      <Icon
+                        name="plus circle"
+                        link="/dashboard/newRequest"
+                        style={{
+                          marginLeft: '10px',
+                          height: '10px',
+                          width: 'auto',
+                          color: 'rgba(220, 220, 220, 1.0)',
+                        }}
+                      />
+                    </Link>
+                  </a>
+                </Menu.Item>
+
+                <Menu.Item
+                  name="pendingRequests"
+                  active={activeItem === 'pendingRequests'}
+                  onClick={this.handleItemClick}
+                >
+                  <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Pending</a>
+                </Menu.Item>
+
+                <Menu.Item
+                  name="completedRequests"
+                  active={activeItem === 'completedRequests'}
+                  onClick={this.handleItemClick}
+                >
+                  <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Completed</a>
+                </Menu.Item>
+              </Menu>
+            </Grid.Column>
+            <Grid.Column
+              width={12}
               style={{
-                border: '0px',
-                outline: '0px',
-
-                backgroundColor: 'rgba(212, 32, 32, 0.9)',
+                marginTop: '90px',
               }}
             >
-              <Menu.Item onClick={this.handleToggle}>
-                <Icon name="sidebar" style={{ marginBottom: '10px' }} />
-              </Menu.Item>
-              <Menu.Item position="right">
-                <Dropdown trigger={trigger} options={options} />
-                <Link route="/register">
-                  <a>
-                    <Button inverted style={{ marginLeft: '1.8em' }}>
-                      Sign Up
-                    </Button>
+              {children}
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <Menu
+          borderless
+          fixed="top"
+          size="large"
+          style={{
+            shadowColor: 'rgba(0, 0, 0, 0.9)',
+            shadowRadius: '20',
+            marginTop: '48px',
+            height: '45px',
+            backgroundColor: 'rgba(240, 240, 240, 1.0)',
+          }}
+        >
+          <Menu.Item>
+            <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>User: </a>
+            <a style={{ color: 'rgba(0, 0, 0, 1.0)' }}>
+              &nbsp; {session.user.email}
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/dashboard">
+              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                Available Platforms
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/dashboard">
+              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Funding Methods</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/dashboard">
+              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                Service Providers
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link route="/dashboard">
+              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                Terms & Conditions
+              </a>
+            </Link>
+          </Menu.Item>
+        </Menu>
+        <Menu
+          borderless
+          fixed="top"
+          size="large"
+          style={{
+            shadowColor: "rgba(0, 0, 0, 0.9)",
+            shadowRadius: "20",
+            height: "48px",
+            backgroundColor: "rgba(220, 220, 220, 1.0)",
+          }}
+        >
+          <Menu.Item>
+            <Link route="/">
+              <a>
+                <Image
+                  src="/logo.png"
+                  centered
+                  style={{ marginTop: "-2%", height: "45px", width: "auto" }}
+                />
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item position="right">
+            <Dropdown
+              direction="left"
+              trigger={trigger}
+              style={{ marginRight: "10px", color: "rgba(212, 32, 32, 1.0)" }}
+            >
+              <Dropdown.Menu>
+                <Dropdown.Header
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  <Image centered src="/LogoS2.png" size="tiny" />
+                </Dropdown.Header>
+                <Dropdown.Header
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  Signed in as: <br />
+                  <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                    {session.user.email}
                   </a>
-                </Link>
-              </Menu.Item>
-            </Menu>
-            {children}
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
+                </Dropdown.Header>
+                <Dropdown.Divider />
+                <Dropdown.Header>Settings and Options</Dropdown.Header>
+                <Dropdown.Item>
+                  <Icon name="cogs" />
+                  User Preferences
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Icon name="book" />
+                  Documentation
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Icon name="help" />
+                  Support
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Icon name="bullhorn" />
+                  Give us feedback
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item onClick={this.logoutHandler}>
+                  <Icon name="log out" />
+                  Log Out
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Item>
+        </Menu>
       </Media>
     );
   }
@@ -202,7 +372,7 @@ class MobileContainer extends Component {
 
     const options = [
       {
-        key: 'user',
+        key: "user",
         text: (
           <span>
             Signed in as <strong>Bob Smith</strong>
@@ -210,13 +380,13 @@ class MobileContainer extends Component {
         ),
         disabled: true,
       },
-      { key: 'profile', text: 'Your Profile' },
-      { key: 'stars', text: 'Your Stars' },
-      { key: 'explore', text: 'Explore' },
-      { key: 'integrations', text: 'Integrations' },
-      { key: 'help', text: 'Help' },
-      { key: 'settings', text: 'Settings' },
-      { key: 'sign-out', text: "Sign Out" },
+      { key: "profile", text: "Your Profile" },
+      { key: "stars", text: "Your Stars" },
+      { key: "explore", text: "Explore" },
+      { key: "integrations", text: "Integrations" },
+      { key: "help", text: "Help" },
+      { key: "settings", text: "Settings" },
+      { key: "sign-out", text: "Sign Out" },
     ];
 
     return (
@@ -237,7 +407,7 @@ class MobileContainer extends Component {
           <Menu.Item centered>
             <Link route="/">
               <a>
-                <Image src="/logoGrayOutline.png" size="tiny" centered />
+                <Image src="/LogoS2.png" size="tiny" centered />
               </a>
             </Link>
           </Menu.Item>
@@ -311,13 +481,6 @@ class MobileContainer extends Component {
             </Menu.Item>
             <Menu.Item position="right">
               <Dropdown trigger={trigger} options={options} />
-              <Link route="/register">
-                <a>
-                  <Button inverted style={{ marginLeft: "1.8em" }}>
-                    Sign Up
-                  </Button>
-                </a>
-              </Link>
             </Menu.Item>
           </Menu>
 
@@ -332,17 +495,29 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const ResponsiveContainer = ({ children }) => (
-  /* Heads up!
+//const ResponsiveContainer = ({ children }) => (
+class ResponsiveContainer extends Component {
+  state = {};
+
+  render() {
+    const { children, session, currentItem } = this.props;
+    /* Heads up!
    * For large applications it may not be best option to
    put all page into these containers at
    * they will be rendered twice for SSR.
    */
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
+    return (
+      <MediaContextProvider>
+        <DesktopContainer session={session} currentItem={currentItem}>
+          {children}
+        </DesktopContainer>
+        <MobileContainer session={session} currentItem={currentItem}>
+          {children}
+        </MobileContainer>
+      </MediaContextProvider>
+    );
+  }
+}
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,

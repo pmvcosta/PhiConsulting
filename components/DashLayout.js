@@ -7,10 +7,12 @@ import 'semantic-ui-css/semantic.min.css'; //Since Layout is always loaded it
 
 class DashLayout extends Component {
   render() {
-    const { children } = this.props;
+    const { children, session, currentItem } = this.props;
     return (
       <Container fluid={true}>
-        <DashBar>{children}</DashBar>
+        <DashBar session={session} currentItem={currentItem}>
+          {children}
+        </DashBar>
       </Container>
     );
   }

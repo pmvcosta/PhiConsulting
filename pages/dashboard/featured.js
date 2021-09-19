@@ -26,67 +26,43 @@ const CardCarousel = () => (
       isIntrinsicHeight="false"
       touchEnabled="false"
       infinite="false"
-      totalSlides={9}
+      totalSlides={5}
       visibleSlides={3}
     >
       <Slider>
         <CustomCardSlide
-          image="logoSeedrs.png"
-          index={0}
-          header="Matthew House"
-          meta="Friend"
-        />
-        <CustomCardSlide
           header="Elliot Baker"
-          image="raize.png"
-          index={0}
-          meta="Friend"
-        />
-        <CustomCardSlide
-          header="Steve Sanders"
-          image="PPL.png"
-          index={0}
-          meta="Friend"
-        />
-        <CustomCardSlide
-          image="Logo2.png"
-          index={1}
-          header="Matthew House"
-          meta="Friend"
-        />
-        <CustomCardSlide
-          header="Elliot Baker"
-          image="backgnd.jpg"
+          image="/backgnd.jpg"
           index={1}
           meta="Friend"
         />
         <CustomCardSlide
           header="Steve Sanders"
-          image="backgnd.jpg"
+          image="/backgnd.jpg"
           index={1}
           meta="Friend"
         />
         <CustomCardSlide
-          image="backgnd.jpg"
+          image="/backgnd.jpg"
           index={2}
           header="Matthew House"
           meta="Friend"
         />
         <CustomCardSlide
           header="Elliot Baker"
-          image="backgnd.jpg"
+          image="/backgnd.jpg"
           index={2}
           meta="Friend"
         />
         <CustomCardSlide
           header="Steve Sanders"
-          image="backgnd.jpg"
+          image="/backgnd.jpg"
           index={2}
           meta="Friend"
         />
       </Slider>
 
-      <CustomDotGroup slides={9} />
+      <CustomDotGroup slides={5} />
     </CarouselProvider>
   </Container>
 );

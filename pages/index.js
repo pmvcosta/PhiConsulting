@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Card,
   Button,
@@ -12,14 +12,27 @@ import {
   Image,
   Reveal,
   Icon,
-} from 'semantic-ui-react';
-import Layout from '../components/LayoutIndex';
-import { Link } from '../routes';
-import Newsletter from './newsletter';
-import ScrollAppear from '../components/ScrollLayout';
-import PreServiceScroll from './preCampServices';
-import ServiceScroll from './campServices';
-import PostServiceScroll from './postCampServices';
+} from "semantic-ui-react";
+import Layout from "../components/LayoutIndex";
+import { Link } from "../routes";
+import Newsletter from "./newsletter";
+import ScrollAppear from "../components/ScrollLayout";
+import PreServiceScroll from "./preCampServices";
+import ServiceScroll from "./campServices";
+import PostServiceScroll from "./postCampServices";
+import { useSession, getSession } from "next-auth/client";
+
+export async function getServerSideProps(context) {
+  //getSession automatically looks into request
+  const session = await getSession({ req: context.req });
+  console.log(session);
+
+  //const router = useRouter();
+
+  return {
+    props: { session },
+  };
+}
 
 class MainIndex extends Component {
   //Next.js adds requirements for data loading.
@@ -33,14 +46,15 @@ class MainIndex extends Component {
 
   render() {
     const { fixed } = this.state;
+    const { session } = this.props;
     return (
-      <Layout>
+      <Layout session={session}>
         <Segment
           fluid
-          style={{ padding: '8em 0em' }}
+          style={{ padding: "8em 0em" }}
           vertical
           style={{
-            backgroundColor: 'rgba(212, 32, 32, 0.0)',
+            backgroundColor: "rgba(212, 32, 32, 0.0)",
           }}
         >
           <Grid
@@ -48,29 +62,29 @@ class MainIndex extends Component {
             stackable
             verticalAlign="middle"
             style={{
-              padding: '9em 0em',
-              backgroundImage: 'url(/backgnd.jpg)',
+              padding: "9em 0em",
+              backgroundImage: "url(/backgnd.jpg)",
               /* Create the parallax scrolling effect */
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no - repeat',
-              backgroundSize: 'cover',
+              backgroundAttachment: "fixed",
+              backgroundPosition: "center",
+              backgroundRepeat: "no - repeat",
+              backgroundSize: "cover",
             }}
           >
             <Grid.Row
               fluid
               style={{
-                backgroundColor: 'rgba(212, 32, 32, 1.0)',
+                backgroundColor: "rgba(212, 32, 32, 1.0)",
               }}
             >
-              <Grid.Column width={8} style={{ paddingLeft: '10em' }}>
+              <Grid.Column width={8} style={{ paddingLeft: "10em" }}>
                 <ScrollAppear>
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '3em',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      paddingBottom: '1em',
+                      fontSize: "3em",
+                      color: "rgba(255, 255, 255, 0.9)",
+                      paddingBottom: "1em",
                     }}
                   >
                     Obtain Funding and <br /> Validate Consumer Demand
@@ -80,8 +94,8 @@ class MainIndex extends Component {
                 <ScrollAppear>
                   <p
                     style={{
-                      fontSize: '1.5em',
-                      color: 'rgba(220, 220, 220 , 1.0)',
+                      fontSize: "1.5em",
+                      color: "rgba(220, 220, 220 , 1.0)",
                     }}
                   >
                     <b>
@@ -98,9 +112,9 @@ class MainIndex extends Component {
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '3em',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      paddingBottom: '1em',
+                      fontSize: "3em",
+                      color: "rgba(255, 255, 255, 0.9)",
+                      paddingBottom: "1em",
                     }}
                   >
                     <br />
@@ -112,8 +126,8 @@ class MainIndex extends Component {
                 <ScrollAppear>
                   <p
                     style={{
-                      fontSize: '1.5em',
-                      color: 'rgba(220, 220, 220 , 1.0)',
+                      fontSize: "1.5em",
+                      color: "rgba(220, 220, 220 , 1.0)",
                     }}
                   >
                     <b>
@@ -130,7 +144,7 @@ class MainIndex extends Component {
               <Grid.Column
                 floated="right"
                 width={7}
-                style={{ paddingRight: '5em' }}
+                style={{ paddingRight: "5em" }}
               >
                 <Transition
                   animation="scale"
@@ -141,17 +155,17 @@ class MainIndex extends Component {
                 </Transition>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row style={{ padding: '2em' }}>
+            <Grid.Row style={{ padding: "2em" }}>
               <Grid.Column>
                 <ScrollAppear>
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '6em',
-                      color: 'rgba(212, 32, 32, 1.0)',
-                      textAlign: 'center',
-                      paddingTop: '1em',
-                      paddingBottom: '1em',
+                      fontSize: "6em",
+                      color: "rgba(212, 32, 32, 1.0)",
+                      textAlign: "center",
+                      paddingTop: "1em",
+                      paddingBottom: "1em",
                     }}
                   >
                     What do we offer?
@@ -166,19 +180,19 @@ class MainIndex extends Component {
                 fluid
                 width={8}
                 style={{
-                  backgroundColor: 'rgba(212, 32, 32, 1.0)',
-                  paddingLeft: '10em',
-                  paddingRight: '10em',
-                  paddingTop: '2em',
-                  paddingBottom: '5em',
+                  backgroundColor: "rgba(212, 32, 32, 1.0)",
+                  paddingLeft: "10em",
+                  paddingRight: "10em",
+                  paddingTop: "2em",
+                  paddingBottom: "5em",
                 }}
               >
                 <ScrollAppear>
                   <Header
                     as="h3"
                     style={{
-                      fontSize: '3em',
-                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontSize: "3em",
+                      color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
                     <br />
@@ -188,8 +202,8 @@ class MainIndex extends Component {
                 <ScrollAppear>
                   <p
                     style={{
-                      fontSize: '1.5em',
-                      color: 'rgba(220, 220, 220 , 1.0)',
+                      fontSize: "1.5em",
+                      color: "rgba(220, 220, 220 , 1.0)",
                     }}
                   >
                     <br />
@@ -217,11 +231,11 @@ class MainIndex extends Component {
                 fluid
                 width={8}
                 style={{
-                  backgroundColor: 'rgba(212, 32, 32, 1.0)',
-                  paddingLeft: '10em',
-                  paddingRight: '10em',
-                  paddingTop: '2em',
-                  paddingBottom: '5em',
+                  backgroundColor: "rgba(212, 32, 32, 1.0)",
+                  paddingLeft: "10em",
+                  paddingRight: "10em",
+                  paddingTop: "2em",
+                  paddingBottom: "5em",
                 }}
               >
                 <ScrollAppear>

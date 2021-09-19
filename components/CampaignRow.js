@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import { Table, Button, Progress, Header } from 'semantic-ui-react';
 
-class RequestRow extends Component {
+class CampaignRow extends Component {
   state = {
     percent: 30,
   };
   render() {
     const { Row, Cell } = Table;
-    const { request } = this.props;
+    const { campaign } = this.props;
     const { percent } = this.state;
     return (
       <Row>
         <Cell>
           <Header as="h3" textAlign="center">
-            {request.reqName}
+            {campaign.campaignName}
           </Header>
         </Cell>
-        <Cell singleLine>{request.reqType}</Cell>
-        <Cell>{request.maxSpend}</Cell>
-        <Cell>{request.reqDeadline}</Cell>
-        <Cell>{request.payMethod}</Cell>
-        <Cell>{request.addNotes}</Cell>
+        <Cell singleLine>{campaign.platform}</Cell>
+        <Cell>{campaign.fundDeadline}</Cell>
+        <Cell>{campaign.fundGoal}</Cell>
+        <Cell>{campaign.fundMethod}</Cell>
+        <Cell>{campaign.addNotes}</Cell>
       </Row>
     );
   }
 }
 
-export default RequestRow;
+export default CampaignRow;
