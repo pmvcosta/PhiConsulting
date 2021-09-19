@@ -20,7 +20,7 @@ import {
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 import KitPopUp from './kitPopUp';
-import BasicDetails from './BasicDetails';
+import BasicDetails from './basicDetails';
 import Financials from './financial';
 import AltFi from './altFiSpecs';
 //const { countryOptions } = require("./countryList");
