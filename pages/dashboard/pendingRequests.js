@@ -55,6 +55,7 @@ export async function getServerSideProps(context) {
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const requests = user.requests;
+  const profileType = session.user.name;
   let request = {};
   let requestList = [];
 
@@ -74,16 +75,21 @@ export async function getServerSideProps(context) {
     });
   }
 
+  client.close();
   return {
-    props: { session, requestList },
+    props: { session, requestList, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    percent: 100,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, percent: 100 };
+  }
 
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
   //redirect away if not authorized
 
   renderRows() {
@@ -93,11 +99,16 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { session, requestList } = this.props;
-    const { percent } = this.state;
+    const { session, requestList, profileType } = this.props;
+    const { percent, isLoading } = this.state;
     const currentItem = 'pendingRequests';
     return (
-      <DashBar session={session} currentItem={currentItem}>
+      <DashBar
+        session={session}
+        currentItem={currentItem}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" raised padded>
           <Header

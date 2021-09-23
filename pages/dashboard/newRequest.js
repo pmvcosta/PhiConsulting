@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Card,
   Button,
@@ -20,16 +20,16 @@ import {
   Form,
   Checkbox,
   Transition,
-} from "semantic-ui-react";
-import { Link, Router } from "../../routes";
-import { useRouter } from "next/router";
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import DashBar from "../../components/DashLayout";
-import Featured from "./featured";
-import KitPopUp from "./servicePopUp";
-import { useSession, getSession } from "next-auth/client";
-import { connectToDatabase } from "../../lib/db";
+} from 'semantic-ui-react';
+import { Link, Router } from '../../routes';
+import { useRouter } from 'next/router';
+import { createMedia } from '@artsy/fresnel';
+import PropTypes from 'prop-types';
+import DashBar from '../../components/DashLayout';
+import Featured from './featured';
+import KitPopUp from './servicePopUp';
+import { useSession, getSession } from 'next-auth/client';
+import { connectToDatabase } from '../../lib/db';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -40,19 +40,19 @@ const { MediaContextProvider, Media } = createMedia({
 });
 
 const options = [
-  { key: "m", text: "Within next 3 months", value: "3" },
-  { key: "f", text: "3-6 months", value: "3-6" },
-  { key: "o", text: "6+ months", value: "6+" },
+  { key: 'm', text: 'Within next 3 months', value: '3' },
+  { key: 'f', text: '3-6 months', value: '3-6' },
+  { key: 'o', text: '6+ months', value: '6+' },
 ];
 
 const optionsPay = [
-  { key: "m", text: "Credit Card", value: "Credit Card" },
-  { key: "l", text: "Bank Transfer", value: "Bank Transfer" },
-  { key: "f", text: "Paypal", value: "Paypal" },
+  { key: 'm', text: 'Credit Card', value: 'Credit Card' },
+  { key: 'l', text: 'Bank Transfer', value: 'Bank Transfer' },
+  { key: 'f', text: 'Paypal', value: 'Paypal' },
   {
-    key: "o",
-    text: "Percentage of Campaign Funds",
-    value: "Percentage of Funds",
+    key: 'o',
+    text: 'Percentage of Campaign Funds',
+    value: 'Percentage of Funds',
   },
 ];
 
@@ -65,49 +65,62 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection("users");
+  const usersCollection = client.db().collection('users');
+
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const campaigns = user.campaigns;
+  const profileType = session.user.name;
   let campaign = {};
   let optionsCamp = [];
 
-  campaigns.forEach((item) => {
-    campaign = {};
-    console.log(`THE NAME IS ${item.campaignName}`);
+  if (campaigns !== undefined) {
+    campaigns.forEach((item) => {
+      campaign = {};
+      console.log(`THE NAME IS ${item.campaignName}`);
 
-    campaign["key"] = `${item.campaignName}`;
-    campaign["text"] = `${item.campaignName}`;
-    campaign["value"] = `${item.campaignName}`;
+      campaign['key'] = `${item.campaignName}`;
+      campaign['text'] = `${item.campaignName}`;
+      campaign['value'] = `${item.campaignName}`;
 
-    optionsCamp.push(campaign);
-  });
+      optionsCamp.push(campaign);
+    });
+  }
 
+  client.close();
   return {
-    props: { session, optionsCamp },
+    props: { session, optionsCamp, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    open: false,
-    activeIndex: 0,
-    campaignName: "",
-    reqName: "",
-    maxSpend: "",
-    reqDeadline: "",
-    addNotes: "",
-    payMethod: "",
-    errorMessage: "",
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      open: false,
+      activeIndex: 0,
+      campaignName: '',
+      reqName: '',
+      maxSpend: '',
+      reqDeadline: '',
+      addNotes: '',
+      payMethod: '',
+      errorMessage: '',
+      loading: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
 
   createRequest = async (
     campaignName,
@@ -118,8 +131,8 @@ class Dashboard extends Component {
     addNotes,
     payMethod
   ) => {
-    const response = await fetch("/api/user/newRequest", {
-      method: "PATCH",
+    const response = await fetch('/api/user/newRequest', {
+      method: 'PATCH',
       body: JSON.stringify({
         campaignName,
         reqName,
@@ -130,7 +143,7 @@ class Dashboard extends Component {
         payMethod,
       }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': "application/json",
       },
     });
 
@@ -204,10 +217,15 @@ class Dashboard extends Component {
       addNotes,
       payMethod,
       loading,
+      isLoading,
     } = this.state;
-    const { session, optionsCamp } = this.props;
+    const { session, optionsCamp, profileType } = this.props;
     return (
-      <DashBar session={session}>
+      <DashBar
+        session={session}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" padded raised fluid>
           <Header

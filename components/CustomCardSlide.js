@@ -3,6 +3,7 @@ import { Slide } from 'pure-react-carousel';
 import React, { Component } from 'react';
 import { Card, Button, Image, Transition } from 'semantic-ui-react';
 import KitPopUp from '../pages/dashboard/servicePopUp';
+import CampaignSlide from '../pages/openCampaigns/details';
 
 //const CustomCardSlide = ({ index, image, header, meta }) => (
 class CustomCardSlide extends Component {
@@ -23,7 +24,7 @@ class CustomCardSlide extends Component {
       <Slide index={index}>
         <div style={{ padding: 10 }}>
           <Card>
-            <Image wrapped ui={false} src={image} />
+            <CampaignSlide width={'250px'} />
             <Card.Content>
               <Card.Header>{header}</Card.Header>
               <Card.Meta>{meta}</Card.Meta>

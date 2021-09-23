@@ -47,7 +47,7 @@ export default NextAuth({
         // properly, and user is logged in
         //can include user email in this object, that will be encoded into the
         // token, not wise to include the password.
-        return { email: user.email };
+        return { email: user.email, name: user.profileType };
       },
     }),
   ],

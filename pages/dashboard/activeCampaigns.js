@@ -24,6 +24,7 @@ import PropTypes from 'prop-types';
 import DashBar from '../../components/DashLayout';
 import Featured from './featured';
 import { useSession, getSession } from 'next-auth/client';
+//import { connectToDatabase } from "../../lib/db";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -48,24 +49,43 @@ export async function getServerSideProps(context) {
     };
   }
 
+  //const client = await connectToDatabase();
+  //const usersCollection = client.db().collection("users");
+
+  //const userEmail = session.user.email;
+  //const user = await usersCollection.findOne({ email: userEmail });
+  const profileType = session.user.name;
+
+  console.log(`The profileType is ${profileType}`);
+
+  //client.close();
   return {
-    props: { session },
+    props: { session, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    percent: 80,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, percent: 80 };
+  }
 
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
   //redirect away if not authorized
 
   render() {
-    const { session } = this.props;
-    const { percent } = this.state;
+    const { session, profileType } = this.props;
+    const { percent, isLoading } = this.state;
     const currentItem = 'activeCampaigns';
     return (
-      <DashBar session={session} currentItem={currentItem}>
+      <DashBar
+        session={session}
+        currentItem={currentItem}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" raised padded>
           <Header

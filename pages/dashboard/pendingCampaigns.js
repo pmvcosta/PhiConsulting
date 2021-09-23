@@ -15,6 +15,8 @@ import {
   Checkbox,
   Table,
   Progress,
+  Loader,
+  Dimmer,
   Rating,
 } from 'semantic-ui-react';
 import { Link, Router } from '../../routes';
@@ -55,6 +57,7 @@ export async function getServerSideProps(context) {
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const campaigns = user.campaigns;
+  const profileType = session.user.name;
   let campaign = {};
   let campaignList = [];
 
@@ -74,16 +77,21 @@ export async function getServerSideProps(context) {
     });
   }
 
+  client.close();
   return {
-    props: { session, campaignList },
+    props: { session, campaignList, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    percent: 50,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, percent: 50 };
+  }
 
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
   //redirect away if not authorized
 
   renderRows() {
@@ -93,11 +101,16 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { session } = this.props;
-    const { percent } = this.state;
+    const { session, profileType } = this.props;
+    const { percent, isLoading } = this.state;
     const currentItem = 'pendingCampaigns';
     return (
-      <DashBar session={session} currentItem={currentItem}>
+      <DashBar
+        session={session}
+        currentItem={currentItem}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" raised padded>
           <Header

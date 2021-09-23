@@ -29,6 +29,7 @@ import DashBar from '../../components/DashLayout';
 import Featured from './featured';
 import KitPopUp from './servicePopUp';
 import { useSession, getSession } from 'next-auth/client';
+//import { connectToDatabase } from '../../lib/db';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -67,23 +68,39 @@ export async function getServerSideProps(context) {
     };
   }
 
+  //const client = await connectToDatabase();
+  //const usersCollection = client.db().collection("users");
+
+  const userEmail = session.user.email;
+  //const user = await usersCollection.findOne({ email: userEmail });
+  const profileType = session.user.name;
+
+  //client.close();
   return {
-    props: { session },
+    props: { session, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    open: false,
-    shares: '',
-    value: '',
-    budget: '',
-    fundDate: '',
-    funding: '',
-    activeIndex: 0,
-    errorMessage: '',
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      open: false,
+      shares: '',
+      value: '',
+      budget: '',
+      fundDate: '',
+      funding: '',
+      activeIndex: 0,
+      errorMessage: '',
+      loading: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
 
   createCampaign = async (
     campaignName,
@@ -144,7 +161,7 @@ class Dashboard extends Component {
   };
 
   handleNumberChange = (e, { name, value }) =>
-    this.setState({ [name]: value.replace(/\D/, '') });
+    this.setState({ [name]: value.replace(/\D/, "") });
 
   handleTextChange = (e, { name, value }) => this.setState({ [name]: value });
 
@@ -177,15 +194,20 @@ class Dashboard extends Component {
       addNotes,
       shares,
       loading,
+      isLoading,
     } = this.state;
-    const { session } = this.props;
+    const { session, profileType = { profileType } } = this.props;
     return (
-      <DashBar session={session}>
+      <DashBar
+        session={session}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" padded raised fluid>
           <Header
             as="h2"
-            style={{ fontSize: '2em', color: "rgba(212, 32, 32, 1.0)" }}
+            style={{ fontSize: "2em", color: "rgba(212, 32, 32, 1.0)" }}
           >
             New Campaign
           </Header>

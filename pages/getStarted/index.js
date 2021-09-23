@@ -24,6 +24,20 @@ import BasicDetails from './basicDetails';
 import Financials from './financial';
 import AltFi from './altFiSpecs';
 //const { countryOptions } = require("./countryList");
+import { useSession, getSession } from 'next-auth/client';
+
+export async function getServerSideProps(context) {
+  //getSession automatically looks into request
+  const session = await getSession({ req: context.req });
+  console.log(session);
+
+  //const router = useRouter();
+
+  return {
+    props: { session },
+  };
+}
+
 const options = [
   { key: 'm', text: 'Within next 3 months', value: '3' },
   { key: 'f', text: '3-6 months', value: '36' },
@@ -38,7 +52,7 @@ const countryOptions = [
   { text: 'American Samoa', key: 'as', value: 'as', flag: 'as' },
   { text: 'Andorra', key: 'ad', value: 'ad', flag: 'ad' },
   { text: 'Angola', key: 'ao', value: 'ao', flag: 'ao' },
-  { text: 'Anguilla', key: 'ai', value: 'ai', flag: 'ai' },
+  { text: 'Anguilla', key: 'ai', value: 'ai', flag: "ai" },
   { text: "Antigua", key: "ag", value: "ag", flag: "ag" },
   { text: "Argentina", key: "ar", value: "ar", flag: "ar" },
   { text: "Armenia", key: "am", value: "am", flag: "am" },
@@ -322,8 +336,10 @@ class FormExampleFieldControl extends Component {
   hideModal = () => this.setState({ open: false });
 
   render() {
-    const { value, open } = this.state;
+    const { session } = this.props;
     const {
+      value,
+      open,
       busName,
       country,
       website,
@@ -334,7 +350,7 @@ class FormExampleFieldControl extends Component {
       activeIndex,
     } = this.state;
     return (
-      <Layout>
+      <Layout session={session}>
         <Segment
           fluid
           style={{ padding: "8em 2em" }}

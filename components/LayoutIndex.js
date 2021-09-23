@@ -15,7 +15,7 @@ class LayoutIndex extends Component {
     return (
       <Provider session={session}>
         <Container fluid={true}>
-          <Header>{children}</Header>
+          <Header session={session}>{children}</Header>
           <Footer />
         </Container>
       </Provider>

@@ -75,10 +75,10 @@ class CampaignNew extends Component {
     };
   }*/
 
-  createUser = async (email, password) => {
+  createUser = async (email, password, profileType) => {
     const response = await fetch('/api/auth/signup', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, profileType }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -106,7 +106,8 @@ class CampaignNew extends Component {
       if (this.state.password === this.state.confirmPassword) {
         const result = await this.createUser(
           this.state.email,
-          this.state.password
+          this.state.password,
+          this.state.value
         );
         const signResult = await signIn('credentials', {
           redirect: false,
@@ -144,8 +145,9 @@ class CampaignNew extends Component {
       errorMessage,
       loading,
     } = this.state;
+    const { session } = this.props;
     return (
-      <Layout>
+      <Layout session={session}>
         <Grid
           centered
           columns={2}

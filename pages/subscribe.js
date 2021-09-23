@@ -16,6 +16,19 @@ import { Link, Router } from '../routes'; //Not going to use Link, but it exists
 import { PopupButton } from '@typeform/embed-react';
 import ScrollAppear from '../components/ScrollLayout';
 import ServiceScroll from './preCampServices';
+import { useSession, getSession } from 'next-auth/client';
+
+export async function getServerSideProps(context) {
+  //getSession automatically looks into request
+  const session = await getSession({ req: context.req });
+  console.log(session);
+
+  //const router = useRouter();
+
+  return {
+    props: { session },
+  };
+}
 
 class Subscribe extends Component {
   state = {
@@ -60,8 +73,9 @@ class Subscribe extends Component {
   };
 
   render() {
+    const { session } = this.props;
     return (
-      <Layout>
+      <Layout session={session}>
         <Grid
           container
           stackable

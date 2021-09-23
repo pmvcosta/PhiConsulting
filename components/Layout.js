@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import { Container } from 'semantic-ui-react';
-import { Provider } from 'next-auth/client';
-import 'semantic-ui-css/semantic.min.css'; //Since Layout is always loaded it
+import React, { Component } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import { Container } from "semantic-ui-react";
+import { Provider } from "next-auth/client";
+import "semantic-ui-css/semantic.min.css"; //Since Layout is always loaded it
 // is best to import this here
 class Layout extends Component {
   render() {
-    const { children } = this.props;
+    const { children, session } = this.props;
 
     //The Provider session argument provided below is a bit yiffy, verify it!
     return (
-      <Provider session={children.session}>
+      <Provider session={session}>
         <Container fluid={true}>
-          <Header>{children}</Header>
+          <Header session={session}>{children}</Header>
           <Footer />
         </Container>
       </Provider>

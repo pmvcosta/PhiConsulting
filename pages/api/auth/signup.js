@@ -8,7 +8,7 @@ async function handler(req, res) {
 
   const data = req.body;
 
-  const { email, password } = data;
+  const { email, password, profileType } = data;
 
   //Check validity of inputs
   if (
@@ -50,6 +50,7 @@ async function handler(req, res) {
   const result = await db.collection('users').insertOne({
     email: email,
     password: hashedPassword,
+    profileType: profileType,
   });
 
   res.status(201).json({ message: 'Created User!' });

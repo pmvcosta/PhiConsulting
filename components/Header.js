@@ -57,174 +57,170 @@ class DesktopContainer extends Component {
     //session describes the current session, loading indicates whether it is
     // still figuring out the state of the session
 
-    const { children } = this.props;
+    const { children, session } = this.props;
     const { fixed } = this.state;
 
     return (
-      <UseSession>
-        {(session, loading) => (
-          <Media greaterThan="mobile">
-            <link rel="shortcut icon" href="/favicon.ico" />
-            <Segment
-              inverted
-              textAlign="center"
+      <Media greaterThan="mobile">
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <Segment
+          inverted
+          textAlign="center"
+          style={{
+            minHeight: 10,
+            padding: '.2em 0em',
+            backgroundImage: 'url(/backgnd.jpg)',
+            /* Set a specific height */
+            minHeight: '60px',
+
+            /* Create the parallax scrolling effect */
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
+          }}
+          vertical
+        >
+          <Visibility
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
+          >
+            <Menu
+              borderless
+              fixed={fixed ? 'top' : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size="large"
               style={{
-                minHeight: 10,
-                padding: '.2em 0em',
-                backgroundImage: 'url(/backgnd.jpg)',
-                /* Set a specific height */
-                minHeight: '60px',
-
-                /* Create the parallax scrolling effect */
-                backgroundAttachment: 'fixed',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no - repeat',
-                backgroundSize: 'cover',
+                border: '0px',
+                outline: '0px',
+                backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
               }}
-              vertical
             >
-              <Visibility
-                once={false}
-                onBottomPassed={this.showFixedMenu}
-                onBottomPassedReverse={this.hideFixedMenu}
-              >
-                <Menu
-                  borderless
-                  fixed={fixed ? 'top' : null}
-                  inverted={!fixed}
-                  pointing={!fixed}
-                  secondary={!fixed}
-                  size="large"
-                  style={{
-                    border: '0px',
-                    outline: '0px',
-                    backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
-                  }}
-                >
-                  <Container fluid>
-                    <Menu.Item>
-                      <Link route="/">
-                        <a>
-                          <Image src="/logo.png" size="tiny" centered />
-                        </a>
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                      <Link route="/">
-                        <a
-                          style={{
-                            color: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(74, 74, 74, 0.9)',
-                          }}
-                        >
-                          Home
-                        </a>
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                      <Link route="/getStarted">
-                        <a
-                          style={{
-                            color: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(74, 74, 74, 0.9)',
-                          }}
-                        >
-                          Solutions
-                        </a>
-                      </Link>
-                    </Menu.Item>
+              <Container fluid>
+                <Menu.Item>
+                  <Link route="/">
+                    <a>
+                      <Image src="/logo.png" size="tiny" centered />
+                    </a>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link route="/">
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
+                      }}
+                    >
+                      Home
+                    </a>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link route="/openCampaigns">
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
+                      }}
+                    >
+                      Campaigns
+                    </a>
+                  </Link>
+                </Menu.Item>
 
-                    <Menu.Item>
-                      <Link route="/subscribe">
-                        <a
+                <Menu.Item>
+                  <Link route="/subscribe">
+                    <a
+                      style={{
+                        color: fixed
+                          ? 'rgba(212, 32, 32, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
+                      }}
+                    >
+                      Learn More
+                    </a>
+                  </Link>
+                </Menu.Item>
+                {session && (
+                  <Menu.Item>
+                    <Link route="/dashboard">
+                      <a
+                        style={{
+                          color: fixed
+                            ? 'rgba(212, 32, 32, 0.9)'
+                            : 'rgba(74, 74, 74, 0.9)',
+                        }}
+                      >
+                        Dashboard
+                      </a>
+                    </Link>
+                  </Menu.Item>
+                )}
+                {!session && (
+                  <Menu.Item position="right">
+                    <Link route="/login">
+                      <a>
+                        <Button
+                          secondary={fixed}
                           style={{
-                            color: fixed
+                            backgroundColor: fixed
                               ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(74, 74, 74, 0.9)',
+                              : 'rgba(255, 255, 255, 0.9)',
                           }}
                         >
-                          Learn More
-                        </a>
-                      </Link>
-                    </Menu.Item>
-                    {session && !loading && (
-                      <Menu.Item>
-                        <Link route="/dashboard">
-                          <a
-                            style={{
-                              color: fixed
-                                ? 'rgba(212, 32, 32, 0.9)'
-                                : 'rgba(74, 74, 74, 0.9)',
-                            }}
-                          >
-                            Dashboard
-                          </a>
-                        </Link>
-                      </Menu.Item>
-                    )}
-                    {!session && !loading && (
-                      <Menu.Item position="right">
-                        <Link route="/login">
-                          <a>
-                            <Button
-                              secondary={fixed}
-                              style={{
-                                backgroundColor: fixed
-                                  ? 'rgba(212, 32, 32, 0.9)'
-                                  : 'rgba(255, 255, 255, 0.9)',
-                              }}
-                            >
-                              Log in
-                            </Button>
-                          </a>
-                        </Link>
-                        <Link route="/register">
-                          <a>
-                            <Button
-                              primary={fixed}
-                              style={{
-                                marginLeft: '0.5em',
-                                backgroundColor: fixed
-                                  ? 'rgba(212, 32, 32, 0.9)'
-                                  : 'rgba(255, 255, 255, 0.9)',
-                              }}
-                            >
-                              Sign Up
-                            </Button>
-                          </a>
-                        </Link>
-                      </Menu.Item>
-                    )}
-                    {session && !loading && (
-                      <Menu.Item position="right">
-                        <Link route="/subscribe">
-                          <a>
-                            <Button
-                              onClick={this.logoutHandler}
-                              secondary={fixed}
-                              style={{
-                                backgroundColor: fixed
-                                  ? 'rgba(212, 32, 32, 0.9)'
-                                  : 'rgba(255, 255, 255, 0.9)',
-                              }}
-                            >
-                              Log Out
-                            </Button>
-                          </a>
-                        </Link>
-                      </Menu.Item>
-                    )}
-                  </Container>
-                </Menu>
-              </Visibility>
-            </Segment>
+                          Log in
+                        </Button>
+                      </a>
+                    </Link>
+                    <Link route="/register">
+                      <a>
+                        <Button
+                          primary={fixed}
+                          style={{
+                            marginLeft: '0.5em',
+                            backgroundColor: fixed
+                              ? 'rgba(212, 32, 32, 0.9)'
+                              : 'rgba(255, 255, 255, 0.9)',
+                          }}
+                        >
+                          Sign Up
+                        </Button>
+                      </a>
+                    </Link>
+                  </Menu.Item>
+                )}
+                {session && (
+                  <Menu.Item position="right">
+                    <Link route="/subscribe">
+                      <a>
+                        <Button
+                          onClick={this.logoutHandler}
+                          secondary={fixed}
+                          style={{
+                            backgroundColor: fixed
+                              ? 'rgba(212, 32, 32, 0.9)'
+                              : 'rgba(255, 255, 255, 0.9)',
+                          }}
+                        >
+                          Log Out
+                        </Button>
+                      </a>
+                    </Link>
+                  </Menu.Item>
+                )}
+              </Container>
+            </Menu>
+          </Visibility>
+        </Segment>
 
-            {children}
-          </Media>
-        )}
-      </UseSession>
+        {children}
+      </Media>
     );
   }
 }
@@ -244,7 +240,7 @@ class MobileContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { children } = this.props;
+    const { children, session } = this.props;
     const { sidebarOpened, fixed } = this.state;
 
     return (
@@ -389,17 +385,22 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const ResponsiveContainer = ({ children }) => (
+class ResponsiveContainer extends Component {
   /* Heads up!
    * For large applications it may not be best option to
    put all page into these containers at
    * they will be rendered twice for SSR.
    */
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
+  render() {
+    const { session, children } = this.props;
+    return (
+      <MediaContextProvider>
+        <DesktopContainer session={session}>{children}</DesktopContainer>
+        <MobileContainer session={session}>{children}</MobileContainer>
+      </MediaContextProvider>
+    );
+  }
+}
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,

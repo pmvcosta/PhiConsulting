@@ -88,8 +88,9 @@ class CampaignNew extends Component {
 
   render() {
     //Need to redirect away if it is already auth'ed
+    const { session } = this.props;
     return (
-      <Layout>
+      <Layout session={session}>
         <Grid
           container
           stackable

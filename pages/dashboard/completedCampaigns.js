@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -16,14 +16,15 @@ import {
   Table,
   Progress,
   Rating,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { useRouter } from 'next/router';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import { useSession, getSession } from 'next-auth/client';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { useRouter } from "next/router";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import { useSession, getSession } from "next-auth/client";
+//import { connectToDatabase } from "../../lib/db";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -42,35 +43,55 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
 
+  //const client = await connectToDatabase();
+  //const usersCollection = client.db().collection("users");
+
+  //const userEmail = session.user.email;
+  //const user = await usersCollection.findOne({ email: userEmail });
+  const profileType = session.user.name;
+
+  console.log(`The profileType is ${profileType}`);
+
+  //client.close();
   return {
-    props: { session },
+    props: { session, profileType },
   };
 }
 
 class Dashboard extends Component {
-  state = {
-    percent: 100,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, percent: 100 };
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: false });
+  }
 
   //redirect away if not authorized
 
   render() {
-    const { session } = this.props;
-    const { percent } = this.state;
-    const currentItem = 'completedCampaigns';
+    const { session, profileType } = this.props;
+    const { percent, isLoading } = this.state;
+    const currentItem = "completedCampaigns";
     return (
-      <DashBar session={session} currentItem={currentItem}>
+      <DashBar
+        session={session}
+        currentItem={currentItem}
+        profileType={profileType}
+        isLoading={isLoading}
+      >
         <br />
         <Segment color="red" raised padded>
           <Header
             as="h2"
-            style={{ fontSize: '2em', color: 'rgba(182, 12, 12, 0.9)' }}
+            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
           >
             Completed Campaigns
           </Header>
@@ -82,7 +103,7 @@ class Dashboard extends Component {
                   Campaign Duration
                 </Table.HeaderCell>
                 <Table.HeaderCell>Efficacy</Table.HeaderCell>
-                <Table.HeaderCell singleLine style={{ width: '200px' }}>
+                <Table.HeaderCell singleLine style={{ width: "200px" }}>
                   Funding Progress
                 </Table.HeaderCell>
                 <Table.HeaderCell singleLine>Campaign Page</Table.HeaderCell>
@@ -114,7 +135,7 @@ class Dashboard extends Component {
                 <Table.Cell textAlign="right">
                   <Button
                     secondary
-                    style={{ backgroundColor: 'rgba(182, 12, 12, 0.9)' }}
+                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
                   >
                     Check Campaign
                   </Button>
@@ -148,7 +169,7 @@ class Dashboard extends Component {
                 <Table.Cell textAlign="right">
                   <Button
                     secondary
-                    style={{ backgroundColor: 'rgba(182, 12, 12, 0.9)' }}
+                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
                   >
                     Check Campaign
                   </Button>

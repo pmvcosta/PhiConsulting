@@ -38,7 +38,7 @@ class KitPopUp extends Component {
           <br />
           <Image size="medium" src="./PPL.png" wrapped />
 
-          <p style={{ width: '50%' }}>
+          <p style={{ width: '400px' }}>
             <br />
             PPL is the reference crowdfunding platform in Portugal, launched in
             2011. It specializes in rewards-based crowdfunding and donation
@@ -136,7 +136,7 @@ class KitPopUp extends Component {
               Reccomended Services and Estimated Costs
             </Header>
 
-            <Grid divided="vertically" style={{ width: '100' }}>
+            <Grid divided="vertically" style={{ width: '800px' }}>
               <Grid.Row columns={2}>
                 <Grid.Column>
                   <b>
@@ -178,9 +178,7 @@ class KitPopUp extends Component {
                   {Math.round(this.props.budget * 0.25)}
                 </Grid.Column>
               </Grid.Row>
-            </Grid>
 
-            <Grid style={{ width: '100' }}>
               <Grid.Row columns={2}>
                 <Grid.Column>Business Valuation</Grid.Column>
                 <Grid.Column>{Math.round(this.props.budget * 0.1)}</Grid.Column>
@@ -190,9 +188,7 @@ class KitPopUp extends Component {
                 <Grid.Column>Social Media Marketing </Grid.Column>
                 <Grid.Column>{Math.round(this.props.budget * 0.3)}</Grid.Column>
               </Grid.Row>
-            </Grid>
 
-            <Grid style={{ width: '100' }}>
               <Grid.Row columns={2}>
                 <Grid.Column>Community Building</Grid.Column>
                 <Grid.Column>{Math.round(this.props.budget * 0.2)}</Grid.Column>
