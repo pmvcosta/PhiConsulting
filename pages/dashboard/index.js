@@ -87,10 +87,12 @@ class Dashboard extends Component {
   render() {
     const { open, isLoading } = this.state;
     const { session, profileType } = this.props;
+    const currentItem = 'dashboard';
     return (
       <DashBar
         session={session}
         profileType={profileType}
+        currentItem={currentItem}
         isLoading={isLoading}
       >
         <br />
@@ -100,7 +102,7 @@ class Dashboard extends Component {
               as="h2"
               style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 1.0)' }}
             >
-              Featured Services
+              Recently Added
             </Header>
 
             <Featured />
@@ -250,7 +252,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                    style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
                   >
                     Request
                   </Button>

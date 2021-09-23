@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CarouselProvider, Slider } from 'pure-react-carousel';
 import {
   Popup,
   Button,
@@ -19,10 +20,12 @@ import {
   Header,
   Accordion,
 } from 'semantic-ui-react';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
-import Details from './details';
 import KitPopUp from './popUp';
+import CustomCardSlide from '../../components/CustomCardSlide';
+import CustomDotGroup from '../../components/CustomDotGroup';
 //const { countryOptions } = require("./countryList");
 
 class CampaignList extends Component {
@@ -50,135 +53,57 @@ class CampaignList extends Component {
           Available Campaigns
         </Header>
         <br />
-        <Card.Group itemsPerRow={4} centered>
-          <Card color="red" style={{ width: '280px', textAlign: 'left' }}>
-            <Card.Content>
-              <Details width="250px" />
-              <br />
-              <Card.Header syle={{ fontSize: '5em' }}>
-                Media Production
-              </Card.Header>
-              <Card.Description>
-                Request the creation of videos or images for the campaign"{' '}
-              </Card.Description>
-            </Card.Content>
-            {profileType == 'Funding Platform' && (
-              <Card.Content extra style={{ textAlign: 'center' }}>
-                <Button
-                  centered
-                  secondary
-                  onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-                >
-                  Request
-                </Button>
-              </Card.Content>
-            )}
-          </Card>
+        <CarouselProvider
+          naturalSlideWidth={1}
+          naturalSlideHeight={1.3}
+          isIntrinsicHeight="false"
+          touchEnabled={false}
+          infinite={true}
+          totalSlides={6}
+          visibleSlides={3}
+        >
+          <Slider>
+            <CustomCardSlide
+              header="Verve Tech"
+              image="/backgnd.jpg"
+              index={1}
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Steve Sanders"
+              image="/backgnd.jpg"
+              index={1}
+              meta="SME"
+            />
+            <CustomCardSlide
+              image="/backgnd.jpg"
+              index={2}
+              header="Matthew House"
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Elliot Baker"
+              image="/backgnd.jpg"
+              index={2}
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Steve Sanders"
+              image="/backgnd.jpg"
+              index={2}
+              meta="SME"
+            />
+            <CustomCardSlide
+              image="/backgnd.jpg"
+              index={2}
+              header="Matthew House"
+              meta="SME"
+            />
+          </Slider>
 
-          <Card color="red" style={{ width: '280px', textAlign: 'left' }}>
-            <Card.Content>
-              <Details width="250px" />
-              <br />
-              <Card.Header syle={{ fontSize: '5em' }}>
-                Media Production
-              </Card.Header>
-              <Card.Description>
-                Request the creation of videos or images for the campaign"{' '}
-              </Card.Description>
-            </Card.Content>
-            {profileType == 'Funding Platform' && (
-              <Card.Content extra style={{ textAlign: 'center' }}>
-                <Button
-                  centered
-                  secondary
-                  onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-                >
-                  Request
-                </Button>
-              </Card.Content>
-            )}
-          </Card>
+          <CustomDotGroup slides={6} />
+        </CarouselProvider>
 
-          <Card color="red" style={{ width: '280px', textAlign: 'left' }}>
-            <Card.Content>
-              <Details width="250px" />
-              <br />
-              <Card.Header syle={{ fontSize: '5em' }}>
-                Media Production
-              </Card.Header>
-              <Card.Description>
-                Request the creation of videos or images for the campaign"{' '}
-              </Card.Description>
-            </Card.Content>
-            {profileType == 'Funding Platform' && (
-              <Card.Content extra style={{ textAlign: 'center' }}>
-                <Button
-                  centered
-                  secondary
-                  onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-                >
-                  Request
-                </Button>
-              </Card.Content>
-            )}
-          </Card>
-
-          <Card color="red" style={{ width: '280px', textAlign: 'left' }}>
-            <Card.Content>
-              <Details width="250px" />
-              <br />
-              <Card.Header syle={{ fontSize: '5em' }}>
-                Media Production
-              </Card.Header>
-              <Card.Description>
-                Request the creation of videos or images for the campaign"{' '}
-              </Card.Description>
-            </Card.Content>
-            {profileType == 'Funding Platform' && (
-              <Card.Content extra style={{ textAlign: 'center' }}>
-                <Button
-                  centered
-                  secondary
-                  onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-                >
-                  Request
-                </Button>
-              </Card.Content>
-            )}
-          </Card>
-
-          <Card color="red" style={{ width: '280px', textAlign: 'left' }}>
-            <Card.Content>
-              <Details width="250px" />
-              <br />
-              <Card.Header syle={{ fontSize: '5em' }}>
-                Media Production
-              </Card.Header>
-              <Card.Description>
-                Request the creation of videos or images for the campaign"{' '}
-              </Card.Description>
-            </Card.Content>
-            {profileType == 'Funding Platform' && (
-              <Card.Content extra style={{ textAlign: 'center' }}>
-                <Button
-                  centered
-                  secondary
-                  onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-                >
-                  Request
-                </Button>
-              </Card.Content>
-            )}
-          </Card>
-        </Card.Group>
-        <Transition visible={open} animation="scale" duration={500}>
-          <KitPopUp open={open} hideModal={this.hideModal} />
-        </Transition>
         <br />
       </Segment>
     );

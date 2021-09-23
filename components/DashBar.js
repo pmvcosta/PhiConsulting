@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { createMedia } from '@artsy/fresnel';
+import React, { Component } from "react";
+import { createMedia } from "@artsy/fresnel";
 import {
   Menu,
   Sidebar,
@@ -16,11 +16,11 @@ import {
   List,
   Image,
   Dropdown,
-} from 'semantic-ui-react';
-import { Link, Router } from '../routes';
-import PropTypes from 'prop-types';
-import HomePageHeading from './HomePageHeading';
-import { signOut } from 'next-auth/client'; //To keep track of wether user is logged in
+} from "semantic-ui-react";
+import { Link, Router } from "../routes";
+import PropTypes from "prop-types";
+import HomePageHeading from "./HomePageHeading";
+import { signOut } from "next-auth/client"; //To keep track of wether user is logged in
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -49,16 +49,19 @@ class DesktopContainer extends Component {
   handleToggle = () => this.setState({ sidebarOpened: true });
 
   handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
-    this.setState({ loading: true });
-
-    try {
-      Router.pushRoute(`/dashboard/${name}`);
-      if (name === undefined) {
-        Router.pushRoute('/dashboard');
+    if (name !== this.state.activeItem) {
+      try {
+        if (name === undefined || name == "dashboard") {
+          Router.pushRoute("/dashboard");
+        } else {
+          Router.pushRoute(`/dashboard/${name}`);
+        }
+      } catch (e) {
+        Router.pushRoute("/dashboard");
       }
-    } catch (e) {
-      Router.pushRoute('/dashboard');
+
+      this.setState({ activeItem: name });
+      this.setState({ loading: true });
     }
   };
 
@@ -79,15 +82,15 @@ class DesktopContainer extends Component {
     const trigger = (
       <span
         style={{
-          color: 'rgba(212, 32, 32, 1.0)',
+          color: "rgba(212, 32, 32, 1.0)",
         }}
       >
         <Icon
           name="user"
           style={{
-            color: 'rgba(212, 32, 32, 1.0)',
+            color: "rgba(212, 32, 32, 1.0)",
           }}
-        />{' '}
+        />{" "}
         User Profile
       </span>
     );
@@ -99,8 +102,8 @@ class DesktopContainer extends Component {
             active={loading}
             inverted
             style={{
-              width: '100%',
-              marginTop: '3px',
+              width: "100%",
+              marginTop: "3px",
             }}
           >
             <Loader> Loading </Loader>
@@ -109,15 +112,15 @@ class DesktopContainer extends Component {
           <Grid
             fluid
             style={{
-              backgroundImage: 'url(/backgnd.jpg)',
+              backgroundImage: "url(/backgnd.jpg)",
               /* Set a specific height */
-              minHeight: '102.5vh',
+              minHeight: "102.5vh",
 
               /* Create the parallax scrolling effect */
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no - repeat',
-              backgroundSize: 'cover',
+              backgroundAttachment: "fixed",
+              backgroundPosition: "center",
+              backgroundRepeat: "no - repeat",
+              backgroundSize: "cover",
             }}
           >
             <Grid.Row>
@@ -129,10 +132,10 @@ class DesktopContainer extends Component {
                   secondary
                   fixed="top"
                   style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                    height: '100%',
-                    marginTop: '45px',
-                    borderRight: '1px solid rgba(0, 0, 0, 0.1)',
+                    backgroundColor: "rgba(0, 0, 0, 0.05)",
+                    height: "100%",
+                    marginTop: "45px",
+                    borderRight: "1px solid rgba(0, 0, 0, 0.1)",
                   }}
                 >
                   <Menu.Item centered>
@@ -140,29 +143,25 @@ class DesktopContainer extends Component {
                     <br />
                   </Menu.Item>
 
-                  <Menu.Item>
-                    <Link route="/dashboard">
-                      <a>
-                        <Image src="/LogoS2.png" size="tiny" centered />
-                      </a>
-                    </Link>
+                  <Menu.Item name="dashboard" onClick={this.handleItemClick}>
+                    <Image src="/LogoS2.png" size="tiny" centered />
                   </Menu.Item>
 
-                  {profileType == 'Borrower' && (
+                  {profileType == "Borrower" && (
                     <Menu.Item
-                      style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                      style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
                     >
                       <a
                         style={{
-                          color: 'rgba(220, 220, 220, 1.0)',
+                          color: "rgba(220, 220, 220, 1.0)",
                         }}
                       >
                         <Icon
                           name="flag"
                           size="large"
                           style={{
-                            marginRight: '6px',
-                            color: 'rgba(220, 220, 220, 1.0)',
+                            marginRight: "6px",
+                            color: "rgba(220, 220, 220, 1.0)",
                           }}
                         />
                         Funding Campaigns
@@ -171,10 +170,10 @@ class DesktopContainer extends Component {
                             name="plus circle"
                             link="/dashboard/newCampaign"
                             style={{
-                              marginLeft: '6px',
-                              height: '10px',
-                              width: 'auto',
-                              color: 'rgba(220, 220, 220, 1.0)',
+                              marginLeft: "6px",
+                              height: "10px",
+                              width: "auto",
+                              color: "rgba(220, 220, 220, 1.0)",
                             }}
                           />
                         </Link>
@@ -182,53 +181,53 @@ class DesktopContainer extends Component {
                     </Menu.Item>
                   )}
 
-                  {profileType == 'Borrower' && (
+                  {profileType == "Borrower" && (
                     <Menu.Item
                       name="activeCampaigns"
-                      active={activeItem === 'activeCampaigns'}
+                      active={activeItem === "activeCampaigns"}
                       onClick={this.handleItemClick}
                     >
-                      <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Active</a>
+                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
                     </Menu.Item>
                   )}
 
-                  {profileType == 'Borrower' && (
+                  {profileType == "Borrower" && (
                     <Menu.Item
                       name="pendingCampaigns"
-                      active={activeItem === 'pendingCampaigns'}
+                      active={activeItem === "pendingCampaigns"}
                       onClick={this.handleItemClick}
                     >
-                      <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Pending</a>
+                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
                     </Menu.Item>
                   )}
 
-                  {profileType == 'Borrower' && (
+                  {profileType == "Borrower" && (
                     <Menu.Item
                       name="completedCampaigns"
-                      active={activeItem === 'completedCampaigns'}
+                      active={activeItem === "completedCampaigns"}
                       onClick={this.handleItemClick}
                     >
-                      <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>
+                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
                         Completed
                       </a>
                     </Menu.Item>
                   )}
 
-                  {profileType == 'Borrower' && (
+                  {profileType == "Borrower" && (
                     <Menu.Item
-                      style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                      style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
                     >
                       <a
                         style={{
-                          color: 'rgba(220, 220, 220, 1.0)',
+                          color: "rgba(220, 220, 220, 1.0)",
                         }}
                       >
                         <Icon
                           name="paper plane"
                           size="large"
                           style={{
-                            marginRight: '10px',
-                            color: 'rgba(220, 220, 220, 1.0)',
+                            marginRight: "10px",
+                            color: "rgba(220, 220, 220, 1.0)",
                           }}
                         />
                         Service Requests
@@ -237,9 +236,9 @@ class DesktopContainer extends Component {
                             name="plus circle"
                             link="/dashboard/newRequest"
                             style={{
-                              marginLeft: '10px',
-                              height: '10px',
-                              width: 'auto',
+                              marginLeft: "10px",
+                              height: "10px",
+                              width: "auto",
                               color: "rgba(220, 220, 220, 1.0)",
                             }}
                           />

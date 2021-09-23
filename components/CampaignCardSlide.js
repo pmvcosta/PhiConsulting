@@ -17,21 +17,19 @@ class CustomCardSlide extends Component {
 
   render() {
     const { open } = this.state;
-    //const numImagesAvailable = 321; //how many total images are in the collection you are pulling from
-    //const collectionID = 1788650; //the collection ID from the original url
-    const numImagesAvailable = 1300;
-    const collectionID = 3348877;
 
-    let imageWidth = 200 + Math.floor(Math.random() * 120) * 10;
-    let imageHeight = imageWidth;
-    let randomNumber = Math.floor(Math.random() * numImagesAvailable);
     const { index } = this.props;
+    const numImagesAvailable = 130;
+    const collectionID = 3348877;
+    let imageWidth = 200 + Math.floor(Math.random() * 60) * 20;
+    //let imageHeight = imageWidth;
+    let randomNumber = Math.floor(Math.random() * numImagesAvailable) * 10;
     return (
       <Slide index={index}>
         <div style={{ padding: 6 }}>
           <Image
             fluid
-            src={`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomNumber}`}
+            src={`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageWidth}/?sig=${randomNumber}`}
             rounded
             bordered
           />

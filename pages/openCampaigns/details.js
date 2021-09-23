@@ -19,8 +19,21 @@ import CustomCardSlide from '../../components/CampaignCardSlide';
 import CustomDotGroup from '../../components/CustomDotGroup';
 
 class CardCarousel extends Component {
+  state = {
+    spinnerActive: true,
+  };
+
+  disableSpinner = () => {
+    if (this.state.spinnerActive) {
+      setTimeout(() => {
+        this.setState({ spinnerActive: false });
+      }, 3500);
+    }
+  };
+
   render() {
     const { width } = this.props;
+    const { spinnerActive } = this.state;
     return (
       <CarouselProvider
         naturalSlideWidth={1}
@@ -28,12 +41,15 @@ class CardCarousel extends Component {
         isIntrinsicHeight="false"
         isPlaying="true"
         interval="4000"
+        hasMasterSpinner={spinnerActive}
         touchEnabled="false"
+        dragEnabled={true}
         infinite="false"
-        totalSlides={5}
+        totalSlides={4}
         visibleSlides={1}
       >
         <Slider
+          onMasterSpinner={this.disableSpinner}
           style={{
             width: width,
             marginLeft: 'auto',
@@ -49,25 +65,19 @@ class CardCarousel extends Component {
           <CustomCardSlide
             header="Steve Sanders"
             image="/backgnd11.jpg"
-            index={1}
+            index={2}
             meta="Friend"
           />
           <CustomCardSlide
             image="/backgnd11.jpg"
-            index={2}
+            index={3}
             header="Matthew House"
             meta="Friend"
           />
           <CustomCardSlide
             header="Elliot Baker"
             image="/backgnd11.jpg"
-            index={2}
-            meta="Friend"
-          />
-          <CustomCardSlide
-            header="Steve Sanders"
-            image="/backgnd11.jpg"
-            index={2}
+            index={4}
             meta="Friend"
           />
         </Slider>

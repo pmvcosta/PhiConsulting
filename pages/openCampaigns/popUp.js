@@ -46,7 +46,7 @@ class KitPopUp extends Component {
                     basic="very"
                     celled
                     collapsing
-                    style={{ width: '400px' }}
+                    style={{ width: '420px' }}
                   >
                     <Table.Header>
                       <Table.Row>
@@ -68,37 +68,49 @@ class KitPopUp extends Component {
                           <Header as="h4" image>
                             <Header.Content>
                               Description
-                              <Header.Subheader>
-                                Human Resources
-                              </Header.Subheader>
+                              <Header.Subheader>Core Concept</Header.Subheader>
                             </Header.Content>
                           </Header>
                         </Table.Cell>
                         <Table.Cell>
-                          Long ass goddamn text to see how it affects the table
+                          This borrower aims to introduce a new concept into the
+                          market, by using new methods
                         </Table.Cell>
-                      </Table.Row>
-                      <Table.Row>
-                        <Table.Cell>
-                          <Header as="h4" image>
-                            <Header.Content>
-                              Funding Method(s)
-                              <Header.Subheader>Fabric Design</Header.Subheader>
-                            </Header.Content>
-                          </Header>
-                        </Table.Cell>
-                        <Table.Cell>15</Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>
                           <Header as="h4" image>
                             <Header.Content>
                               Funding Goal
-                              <Header.Subheader>Entertainment</Header.Subheader>
+                              <Header.Subheader>How much?</Header.Subheader>
                             </Header.Content>
                           </Header>
                         </Table.Cell>
-                        <Table.Cell>12</Table.Cell>
+                        <Table.Cell>150.000€</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Header as="h4" image>
+                            <Header.Content>
+                              Funding Method
+                              <Header.Subheader>How?</Header.Subheader>
+                            </Header.Content>
+                          </Header>
+                        </Table.Cell>
+                        <Table.Cell>Equity Crowdfunding</Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>
+                          <Header as="h4" image>
+                            <Header.Content>
+                              Preferred Platform
+                              <Header.Subheader>
+                                As indicated by borrower
+                              </Header.Subheader>
+                            </Header.Content>
+                          </Header>
+                        </Table.Cell>
+                        <Table.Cell>No Preference</Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>
@@ -109,12 +121,12 @@ class KitPopUp extends Component {
                             </Header.Content>
                           </Header>
                         </Table.Cell>
-                        <Table.Cell>11</Table.Cell>
+                        <Table.Cell>-</Table.Cell>
                       </Table.Row>
                     </Table.Body>
                   </Table>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column style={{ marginTop: '40px' }}>
                   <Details width="350px" />
                 </Grid.Column>
               </Grid.Row>
