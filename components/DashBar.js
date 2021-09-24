@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { createMedia } from "@artsy/fresnel";
+import React, { Component } from 'react';
+import { createMedia } from '@artsy/fresnel';
 import {
   Menu,
   Sidebar,
@@ -16,11 +16,11 @@ import {
   List,
   Image,
   Dropdown,
-} from "semantic-ui-react";
-import { Link, Router } from "../routes";
-import PropTypes from "prop-types";
-import HomePageHeading from "./HomePageHeading";
-import { signOut } from "next-auth/client"; //To keep track of wether user is logged in
+} from 'semantic-ui-react';
+import { Link, Router } from '../routes';
+import PropTypes from 'prop-types';
+import HomePageHeading from './HomePageHeading';
+import { signOut } from 'next-auth/client'; //To keep track of wether user is logged in
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -51,13 +51,13 @@ class DesktopContainer extends Component {
   handleItemClick = (e, { name }) => {
     if (name !== this.state.activeItem) {
       try {
-        if (name === undefined || name == "dashboard") {
-          Router.pushRoute("/dashboard");
+        if (name === undefined || name == 'dashboard') {
+          Router.pushRoute('/dashboard');
         } else {
           Router.pushRoute(`/dashboard/${name}`);
         }
       } catch (e) {
-        Router.pushRoute("/dashboard");
+        Router.pushRoute('/dashboard');
       }
 
       this.setState({ activeItem: name });
@@ -82,15 +82,15 @@ class DesktopContainer extends Component {
     const trigger = (
       <span
         style={{
-          color: "rgba(212, 32, 32, 1.0)",
+          color: 'rgba(212, 32, 32, 1.0)',
         }}
       >
         <Icon
           name="user"
           style={{
-            color: "rgba(212, 32, 32, 1.0)",
+            color: 'rgba(212, 32, 32, 1.0)',
           }}
-        />{" "}
+        />{' '}
         User Profile
       </span>
     );
@@ -101,9 +101,12 @@ class DesktopContainer extends Component {
           <Dimmer
             active={loading}
             inverted
+            fluid
             style={{
-              width: "100%",
-              marginTop: "3px",
+              width: '100%',
+              height: '100%',
+
+              marginTop: '0px',
             }}
           >
             <Loader> Loading </Loader>
@@ -112,240 +115,227 @@ class DesktopContainer extends Component {
           <Grid
             fluid
             style={{
-              backgroundImage: "url(/backgnd.jpg)",
+              backgroundImage: 'url(/backgnd.jpg)',
               /* Set a specific height */
-              minHeight: "102.5vh",
+              minHeight: '100vh',
 
               /* Create the parallax scrolling effect */
-              backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              backgroundRepeat: "no - repeat",
-              backgroundSize: "cover",
+              backgroundAttachment: 'fixed',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no - repeat',
+              backgroundSize: 'cover',
             }}
           >
             <Grid.Row>
-              <Grid.Column stretched width={3}>
-                <Menu
-                  vertical
-                  color="red"
-                  pointing
-                  secondary
-                  fixed="top"
-                  style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.05)",
-                    height: "100%",
-                    marginTop: "45px",
-                    borderRight: "1px solid rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <Menu.Item centered>
-                    <br />
-                    <br />
-                  </Menu.Item>
-
-                  <Menu.Item name="dashboard" onClick={this.handleItemClick}>
-                    <Image src="/LogoS2.png" size="tiny" centered />
-                  </Menu.Item>
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
-                    >
-                      <a
-                        style={{
-                          color: "rgba(220, 220, 220, 1.0)",
-                        }}
-                      >
-                        <Icon
-                          name="flag"
-                          size="large"
-                          style={{
-                            marginRight: "6px",
-                            color: "rgba(220, 220, 220, 1.0)",
-                          }}
-                        />
-                        Funding Campaigns
-                        <Link route="/dashboard/newCampaign">
-                          <Icon
-                            name="plus circle"
-                            link="/dashboard/newCampaign"
-                            style={{
-                              marginLeft: "6px",
-                              height: "10px",
-                              width: "auto",
-                              color: "rgba(220, 220, 220, 1.0)",
-                            }}
-                          />
-                        </Link>
-                      </a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      name="activeCampaigns"
-                      active={activeItem === "activeCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      name="pendingCampaigns"
-                      active={activeItem === "pendingCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      name="completedCampaigns"
-                      active={activeItem === "completedCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
-                        Completed
-                      </a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
-                    >
-                      <a
-                        style={{
-                          color: "rgba(220, 220, 220, 1.0)",
-                        }}
-                      >
-                        <Icon
-                          name="paper plane"
-                          size="large"
-                          style={{
-                            marginRight: "10px",
-                            color: "rgba(220, 220, 220, 1.0)",
-                          }}
-                        />
-                        Service Requests
-                        <Link route="/dashboard/newRequest">
-                          <Icon
-                            name="plus circle"
-                            link="/dashboard/newRequest"
-                            style={{
-                              marginLeft: "10px",
-                              height: "10px",
-                              width: "auto",
-                              color: "rgba(220, 220, 220, 1.0)",
-                            }}
-                          />
-                        </Link>
-                      </a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      name="pendingRequests"
-                      active={activeItem === "pendingRequests"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Borrower" && (
-                    <Menu.Item
-                      name="completedRequests"
-                      active={activeItem === "completedRequests"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
-                        Completed
-                      </a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Funding Platform" && (
-                    <Menu.Item
-                      style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
-                    >
-                      <a
-                        style={{
-                          color: "rgba(220, 220, 220, 1.0)",
-                        }}
-                      >
-                        <Icon
-                          name="flag"
-                          size="large"
-                          style={{
-                            marginRight: "6px",
-                            color: "rgba(220, 220, 220, 1.0)",
-                          }}
-                        />
-                        Funding Campaigns
-                        <Link route="/dashboard/newCampaign">
-                          <Icon
-                            name="plus circle"
-                            link="/dashboard/newCampaign"
-                            style={{
-                              marginLeft: "6px",
-                              height: "10px",
-                              width: "auto",
-                              color: "rgba(220, 220, 220, 1.0)",
-                            }}
-                          />
-                        </Link>
-                      </a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Funding Platform" && (
-                    <Menu.Item
-                      name="activeCampaigns"
-                      active={activeItem === "activeCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Funding Platform" && (
-                    <Menu.Item
-                      name="pendingCampaigns"
-                      active={activeItem === "pendingCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
-                    </Menu.Item>
-                  )}
-
-                  {profileType == "Funding Platform" && (
-                    <Menu.Item
-                      name="completedCampaigns"
-                      active={activeItem === "completedCampaigns"}
-                      onClick={this.handleItemClick}
-                    >
-                      <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
-                        Completed
-                      </a>
-                    </Menu.Item>
-                  )}
-                </Menu>
-              </Grid.Column>
+              <Grid.Column stretched width={3}></Grid.Column>
               <Grid.Column
                 width={12}
                 style={{
-                  marginTop: "80px",
+                  marginTop: '80px',
                 }}
               >
                 {children}
               </Grid.Column>
             </Grid.Row>
           </Grid>
+          <Menu
+            vertical
+            color="red"
+            pointing
+            secondary
+            fixed="top"
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.05)',
+              height: '100%',
+              marginTop: '45px',
+              borderRight: '1px solid rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Menu.Item centered>
+              <br />
+              <br />
+            </Menu.Item>
+
+            <Menu.Item name="dashboard" onClick={this.handleItemClick}>
+              <Image src="/LogoS2.png" size="tiny" centered />
+            </Menu.Item>
+
+            {profileType == 'Borrower' && (
+              <Menu.Item style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}>
+                <a
+                  style={{
+                    color: 'rgba(220, 220, 220, 1.0)',
+                  }}
+                >
+                  <Icon
+                    name="flag"
+                    size="large"
+                    style={{
+                      marginRight: '6px',
+                      color: 'rgba(220, 220, 220, 1.0)',
+                    }}
+                  />
+                  Funding Campaigns
+                  <Link route="/dashboard/newCampaign">
+                    <Icon
+                      name="plus circle"
+                      link="/dashboard/newCampaign"
+                      style={{
+                        marginLeft: '6px',
+                        height: '10px',
+                        width: 'auto',
+                        color: 'rgba(220, 220, 220, 1.0)',
+                      }}
+                    />
+                  </Link>
+                </a>
+              </Menu.Item>
+            )}
+
+            {profileType == 'Borrower' && (
+              <Menu.Item
+                name="activeCampaigns"
+                active={activeItem === 'activeCampaigns'}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Active</a>
+              </Menu.Item>
+            )}
+
+            {profileType == 'Borrower' && (
+              <Menu.Item
+                name="pendingCampaigns"
+                active={activeItem === 'pendingCampaigns'}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Pending</a>
+              </Menu.Item>
+            )}
+
+            {profileType == 'Borrower' && (
+              <Menu.Item
+                name="completedCampaigns"
+                active={activeItem === 'completedCampaigns'}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>Completed</a>
+              </Menu.Item>
+            )}
+
+            {profileType == 'Borrower' && (
+              <Menu.Item style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}>
+                <a
+                  style={{
+                    color: 'rgba(220, 220, 220, 1.0)',
+                  }}
+                >
+                  <Icon
+                    name="paper plane"
+                    size="large"
+                    style={{
+                      marginRight: '10px',
+                      color: 'rgba(220, 220, 220, 1.0)',
+                    }}
+                  />
+                  Service Requests
+                  <Link route="/dashboard/newRequest">
+                    <Icon
+                      name="plus circle"
+                      link="/dashboard/newRequest"
+                      style={{
+                        marginLeft: "10px",
+                        height: "10px",
+                        width: "auto",
+                        color: "rgba(220, 220, 220, 1.0)",
+                      }}
+                    />
+                  </Link>
+                </a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Borrower" && (
+              <Menu.Item
+                name="pendingRequests"
+                active={activeItem === "pendingRequests"}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Borrower" && (
+              <Menu.Item
+                name="completedRequests"
+                active={activeItem === "completedRequests"}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Completed</a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Funding Platform" && (
+              <Menu.Item style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}>
+                <a
+                  style={{
+                    color: "rgba(220, 220, 220, 1.0)",
+                  }}
+                >
+                  <Icon
+                    name="flag"
+                    size="large"
+                    style={{
+                      marginRight: "6px",
+                      color: "rgba(220, 220, 220, 1.0)",
+                    }}
+                  />
+                  Funding Campaigns
+                  <Link route="/dashboard/newCampaign">
+                    <Icon
+                      name="plus circle"
+                      link="/dashboard/newCampaign"
+                      style={{
+                        marginLeft: "6px",
+                        height: "10px",
+                        width: "auto",
+                        color: "rgba(220, 220, 220, 1.0)",
+                      }}
+                    />
+                  </Link>
+                </a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Funding Platform" && (
+              <Menu.Item
+                name="activeCampaigns"
+                active={activeItem === "activeCampaigns"}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Funding Platform" && (
+              <Menu.Item
+                name="pendingCampaigns"
+                active={activeItem === "pendingCampaigns"}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
+              </Menu.Item>
+            )}
+
+            {profileType == "Funding Platform" && (
+              <Menu.Item
+                name="completedCampaigns"
+                active={activeItem === "completedCampaigns"}
+                onClick={this.handleItemClick}
+              >
+                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Completed</a>
+              </Menu.Item>
+            )}
+          </Menu>
           <Menu
             borderless
             fixed="top"
