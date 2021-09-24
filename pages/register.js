@@ -8,11 +8,13 @@ import {
   Radio,
   Popup,
   Divider,
+  Transition,
   Segment,
   Header,
 } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import { Link, Router } from '../routes';
+import InfoForm from './infoForm';
 import { useSession, getSession, signIn } from 'next-auth/client';
 
 export async function getServerSideProps(context) {
@@ -49,6 +51,7 @@ class CampaignNew extends Component {
     confirmPassword: '',
     errorMessage: '',
     loading: false,
+    open: false,
   };
 
   //If a session already exists, there is no need to register
@@ -74,6 +77,24 @@ class CampaignNew extends Component {
       props: { session },
     };
   }*/
+
+  checkUser = async (email, password) => {
+    const response = await fetch('/api/user/checkUser', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Something went wrong!');
+    }
+
+    return data;
+  };
 
   createUser = async (email, password, profileType) => {
     const response = await fetch('/api/auth/signup', {
@@ -133,8 +154,39 @@ class CampaignNew extends Component {
 
   handleChange = (e, { value }) => this.setState({ value });
 
+  showModal = async () => {
+    event.preventDefault(); //keeps browser from submitting form to backed server
+
+    this.setState({
+      loading: true,
+      errorMessage: '',
+    });
+
+    try {
+      //Router.pushRoute('/subscribe');
+      if (this.state.password === this.state.confirmPassword) {
+        const result = await this.checkUser(
+          this.state.email,
+          this.state.password
+        );
+        this.setState({ open: true });
+      } else {
+        this.setState({
+          errorMessage: 'The password does not match its confirmation!',
+        });
+      }
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
+    }
+
+    this.setState({ loading: false });
+  };
+
+  hideModal = () => this.setState({ open: false });
+
   render() {
     const {
+      open,
       value,
       businessSite,
       platformSite,
@@ -167,7 +219,7 @@ class CampaignNew extends Component {
                 >
                   Sign Up
                 </Header>
-                <Form onSubmit={this.onSubmit} error={!!errorMessage}>
+                <Form onSubmit={this.showModal} error={!!errorMessage}>
                   <Form.Field>
                     <Form.Field
                       control={Input}
@@ -311,6 +363,16 @@ class CampaignNew extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        <Transition visible={open} animation="scale" duration={500}>
+          <InfoForm
+            open={open}
+            hideModal={this.hideModal}
+            onProceed={this.onSubmit}
+            loading={loading}
+            errorMessage={errorMessage}
+          />
+        </Transition>
+        <br />
       </Layout>
     );
   }

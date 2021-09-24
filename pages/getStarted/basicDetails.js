@@ -44,6 +44,7 @@ class BasicDetails extends Component {
           onChange={this.props.handleTextChange}
           label="What's the name of your business?"
           placeholder="Business Name"
+          style={{ width: '295px' }}
         />
         <br />
 
@@ -58,33 +59,10 @@ class BasicDetails extends Component {
             options={this.props.countryOptions}
             search
             placeholder="Country"
+            style={{ width: '295px' }}
           />
           <br />
         </Form.Group>
-        <br />
-        <Form.Field
-          control={Input}
-          name="website"
-          value={this.props.website}
-          onChange={this.props.handleTextChange}
-          label="Enter the business website"
-          placeholder="Business Website"
-        />
-        <br />
-        <Form.Field required>
-          <label>
-            <b>Your business email</b>
-          </label>
-          <Input
-            className="form-control mb-4 p-4"
-            required
-            type="email"
-            placeholder="Email"
-            name="email"
-            value={this.props.email}
-            onChange={this.props.handleTextChange}
-          />
-        </Form.Field>
       </Segment>
     );
   }

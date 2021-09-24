@@ -112,6 +112,7 @@ class AltFi extends Component {
           onChange={this.props.handleNumberChange}
           label="What is your funding goal(€)?"
           placeholder="e.g.: 5000"
+          style={{ width: '295px' }}
         />
         <br />
         <Form.Group>
@@ -124,6 +125,7 @@ class AltFi extends Component {
             onChange={this.props.handleTextChange}
             options={this.props.options}
             placeholder="Please Select One"
+            style={{ width: '295px' }}
           />
           <br />
         </Form.Group>

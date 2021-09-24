@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Popup,
   Button,
@@ -16,9 +16,9 @@ import {
   Icon,
   Image,
   Header,
-} from 'semantic-ui-react';
-import { Link } from '../../routes';
-import Details from './details';
+} from "semantic-ui-react";
+import { Link } from "../../routes";
+import Details from "./details";
 
 class KitPopUp extends Component {
   constructor(props) {
@@ -30,31 +30,31 @@ class KitPopUp extends Component {
       <Modal open={this.props.open} onClose={this.props.hideModal}>
         <Modal.Header
           style={{
-            fontSize: '2em',
-            color: 'rgba(255, 255, 255, 1.0)',
-            backgroundColor: 'rgba(212, 32, 32, 1.0)',
+            fontSize: "2em",
+            color: "rgba(255, 255, 255, 1.0)",
+            backgroundColor: "rgba(212, 32, 32, 1.0)",
           }}
         >
           Campaign Acquisition
         </Modal.Header>
         <Modal.Content image scrolling>
           <Modal.Description>
-            <Grid style={{ width: '850px' }}>
+            <Grid style={{ width: "850px" }}>
               <Grid.Row columns={2}>
                 <Grid.Column>
                   <Table
                     basic="very"
                     celled
                     collapsing
-                    style={{ width: '420px' }}
+                    style={{ width: "420px" }}
                   >
                     <Table.Header>
                       <Table.Row>
                         <Table.HeaderCell
                           colSpan="2"
                           style={{
-                            fontSize: '1.5em',
-                            color: 'rgba(212, 32, 32, 0.9)',
+                            fontSize: "1.5em",
+                            color: "rgba(212, 32, 32, 0.9)",
                           }}
                         >
                           Campaign Details
@@ -126,7 +126,7 @@ class KitPopUp extends Component {
                     </Table.Body>
                   </Table>
                 </Grid.Column>
-                <Grid.Column style={{ marginTop: '40px' }}>
+                <Grid.Column style={{ marginTop: "40px" }}>
                   <Details width="350px" />
                 </Grid.Column>
               </Grid.Row>
@@ -136,19 +136,10 @@ class KitPopUp extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button
-            href="/subscribe"
-            primary
-            style={{
-              backgroundColor: 'rgba(212, 32, 32, 1.0)',
-            }}
-          >
-            I'd Like to Know More! <Icon name="chevron right" />
-          </Button>
-          <Button
             onClick={this.props.hideModal}
             primary
             style={{
-              backgroundColor: 'rgba(212, 32, 32, 1.0)',
+              backgroundColor: "rgba(212, 32, 32, 1.0)",
             }}
           >
             Proceed <Icon name="chevron right" />

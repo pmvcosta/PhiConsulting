@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Popup,
   Button,
@@ -15,9 +15,9 @@ import {
   Icon,
   Image,
   Header,
-} from "semantic-ui-react";
-import Layout from "../../components/Layout";
-import { Link } from "../../routes";
+} from 'semantic-ui-react';
+import Layout from '../../components/Layout';
+import { Link } from '../../routes';
 
 class Financials extends Component {
   constructor(props) {
@@ -28,15 +28,14 @@ class Financials extends Component {
     return (
       <Segment
         fluid
-        style={{ padding: "8em 2em" }}
+        style={{ padding: '8em 2em' }}
         vertical
         style={{
-          border: "0px",
-          outline: "0px",
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
+          border: '0px',
+          outline: '0px',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
         }}
       >
-        <br />
         <Form.Field
           required
           control={Input}
@@ -47,6 +46,7 @@ class Financials extends Component {
           onChange={this.props.handleNumberChange}
           label="What is your estimated buget(€)?"
           placeholder="e.g.: 5000"
+          style={{ width: '295px' }}
         />
       </Segment>
     );
