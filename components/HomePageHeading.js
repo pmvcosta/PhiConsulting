@@ -1,5 +1,5 @@
-import React from 'react';
-import { createMedia } from '@artsy/fresnel';
+import React from "react";
+import { createMedia } from "@artsy/fresnel";
 import {
   Menu,
   Sidebar,
@@ -14,9 +14,9 @@ import {
   Divider,
   List,
   Image,
-} from 'semantic-ui-react';
-import { Link } from '../routes';
-import PropTypes from 'prop-types';
+} from "semantic-ui-react";
+import { Link } from "../routes";
+import PropTypes from "prop-types";
 
 /* Heads up!
  * HomepageHeading uses inline styling,
@@ -26,8 +26,6 @@ import PropTypes from 'prop-types';
 
 const HomepageHeading = ({ mobile }) => (
   <Container text>
-    <br />
-    <br />
     <Transition transitionOnMount="true" animation="scale" duration={500}>
       <Image src="/logo.png" size="big" centered />
     </Transition>
@@ -37,10 +35,10 @@ const HomepageHeading = ({ mobile }) => (
         content="Crowdfunding As A Service"
         inverted
         style={{
-          fontSize: mobile ? '1.5em' : '1.7em',
-          fontWeight: '900',
-          marginTop: mobile ? '0.5em' : '1.5em',
-          color: 'rgba(54, 54, 54, 0.9)',
+          fontSize: mobile ? "1.5em" : "1.7em",
+          fontWeight: "900",
+          marginTop: mobile ? "0.5em" : "1.5em",
+          color: "rgba(54, 54, 54, 0.9)",
         }}
       />
     </Transition>
@@ -53,10 +51,10 @@ const HomepageHeading = ({ mobile }) => (
             centered
             size="huge"
             style={{
-              position: 'center',
-              backgroundColor: 'rgba(212, 32, 32, 0.9)',
-              color: 'rgba(255,255,255,0.9)',
-              marginBottom: mobile ? '4.5em' : '5.5em',
+              position: "center",
+              backgroundColor: "rgba(212, 32, 32, 0.9)",
+              color: "rgba(255,255,255,0.9)",
+              marginBottom: mobile ? "4.5em" : "5.5em",
             }}
           >
             Get Started

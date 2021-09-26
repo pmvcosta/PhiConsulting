@@ -78,7 +78,8 @@ class Dashboard extends Component {
   }
 
   showModal = () => {
-    this.setState({ open: true });
+    Router.pushRoute('/dashboard/newRequest');
+    //this.setState({ open: true });
   };
 
   hideModal = () => this.setState({ open: false });
@@ -95,9 +96,14 @@ class Dashboard extends Component {
         currentItem={currentItem}
         isLoading={isLoading}
       >
-        <br />
         {profileType == 'Funding Platform' && (
-          <Segment color="red" padded raised fluid>
+          <Segment
+            color="red"
+            padded
+            raised
+            fluid
+            style={{ marginTop: '20px' }}
+          >
             <Header
               as="h2"
               style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 1.0)' }}
@@ -108,14 +114,12 @@ class Dashboard extends Component {
             <Featured />
           </Segment>
         )}
-        <br />
         {profileType == 'Funding Platform' && (
           <OpenCampaigns profileType={profileType} />
         )}
-        <br />
 
         {profileType == 'Borrower' && (
-          <Segment color="red" raised padded>
+          <Segment color="red" raised padded style={{ marginTop: '20px' }}>
             <Header
               as="h2"
               style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 1.0)' }}
@@ -143,7 +147,7 @@ class Dashboard extends Component {
                     Media Production
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{' '}
+                    Request the creation of videos or images for the campaign{' '}
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -167,7 +171,7 @@ class Dashboard extends Component {
                   }}
                 >
                   <Icon
-                    name="video"
+                    name="line graph"
                     size="huge"
                     style={{ color: 'rgba(255, 255, 255, 1.0)' }}
                   />
@@ -177,7 +181,8 @@ class Dashboard extends Component {
                     Company Valuation
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{' '}
+                    Request a company valuation carried out by a certified
+                    entity
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -201,17 +206,18 @@ class Dashboard extends Component {
                   }}
                 >
                   <Icon
-                    name="video"
+                    name="legal"
                     size="huge"
                     style={{ color: 'rgba(255, 255, 255, 1.0)' }}
                   />
                 </Card.Content>
                 <Card.Content>
                   <Card.Header syle={{ fontSize: '5em' }}>
-                    Media Production
+                    Legal Services
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{' '}
+                    Request assistance regarding contracts, laws and
+                    regulations.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -235,17 +241,18 @@ class Dashboard extends Component {
                   }}
                 >
                   <Icon
-                    name="video"
+                    name="idea"
                     size="huge"
                     style={{ color: 'rgba(255, 255, 255, 1.0)' }}
                   />
                 </Card.Content>
                 <Card.Content>
-                  <Card.Header syle={{ fontSize: '5em' }}>
-                    Media Production
+                  <Card.Header syle={{ fontSize: "5em" }}>
+                    Business Analysis
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{' '}
+                    Request an analysis of the viability and predicted growth of
+                    your business
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -268,17 +275,18 @@ class Dashboard extends Component {
                   }}
                 >
                   <Icon
-                    name="video"
+                    name="bullhorn"
                     size="huge"
                     style={{ color: "rgba(255, 255, 255, 1.0)" }}
                   />
                 </Card.Content>
                 <Card.Content>
                   <Card.Header syle={{ fontSize: "5em" }}>
-                    Media Production
+                    Digital Marketing
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{" "}
+                    Request the creation of a digital marketing campaing (via
+                    online ads, social media platforms,...)
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -301,17 +309,18 @@ class Dashboard extends Component {
                   }}
                 >
                   <Icon
-                    name="video"
+                    name="globe"
                     size="huge"
                     style={{ color: "rgba(255, 255, 255, 1.0)" }}
                   />
                 </Card.Content>
                 <Card.Content>
                   <Card.Header syle={{ fontSize: "5em" }}>
-                    Media Production
+                    Landing Page Creation
                   </Card.Header>
                   <Card.Description>
-                    Request the creation of videos or images for the campaign"{" "}
+                    Request the creation of a landing page for customers and
+                    investors.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

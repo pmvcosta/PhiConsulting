@@ -103,7 +103,15 @@ class DesktopContainer extends Component {
                 <Menu.Item>
                   <Link route="/">
                     <a>
-                      <Image src="/logo.png" size="tiny" centered />
+                      <Image
+                        src="/logo.png"
+                        centered
+                        style={{
+                          marginTop: '-2%',
+                          height: '45px',
+                          width: 'auto',
+                        }}
+                      />
                     </a>
                   </Link>
                 </Menu.Item>
@@ -322,9 +330,9 @@ class MobileContainer extends Component {
                 secondary
                 size="large"
                 style={{
-                  border: '0px',
-                  outline: '0px',
-                  backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : "",
+                  border: "0px",
+                  outline: "0px",
+                  backgroundColor: fixed ? "rgba(255, 255, 255, 0.9)" : "",
                 }}
               >
                 <Container>

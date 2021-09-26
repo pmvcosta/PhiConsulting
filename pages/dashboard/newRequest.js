@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -20,16 +20,16 @@ import {
   Form,
   Checkbox,
   Transition,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { useRouter } from 'next/router';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import KitPopUp from './servicePopUp';
-import { useSession, getSession } from 'next-auth/client';
-import { connectToDatabase } from '../../lib/db';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { useRouter } from "next/router";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import KitPopUp from "./servicePopUp";
+import { useSession, getSession } from "next-auth/client";
+import { connectToDatabase } from "../../lib/db";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -40,19 +40,19 @@ const { MediaContextProvider, Media } = createMedia({
 });
 
 const options = [
-  { key: 'm', text: 'Within next 3 months', value: '3' },
-  { key: 'f', text: '3-6 months', value: '3-6' },
-  { key: 'o', text: '6+ months', value: '6+' },
+  { key: "m", text: "Within next 3 months", value: "3" },
+  { key: "f", text: "3-6 months", value: "3-6" },
+  { key: "o", text: "6+ months", value: "6+" },
 ];
 
 const optionsPay = [
-  { key: 'm', text: 'Credit Card', value: 'Credit Card' },
-  { key: 'l', text: 'Bank Transfer', value: 'Bank Transfer' },
-  { key: 'f', text: 'Paypal', value: 'Paypal' },
+  { key: "m", text: "Credit Card", value: "Credit Card" },
+  { key: "l", text: "Bank Transfer", value: "Bank Transfer" },
+  { key: "f", text: "Paypal", value: "Paypal" },
   {
-    key: 'o',
-    text: 'Percentage of Campaign Funds',
-    value: 'Percentage of Funds',
+    key: "o",
+    text: "Percentage of Campaign Funds",
+    value: "Percentage of Funds",
   },
 ];
 
@@ -65,14 +65,14 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection('users');
+  const usersCollection = client.db().collection("users");
 
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
@@ -86,9 +86,9 @@ export async function getServerSideProps(context) {
       campaign = {};
       console.log(`THE NAME IS ${item.campaignName}`);
 
-      campaign['key'] = `${item.campaignName}`;
-      campaign['text'] = `${item.campaignName}`;
-      campaign['value'] = `${item.campaignName}`;
+      campaign["key"] = `${item.campaignName}`;
+      campaign["text"] = `${item.campaignName}`;
+      campaign["value"] = `${item.campaignName}`;
 
       optionsCamp.push(campaign);
     });
@@ -107,13 +107,13 @@ class Dashboard extends Component {
       isLoading: true,
       open: false,
       activeIndex: 0,
-      campaignName: '',
-      reqName: '',
-      maxSpend: '',
-      reqDeadline: '',
-      addNotes: '',
-      payMethod: '',
-      errorMessage: '',
+      campaignName: "",
+      reqName: "",
+      maxSpend: "",
+      reqDeadline: "",
+      addNotes: "",
+      payMethod: "",
+      errorMessage: "",
       loading: false,
     };
   }
@@ -131,8 +131,8 @@ class Dashboard extends Component {
     addNotes,
     payMethod
   ) => {
-    const response = await fetch('/api/user/newRequest', {
-      method: 'PATCH',
+    const response = await fetch("/api/user/newRequest", {
+      method: "PATCH",
       body: JSON.stringify({
         campaignName,
         reqName,
@@ -143,7 +143,7 @@ class Dashboard extends Component {
         payMethod,
       }),
       headers: {
-        'Content-Type': "application/json",
+        "Content-Type": "application/json",
       },
     });
 
@@ -265,6 +265,7 @@ class Dashboard extends Component {
               <label required>
                 <b> Service Required:</b>
               </label>
+              <br />
               <Form.Group>
                 <Popup
                   trigger={
@@ -276,7 +277,7 @@ class Dashboard extends Component {
                       onChange={this.handleChange}
                     />
                   }
-                  content="Donors earn rewards based on the amount donated. Common rewards include handmade items, prizes donated by partner companies, or free products or services offered by the fundraiser organizer."
+                  content="Creation of videos or images for the campaign"
                   position="top left"
                 />
                 <Popup
@@ -289,7 +290,7 @@ class Dashboard extends Component {
                       onChange={this.handleChange}
                     />
                   }
-                  content="Donors receive a percentage ownership in the company.  Requires larger fundraising minimums, typically into the thousands of dollars."
+                  content="Company valuation carried out by a certified entity."
                   position="top left"
                 />
                 <Popup
@@ -302,7 +303,7 @@ class Dashboard extends Component {
                       onChange={this.handleChange}
                     />
                   }
-                  content="Asking for a small donation from a large number of people to raise money for personal needs as well as community-based projects."
+                  content="Assistance regarding contracts, laws and regulations."
                   position="top left"
                 />
                 <Popup
@@ -315,19 +316,38 @@ class Dashboard extends Component {
                       onChange={this.handleChange}
                     />
                   }
-                  content="Collect donations with the promise to pay them back until a set date. Typically used by businesses that prefer to pay back the funds rather than give out equity. "
+                  content="Analysis of the viability and predicted growth of your business. "
                   position="top left"
                 />
-                <Form.Field
-                  control={Radio}
-                  label="Digital Marketing"
-                  value="Digital Marketing"
-                  checked={value === "Digital Marketing"}
-                  onChange={this.handleChange}
+                <Popup
+                  trigger={
+                    <Form.Field
+                      control={Radio}
+                      label="Digital Marketing"
+                      value="Digital Marketing"
+                      checked={value === "Digital Marketing"}
+                      onChange={this.handleChange}
+                    />
+                  }
+                  content="Creation of a digital marketing campaing (via online ads, social media platforms,...). "
+                  position="top left"
+                />
+                <Popup
+                  trigger={
+                    <Form.Field
+                      control={Radio}
+                      label="Landing Page Creation"
+                      value="Landing Page Creation"
+                      checked={value === "Landing Page Creation"}
+                      onChange={this.handleChange}
+                    />
+                  }
+                  content="Creation of a landing page for customers and investors. "
+                  position="top left"
                 />
               </Form.Group>
             </Form.Field>
-
+            <br />
             <Form.Field
               required
               control={Input}

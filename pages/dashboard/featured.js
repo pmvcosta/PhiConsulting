@@ -39,27 +39,27 @@ class CardCarousel extends Component {
               meta="SME"
             />
             <CustomCardSlide
-              header="Steve Sanders"
-              image="/backgnd.jpg"
-              index={1}
-              meta="SME"
-            />
-            <CustomCardSlide
-              image="/backgnd.jpg"
-              index={2}
-              header="Matthew House"
-              meta="SME"
-            />
-            <CustomCardSlide
-              header="Elliot Baker"
+              header="Genose"
               image="/backgnd.jpg"
               index={2}
               meta="SME"
             />
             <CustomCardSlide
-              header="Steve Sanders"
               image="/backgnd.jpg"
-              index={2}
+              index={3}
+              header="Omnimm"
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Equizzy"
+              image="/backgnd.jpg"
+              index={4}
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Yagen"
+              image="/backgnd.jpg"
+              index={5}
               meta="SME"
             />
           </Slider>

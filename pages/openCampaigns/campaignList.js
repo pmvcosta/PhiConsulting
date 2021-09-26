@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { CarouselProvider, Slider } from 'pure-react-carousel';
+import React, { Component } from "react";
+import { CarouselProvider, Slider } from "pure-react-carousel";
 import {
   Popup,
   Button,
@@ -19,13 +19,13 @@ import {
   Image,
   Header,
   Accordion,
-} from 'semantic-ui-react';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-import Layout from '../../components/Layout';
-import { Link } from '../../routes';
-import KitPopUp from './popUp';
-import CustomCardSlide from '../../components/CustomCardSlide';
-import CustomDotGroup from '../../components/CustomDotGroup';
+} from "semantic-ui-react";
+import "pure-react-carousel/dist/react-carousel.es.css";
+import Layout from "../../components/Layout";
+import { Link } from "../../routes";
+import KitPopUp from "./popUp";
+import CustomCardSlide from "../../components/CustomCardSlide";
+import CustomDotGroup from "../../components/CustomDotGroup";
 //const { countryOptions } = require("./countryList");
 
 class CampaignList extends Component {
@@ -45,10 +45,10 @@ class CampaignList extends Component {
     const { open } = this.state;
     const { profileType } = this.props;
     return (
-      <Segment color="red" raised padded style={{ textAlign: 'center' }}>
+      <Segment color="red" raised padded style={{ textAlign: "center" }}>
         <Header
           as="h2"
-          style={{ fontSize: '3em', color: 'rgba(212, 32, 32, 1.0)' }}
+          style={{ fontSize: "3em", color: "rgba(212, 32, 32, 1.0)" }}
         >
           Available Campaigns
         </Header>
@@ -70,33 +70,33 @@ class CampaignList extends Component {
               meta="SME"
             />
             <CustomCardSlide
-              header="Steve Sanders"
-              image="/backgnd.jpg"
-              index={1}
-              meta="SME"
-            />
-            <CustomCardSlide
-              image="/backgnd.jpg"
-              index={2}
-              header="Matthew House"
-              meta="SME"
-            />
-            <CustomCardSlide
-              header="Elliot Baker"
-              image="/backgnd.jpg"
-              index={2}
-              meta="SME"
-            />
-            <CustomCardSlide
-              header="Steve Sanders"
+              header="Genose"
               image="/backgnd.jpg"
               index={2}
               meta="SME"
             />
             <CustomCardSlide
               image="/backgnd.jpg"
-              index={2}
-              header="Matthew House"
+              index={3}
+              header="Omnimm"
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Equizzy"
+              image="/backgnd.jpg"
+              index={4}
+              meta="SME"
+            />
+            <CustomCardSlide
+              header="Yagen"
+              image="/backgnd.jpg"
+              index={5}
+              meta="SME"
+            />
+            <CustomCardSlide
+              image="/backgnd.jpg"
+              index={6}
+              header="Perilane"
               meta="SME"
             />
           </Slider>
