@@ -111,7 +111,7 @@ class Dashboard extends Component {
               Recently Added
             </Header>
 
-            <Featured />
+            <Featured profileType={profileType} />
           </Segment>
         )}
         {profileType == 'Funding Platform' && (
@@ -252,7 +252,7 @@ class Dashboard extends Component {
                   </Card.Header>
                   <Card.Description>
                     Request an analysis of the viability and predicted growth of
-                    your business
+                    your business.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

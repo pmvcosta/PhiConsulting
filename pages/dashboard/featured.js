@@ -20,6 +20,7 @@ import CustomDotGroup from '../../components/CustomDotGroup';
 
 class CardCarousel extends Component {
   render() {
+    const { profileType } = this.props;
     return (
       <Container>
         <CarouselProvider
@@ -34,30 +35,35 @@ class CardCarousel extends Component {
           <Slider>
             <CustomCardSlide
               header="Verve Tech"
+              profileType={profileType}
               image="/backgnd.jpg"
               index={1}
               meta="SME"
             />
             <CustomCardSlide
               header="Genose"
+              profileType={profileType}
               image="/backgnd.jpg"
               index={2}
               meta="SME"
             />
             <CustomCardSlide
               image="/backgnd.jpg"
+              profileType={profileType}
               index={3}
               header="Omnimm"
               meta="SME"
             />
             <CustomCardSlide
               header="Equizzy"
+              profileType={profileType}
               image="/backgnd.jpg"
               index={4}
               meta="SME"
             />
             <CustomCardSlide
               header="Yagen"
+              profileType={profileType}
               image="/backgnd.jpg"
               index={5}
               meta="SME"

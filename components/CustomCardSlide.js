@@ -19,7 +19,7 @@ class CustomCardSlide extends Component {
 
   render() {
     const { open } = this.state;
-    const { index, image, header, meta } = this.props;
+    const { index, image, header, meta, profileType } = this.props;
     return (
       <Slide index={index}>
         <div style={{ padding: 10 }}>
@@ -33,16 +33,18 @@ class CustomCardSlide extends Component {
                 our daily routine.
               </Card.Description>
             </Card.Content>
-            <Card.Content extra style={{ textAlign: 'center' }}>
-              <Button
-                centered
-                secondary
-                onClick={this.showModal}
-                style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
-              >
-                Request
-              </Button>
-            </Card.Content>
+            {profileType === 'Funding Platform' && (
+              <Card.Content extra style={{ textAlign: 'center' }}>
+                <Button
+                  centered
+                  secondary
+                  onClick={this.showModal}
+                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                >
+                  Request
+                </Button>
+              </Card.Content>
+            )}
           </Card>
         </div>
         <Transition visible={open} animation="scale" duration={500}>

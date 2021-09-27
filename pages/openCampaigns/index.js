@@ -32,6 +32,7 @@ export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
   console.log(session);
   let profileType;
+  profileType = null;
 
   //const router = useRouter();
   if (session) {
