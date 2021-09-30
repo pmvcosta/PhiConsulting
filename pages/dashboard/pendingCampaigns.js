@@ -72,6 +72,10 @@ export async function getServerSideProps(context) {
       campaign['fundGoal'] = `${item.fundGoal}`;
       campaign['fundDeadline'] = `${item.fundDeadline}`;
       campaign['addNotes'] = `${item.addNotes}`;
+      campaign['hasMedia'] = `${item.hasMedia}`;
+      campaign['hasValuation'] = `${item.hasValuation}`;
+      campaign['hasMarketingCampaign'] = `${item.hasMarketingCampaign}`;
+      campaign['hasCommunity'] = `${item.hasCommunity}`;
 
       campaignList.push(campaign);
     });
@@ -119,16 +123,17 @@ class Dashboard extends Component {
           >
             Pending Campaigns
           </Header>
-          <Table celled padded>
+          <Table celled padded color="red">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Campaign Name</Table.HeaderCell>
                 <Table.HeaderCell singleLine>Platform</Table.HeaderCell>
                 <Table.HeaderCell>Funding Deadline</Table.HeaderCell>
-                <Table.HeaderCell singleLine style={{ width: '200px' }}>
+                <Table.HeaderCell singleLine style={{ width: '100px' }}>
                   Funding Goal
                 </Table.HeaderCell>
                 <Table.HeaderCell singleLine>Funding Method</Table.HeaderCell>
+                <Table.HeaderCell singleLine>Checklist</Table.HeaderCell>
                 <Table.HeaderCell>Notes</Table.HeaderCell>
               </Table.Row>
             </Table.Header>

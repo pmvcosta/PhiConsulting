@@ -89,6 +89,10 @@ export async function getServerSideProps(context) {
       campaign["key"] = `${item.campaignName}`;
       campaign["text"] = `${item.campaignName}`;
       campaign["value"] = `${item.campaignName}`;
+      campaign["hasMedia"] = `${item.hasMedia}`;
+      campaign["hasValuation"] = `${item.hasValuation}`;
+      campaign["hasMarketingCampaign"] = `${item.hasMarketingCampaign}`;
+      campaign["hasCommunity"] = `${item.hasCommunity}`;
 
       optionsCamp.push(campaign);
     });

@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Card,
   Button,
@@ -20,15 +20,15 @@ import {
   Form,
   Checkbox,
   Transition,
-} from "semantic-ui-react";
-import { Link, Router } from "../../routes";
-import { useRouter } from "next/router";
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import DashBar from "../../components/DashLayout";
-import Featured from "./featured";
-import KitPopUp from "./servicePopUp";
-import { useSession, getSession } from "next-auth/client";
+} from 'semantic-ui-react';
+import { Link, Router } from '../../routes';
+import { useRouter } from 'next/router';
+import { createMedia } from '@artsy/fresnel';
+import PropTypes from 'prop-types';
+import DashBar from '../../components/DashLayout';
+import Featured from './featured';
+import KitPopUp from './servicePopUp';
+import { useSession, getSession } from 'next-auth/client';
 //import { connectToDatabase } from '../../lib/db';
 
 const { MediaContextProvider, Media } = createMedia({
@@ -40,17 +40,17 @@ const { MediaContextProvider, Media } = createMedia({
 });
 
 const options = [
-  { key: "m", text: "Within next 3 months", value: "3mo" },
-  { key: "f", text: "3-6 months", value: "3-6mo" },
-  { key: "o", text: "6+ months", value: "6mo+" },
+  { key: 'm', text: 'Within next 3 months', value: '3mo' },
+  { key: 'f', text: '3-6 months', value: '3-6mo' },
+  { key: 'o', text: '6+ months', value: '6mo+' },
 ];
 
 const optionsPlat = [
-  { key: "s", text: "Seedrs", value: "Seedrs" },
-  { key: "r", text: "Raize", value: "Raize" },
-  { key: "r", text: "Crowdcube", value: "Crowdcube" },
-  { key: "r", text: "PPL", value: "PPL" },
-  { key: "o", text: "No Preference", value: "NoPref" },
+  { key: 's', text: 'Seedrs', value: 'Seedrs' },
+  { key: 'r', text: 'Raize', value: 'Raize' },
+  { key: 'r', text: 'Crowdcube', value: 'Crowdcube' },
+  { key: 'r', text: 'PPL', value: 'PPL' },
+  { key: 'o', text: 'No Preference', value: 'NoPref' },
 ];
 
 export async function getServerSideProps(context) {
@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
     };
@@ -87,13 +87,17 @@ class Dashboard extends Component {
     this.state = {
       isLoading: true,
       open: false,
-      shares: "",
-      value: "",
-      budget: "",
-      fundDate: "",
-      funding: "",
+      shares: '',
+      value: '',
+      budget: '',
+      fundDate: '',
+      funding: '',
+      hasMedia: false,
+      hasValuation: false,
+      hasMarketingCampaign: false,
+      hasCommunity: false,
       activeIndex: 0,
-      errorMessage: "",
+      errorMessage: '',
       loading: false,
     };
   }
@@ -108,10 +112,14 @@ class Dashboard extends Component {
     platform,
     fundGoal,
     fundDeadline,
-    addNotes
+    addNotes,
+    hasMedia,
+    hasValuation,
+    hasMarketingCampaign,
+    hasCommunity
   ) => {
-    const response = await fetch("/api/user/newCampaign", {
-      method: "PATCH",
+    const response = await fetch('/api/user/newCampaign', {
+      method: 'PATCH',
       body: JSON.stringify({
         campaignName,
         fundMethod,
@@ -119,16 +127,20 @@ class Dashboard extends Component {
         fundGoal,
         fundDeadline,
         addNotes,
+        hasMedia,
+        hasValuation,
+        hasMarketingCampaign,
+        hasCommunity,
       }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || "Something went wrong!");
+      throw new Error(data.message || 'Something went wrong!');
     }
 
     return data;
@@ -139,7 +151,7 @@ class Dashboard extends Component {
 
     this.setState({
       loading: true,
-      errorMessage: "",
+      errorMessage: '',
     });
 
     try {
@@ -149,10 +161,14 @@ class Dashboard extends Component {
         this.state.platform,
         this.state.fundGoal,
         this.state.fundDeadline,
-        this.state.addNotes
+        this.state.addNotes,
+        this.state.hasMedia,
+        this.state.hasValuation,
+        this.state.hasMarketingCampaign,
+        this.state.hasCommunity
       );
       console.log(result);
-      Router.pushRoute("/dashboard/pendingCampaigns");
+      Router.pushRoute('/dashboard/pendingCampaigns');
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
@@ -166,6 +182,11 @@ class Dashboard extends Component {
   handleTextChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleChange = (e, { value }) => this.setState({ value });
+
+  handleCheck = (e, { name, value }) => {
+    this.setState({ [name]: !value });
+    console.log(`${name} value: ${this.state.name}`);
+  };
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -348,6 +369,58 @@ class Dashboard extends Component {
               />
               <br />
             </Form.Group>
+
+            {(value === "Equity" ||
+              value === "Rewards" ||
+              value === "Donation" ||
+              value === "Debt") && (
+              <label required style={{ marginTop: "20px" }}>
+                <b> Requirements met:</b>
+                <br />
+              </label>
+            )}
+            {(value === "Equity" ||
+              value === "Rewards" ||
+              value === "Donation" ||
+              value === "Debt") && (
+              <Form.Group
+                inline
+                style={{ marginTop: "10px", marginBottom: "20px" }}
+              >
+                <Form.Field
+                  control={Checkbox}
+                  label="Visual Media"
+                  name="hasMedia"
+                  value={this.state.hasMedia}
+                  onChange={this.handleCheck}
+                />
+
+                {value === "Equity" && (
+                  <Form.Field
+                    control={Checkbox}
+                    label="Business Valuation"
+                    name="hasValuation"
+                    value={this.state.hasValuation}
+                    onChange={this.handleCheck}
+                  />
+                )}
+                <Form.Field
+                  control={Checkbox}
+                  label="Marketing Campaign"
+                  name="hasMarketingCampaign"
+                  value={this.state.hasMarketingCampaign}
+                  onChange={this.handleCheck}
+                />
+                <Form.Field
+                  control={Checkbox}
+                  label="Online Community"
+                  name="hasCommunity"
+                  value={this.state.hasCommunity}
+                  onChange={this.handleCheck}
+                />
+              </Form.Group>
+            )}
+
             <Form.TextArea
               label="Additional Information"
               name="addNotes"

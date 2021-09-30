@@ -22,6 +22,10 @@ export default async (req, res) => {
   const fundGoal = req.body.fundGoal;
   const fundDeadline = req.body.fundDeadline;
   const addNotes = req.body.addNotes;
+  const hasMedia = req.body.hasMedia;
+  const hasValuation = req.body.hasValuation;
+  const hasMarketingCampaign = req.body.hasMarketingCampaign;
+  const hasCommunity = req.body.hasCommunity;
 
   //const payMethod = req.body.payMethod;
   let campaign;
@@ -51,6 +55,10 @@ export default async (req, res) => {
               fundGoal: fundGoal,
               fundDeadline: fundDeadline,
               addNotes: addNotes,
+              hasMedia: hasMedia,
+              hasValuation: hasValuation,
+              hasMarketingCampaign: hasMarketingCampaign,
+              hasCommunity: hasCommunity,
             },
           ],
         },
@@ -75,6 +83,10 @@ export default async (req, res) => {
               fundGoal: fundGoal,
               fundDeadline: fundDeadline,
               addNotes: addNotes,
+              hasMedia: hasMedia,
+              hasValuation: hasValuation,
+              hasMarketingCampaign: hasMarketingCampaign,
+              hasCommunity: hasCommunity,
             },
           },
         }

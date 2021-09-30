@@ -7,19 +7,21 @@ const routes = require('next-routes')();
 routes
   .add('/', '/index')
   .add('/openCampaigns', '/openCampaigns')
-  .add('dashboard/activeCampaigns', '/dashboard/activeCampaigns')
-  .add('dashboard/newRequest', '/dashboard/newRequest')
-  .add('dashboard/newCampaign', '/dashboard/newCampaign')
+  .add('/dashboard', '/dashboard/index')
+  .add('/dashboard/activeCampaigns', '/dashboard/activeCampaigns')
+  .add('/dashboard/pendingCampaigns', '/dashboard/pendingCampaigns')
+  .add('/dashboard/completedCampaigns', '/dashboard/completedCampaigns')
+  .add('/dashboard/pendingRequests', '/dashboard/pendingRequests')
+  .add('/dashboard/completedRequests', '/dashboard/completedRequests')
+  .add('/dashboard/newRequest', '/dashboard/newRequest')
+  .add('/dashboard/newCampaign', '/dashboard/newCampaign')
+  .add('/dashboard/:campaignName', '/dashboard/showCampaign')
   .add('/login', '/login')
   .add('/subscribe', '/subscribe')
   .add('/register', '/register')
   .add('/aboutUs', '/aboutUs')
-  .add('/getStarted', '/getStarted')
-  .add('/dashboard', '/dashboard/index') //in the future maybe include a wildcard
-  .add('/campaigns/new', '/campaigns/new') //must come first!
-  .add('/campaigns/:address', '/campaigns/show') //":" denotes a "wildcard"
-  .add('/campaigns/:address/requests', '/campaigns/requests/index')
-  .add('/campaigns/:address/requests/new', '/campaigns/requests/new');
+  .add('/getStarted', '/getStarted');
+//in the future maybe include a wildcard
 
 //need to account for exceptions of routes within /campaigns that are not
 //campaigns, i.e. "new"

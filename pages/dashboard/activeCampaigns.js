@@ -13,6 +13,7 @@ import {
   Sidebar,
   Menu,
   Checkbox,
+  List,
   Table,
   Rating,
   Progress,
@@ -94,7 +95,7 @@ class Dashboard extends Component {
           >
             Active Campaigns
           </Header>
-          <Table celled padded>
+          <Table celled padded color="red">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Platform</Table.HeaderCell>

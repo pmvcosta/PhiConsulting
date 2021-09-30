@@ -117,7 +117,7 @@ class Dashboard extends Component {
           >
             Pending Requests
           </Header>
-          <Table celled padded>
+          <Table celled padded color="red">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Request Name</Table.HeaderCell>
