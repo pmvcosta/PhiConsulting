@@ -131,10 +131,10 @@ class CampaignShow extends Component {
         },
         render: () => (
           <BasicDetails
-            fundMethod={this.props.campaign.fundMethod}
-            fundGoal={this.props.campaign.fundGoal}
-            platform={this.props.campaign.platform}
-            fundDeadline={this.props.campaign.fundDeadline}
+            fundMethod={campaign.fundMethod}
+            fundGoal={campaign.fundGoal}
+            platform={campaign.platform}
+            fundDeadline={campaign.fundDeadline}
             isEditing={this.state.isEditing}
           />
         ),
@@ -147,7 +147,7 @@ class CampaignShow extends Component {
         },
         render: () => (
           <VisualMedia
-            hasMedia={this.props.campaign.hasMedia}
+            hasMedia={campaign.hasMedia}
             isEditing={this.state.isEditing}
           />
         ),
@@ -156,7 +156,7 @@ class CampaignShow extends Component {
         menuItem: { key: "Community", content: "Community", icon: "users" },
         render: () => (
           <Community
-            hasCommunity={this.props.campaign.hasCommunity}
+            hasCommunity={campaign.hasCommunity}
             isEditing={this.state.isEditing}
           />
         ),
@@ -165,7 +165,7 @@ class CampaignShow extends Component {
         menuItem: { key: "Marketing", content: "Marketing", icon: "bullhorn" },
         render: () => (
           <Marketing
-            hasMarketingCampaign={this.props.campaign.hasMarketingCampaign}
+            hasMarketingCampaign={campaign.hasMarketingCampaign}
             isEditing={this.state.isEditing}
           />
         ),
