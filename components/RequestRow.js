@@ -16,9 +16,10 @@ class RequestRow extends Component {
             {request.reqName}
           </Header>
         </Cell>
+        <Cell singleLine>{request.campaignName}</Cell>
         <Cell singleLine>{request.reqType}</Cell>
-        <Cell>{request.maxSpend}</Cell>
-        <Cell>{request.reqDeadline}</Cell>
+        <Cell>{request.maxSpend} €</Cell>
+        <Cell>{request.reqDeadline} months</Cell>
         <Cell>{request.payMethod}</Cell>
         <Cell>{request.addNotes}</Cell>
       </Row>

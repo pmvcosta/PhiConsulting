@@ -64,6 +64,7 @@ export async function getServerSideProps(context) {
       request = {};
       console.log(`THE NAME IS ${item.campaignName}`);
 
+      request['campaignName'] = `${item.campaignName}`;
       request['reqName'] = `${item.reqName}`;
       request['reqType'] = `${item.reqType}`;
       request['maxSpend'] = `${item.maxSpend}`;
@@ -121,6 +122,7 @@ class Dashboard extends Component {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Request Name</Table.HeaderCell>
+                <Table.HeaderCell singleLine>Target Campaign</Table.HeaderCell>
                 <Table.HeaderCell singleLine>Request Type</Table.HeaderCell>
                 <Table.HeaderCell>Maximum Budget</Table.HeaderCell>
                 <Table.HeaderCell singleLine style={{ width: '200px' }}>

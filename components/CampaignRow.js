@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link, Router } from '../routes';
-import { Table, Button, Progress, Header, List } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Link, Router } from "../routes";
+import { Table, Button, Progress, Header, List } from "semantic-ui-react";
 
 class CampaignRow extends Component {
   state = {
@@ -15,7 +15,7 @@ class CampaignRow extends Component {
         <Cell>
           <Header as="h3" textAlign="center">
             <Link route={`/dashboard/${campaign.campaignName}`}>
-              <a style={{ color: 'rgba(212, 32, 32, 1.0)' }}>
+              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
                 {campaign.campaignName}
               </a>
             </Link>
@@ -26,47 +26,48 @@ class CampaignRow extends Component {
         <Cell>{campaign.fundGoal} €</Cell>
         <Cell>{campaign.fundMethod}</Cell>
         <Cell>
-          {' '}
+          {" "}
           <List>
             <List.Item>
-              {campaign.hasMedia === 'true' && (
-                <List.Icon name="check circle" style={{ color: 'green' }} />
+              {campaign.hasMedia === "true" && (
+                <List.Icon name="check circle" style={{ color: "green" }} />
               )}
-              {campaign.hasMedia === 'false' && (
-                <List.Icon name="times circle" style={{ color: 'red' }} />
+              {campaign.hasMedia === "false" && (
+                <List.Icon name="times circle" style={{ color: "red" }} />
               )}
               <List.Content>Visual Media</List.Content>
             </List.Item>
             <List.Item>
-              {campaign.hasMarketingCampaign === 'true' && (
-                <List.Icon name="check circle" style={{ color: 'green' }} />
+              {campaign.hasMarketingCampaign === "true" && (
+                <List.Icon name="check circle" style={{ color: "green" }} />
               )}
-              {campaign.hasMarketingCampaign === 'false' && (
-                <List.Icon name="times circle" style={{ color: 'red' }} />
+              {campaign.hasMarketingCampaign === "false" && (
+                <List.Icon name="times circle" style={{ color: "red" }} />
               )}
               <List.Content>Marketing Campaign</List.Content>
             </List.Item>
             <List.Item>
-              {campaign.hasCommunity === 'true' && (
-                <List.Icon name="check circle" style={{ color: 'green' }} />
+              {campaign.hasCommunity === "true" && (
+                <List.Icon name="check circle" style={{ color: "green" }} />
               )}
-              {campaign.hasCommunity === 'false' && (
-                <List.Icon name="times circle" style={{ color: 'red' }} />
+              {campaign.hasCommunity === "false" && (
+                <List.Icon name="times circle" style={{ color: "red" }} />
               )}
               <List.Content>Online Community</List.Content>
             </List.Item>
             <List.Item>
-              {campaign.hasValuation === 'true' && (
-                <List.Icon name="check circle" style={{ color: 'green' }} />
+              {campaign.hasValuation === "true" && (
+                <List.Icon name="check circle" style={{ color: "green" }} />
               )}
-              {campaign.hasValuation === 'false' && (
-                <List.Icon name="times circle" style={{ color: 'red' }} />
+              {campaign.hasValuation === "false" && (
+                <List.Icon name="times circle" style={{ color: "red" }} />
               )}
               <List.Content>Business Valuation</List.Content>
             </List.Item>
           </List>
         </Cell>
-        <Cell>{campaign.addNotes}</Cell>
+        {campaign.addNotes !== "null" && <Cell>{campaign.addNotes}</Cell>}
+        {campaign.addNotes === "null" && <Cell>-</Cell>}
       </Row>
     );
   }
