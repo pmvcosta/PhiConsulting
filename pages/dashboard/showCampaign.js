@@ -87,6 +87,17 @@ export async function getServerSideProps(context) {
         campaign['hasCommunity'] = `${item.hasCommunity}`;
       }
     });
+  } else {
+    campaign['campaignName'] = ``;
+    campaign['platform'] = ``;
+    campaign['fundMethod'] = ``;
+    campaign['fundGoal'] = ``;
+    campaign['fundDeadline'] = ``;
+    campaign['addNotes'] = ``;
+    campaign['hasMedia'] = ``;
+    campaign["hasValuation"] = ``;
+    campaign["hasMarketingCampaign"] = ``;
+    campaign["hasCommunity"] = ``;
   }
 
   client.close();
@@ -110,13 +121,13 @@ class CampaignShow extends Component {
   render() {
     console.log(`Props are${this.props}`);
     const { campaign, session, profileType } = this.props;
-    const currentItem = 'IDK';
+    const currentItem = "IDK";
     const panes = [
       {
         menuItem: {
-          key: 'Basic Details',
-          content: 'Basic Details',
-          icon: 'info circle',
+          key: "Basic Details",
+          content: "Basic Details",
+          icon: "info circle",
         },
         render: () => (
           <BasicDetails
@@ -127,9 +138,9 @@ class CampaignShow extends Component {
       },
       {
         menuItem: {
-          key: 'Visual Media',
-          content: 'Visual Media',
-          icon: 'camera retro',
+          key: "Visual Media",
+          content: "Visual Media",
+          icon: "camera retro",
         },
         render: () => (
           <VisualMedia
@@ -139,7 +150,7 @@ class CampaignShow extends Component {
         ),
       },
       {
-        menuItem: { key: 'Community', content: 'Community', icon: 'users' },
+        menuItem: { key: "Community", content: "Community", icon: "users" },
         render: () => (
           <Community
             campaign={this.props.campaign}
@@ -148,7 +159,7 @@ class CampaignShow extends Component {
         ),
       },
       {
-        menuItem: { key: 'Marketing', content: 'Marketing', icon: 'bullhorn' },
+        menuItem: { key: "Marketing", content: "Marketing", icon: "bullhorn" },
         render: () => (
           <Marketing
             campaign={this.props.campaign}
@@ -167,7 +178,7 @@ class CampaignShow extends Component {
         <Segment color="red" raised padded>
           <Header
             as="h2"
-            style={{ fontSize: '2em', color: "rgba(182, 12, 12, 0.9)" }}
+            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
           >
             {campaign.campaignName}
             <Button
