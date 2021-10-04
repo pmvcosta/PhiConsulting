@@ -30,13 +30,13 @@ import { useSession, getSession } from 'next-auth/client';
 
 class Community extends Component {
   render() {
-    const { campaign, isEditing } = this.props;
+    const { hasCommunity, isEditing } = this.props;
     return (
       <Tab.Pane attached={false} color="red">
         <List divided relaxed>
           <List.Item>
             <List.Content style={{ marginBottom: '5px' }}>
-              {campaign.hasCommunity === 'true' && (
+              {hasCommunity === 'true' && (
                 <List.Header
                   style={{
                     fontSize: '1.5em',
@@ -47,7 +47,7 @@ class Community extends Component {
                   Digital Community already set up
                 </List.Header>
               )}
-              {campaign.hasCommunity === 'false' && (
+              {hasCommunity === 'false' && (
                 <List.Header
                   style={{
                     fontSize: '1.5em',

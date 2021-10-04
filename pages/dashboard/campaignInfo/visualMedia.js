@@ -30,13 +30,13 @@ import { useSession, getSession } from 'next-auth/client';
 
 class VisualMedia extends Component {
   render() {
-    const { campaign, isEditing } = this.props;
+    const { hasMedia, isEditing } = this.props;
     return (
       <Tab.Pane attached={false} color="red">
         <List divided relaxed>
           <List.Item>
             <List.Content style={{ marginBottom: '5px' }}>
-              {campaign.hasMedia === 'true' && (
+              {hasMedia === 'true' && (
                 <List.Header
                   style={{
                     fontSize: '1.5em',
@@ -47,7 +47,7 @@ class VisualMedia extends Component {
                   Visual Media already in place
                 </List.Header>
               )}
-              {campaign.hasMedia === 'false' && (
+              {hasMedia === 'false' && (
                 <List.Header
                   style={{
                     fontSize: '1.5em',

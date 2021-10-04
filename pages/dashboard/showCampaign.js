@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -19,18 +19,18 @@ import {
   Tab,
   Dimmer,
   Rating,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import { useSession, getSession } from 'next-auth/client';
-import { connectToDatabase } from '../../lib/db';
-import BasicDetails from './campaignInfo/basicDetails';
-import Community from './campaignInfo/community';
-import Marketing from './campaignInfo/marketing';
-import VisualMedia from './campaignInfo/visualMedia';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import { useSession, getSession } from "next-auth/client";
+import { connectToDatabase } from "../../lib/db";
+import BasicDetails from "./campaignInfo/basicDetails";
+import Community from "./campaignInfo/community";
+import Marketing from "./campaignInfo/marketing";
+import VisualMedia from "./campaignInfo/visualMedia";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -55,14 +55,14 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection('users');
+  const usersCollection = client.db().collection("users");
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const campaigns = user.campaigns;
@@ -75,26 +75,26 @@ export async function getServerSideProps(context) {
       console.log(`THE NAME IS ${item.campaignName}`);
 
       if (item.campaignName === selectedCampaign) {
-        campaign['campaignName'] = `${item.campaignName}`;
-        campaign['platform'] = `${item.platform}`;
-        campaign['fundMethod'] = `${item.fundMethod}`;
-        campaign['fundGoal'] = `${item.fundGoal}`;
-        campaign['fundDeadline'] = `${item.fundDeadline}`;
-        campaign['addNotes'] = `${item.addNotes}`;
-        campaign['hasMedia'] = `${item.hasMedia}`;
-        campaign['hasValuation'] = `${item.hasValuation}`;
-        campaign['hasMarketingCampaign'] = `${item.hasMarketingCampaign}`;
-        campaign['hasCommunity'] = `${item.hasCommunity}`;
+        campaign["campaignName"] = `${item.campaignName}`;
+        campaign["platform"] = `${item.platform}`;
+        campaign["fundMethod"] = `${item.fundMethod}`;
+        campaign["fundGoal"] = `${item.fundGoal}`;
+        campaign["fundDeadline"] = `${item.fundDeadline}`;
+        campaign["addNotes"] = `${item.addNotes}`;
+        campaign["hasMedia"] = `${item.hasMedia}`;
+        campaign["hasValuation"] = `${item.hasValuation}`;
+        campaign["hasMarketingCampaign"] = `${item.hasMarketingCampaign}`;
+        campaign["hasCommunity"] = `${item.hasCommunity}`;
       }
     });
   } else {
-    campaign['campaignName'] = ``;
-    campaign['platform'] = ``;
-    campaign['fundMethod'] = ``;
-    campaign['fundGoal'] = ``;
-    campaign['fundDeadline'] = ``;
-    campaign['addNotes'] = ``;
-    campaign['hasMedia'] = ``;
+    campaign["campaignName"] = ``;
+    campaign["platform"] = ``;
+    campaign["fundMethod"] = ``;
+    campaign["fundGoal"] = ``;
+    campaign["fundDeadline"] = ``;
+    campaign["addNotes"] = ``;
+    campaign["hasMedia"] = ``;
     campaign["hasValuation"] = ``;
     campaign["hasMarketingCampaign"] = ``;
     campaign["hasCommunity"] = ``;
@@ -131,7 +131,10 @@ class CampaignShow extends Component {
         },
         render: () => (
           <BasicDetails
-            campaign={this.props.campaign}
+            fundMethod={this.props.campaign.fundMethod}
+            fundGoal={this.props.campaign.fundGoal}
+            platform={this.props.campaign.platform}
+            fundDeadline={this.props.campaign.fundDeadline}
             isEditing={this.state.isEditing}
           />
         ),
@@ -144,7 +147,7 @@ class CampaignShow extends Component {
         },
         render: () => (
           <VisualMedia
-            campaign={this.props.campaign}
+            hasMedia={this.props.campaign.hasMedia}
             isEditing={this.state.isEditing}
           />
         ),
@@ -153,7 +156,7 @@ class CampaignShow extends Component {
         menuItem: { key: "Community", content: "Community", icon: "users" },
         render: () => (
           <Community
-            campaign={this.props.campaign}
+            hasCommunity={this.props.campaign.hasCommunity}
             isEditing={this.state.isEditing}
           />
         ),
@@ -162,7 +165,7 @@ class CampaignShow extends Component {
         menuItem: { key: "Marketing", content: "Marketing", icon: "bullhorn" },
         render: () => (
           <Marketing
-            campaign={this.props.campaign}
+            hasMarketingCampaign={this.props.campaign.hasMarketingCampaign}
             isEditing={this.state.isEditing}
           />
         ),

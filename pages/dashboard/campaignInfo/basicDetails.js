@@ -31,7 +31,13 @@ import { useSession, getSession } from 'next-auth/client';
 
 class BasicDetails extends Component {
   render() {
-    const { campaign, isEditing } = this.props;
+    const {
+      fundDeadline,
+      fundMethod,
+      fundGoal,
+      platform,
+      isEditing,
+    } = this.props;
     return (
       <Tab.Pane attached={false} color="red">
         <List divided relaxed>
@@ -42,7 +48,7 @@ class BasicDetails extends Component {
               >
                 Funding Method
               </List.Header>
-              {campaign.fundMethod}
+              {fundMethod}
             </List.Content>
           </List.Item>
           <List.Item style={{ marginBottom: '5px' }}>
@@ -52,7 +58,7 @@ class BasicDetails extends Component {
               >
                 Funding Goal
               </List.Header>
-              {campaign.fundGoal} €
+              {fundGoal} €
             </List.Content>
           </List.Item>
           <List.Item style={{ marginBottom: '5px' }}>
@@ -62,7 +68,7 @@ class BasicDetails extends Component {
               >
                 Platform
               </List.Header>
-              {campaign.platform}
+              {platform}
             </List.Content>
           </List.Item>
           <List.Item style={{ marginBottom: '5px' }}>
@@ -72,7 +78,7 @@ class BasicDetails extends Component {
               >
                 Deadline
               </List.Header>
-              {campaign.fundDeadline}
+              {fundDeadline}
             </List.Content>
           </List.Item>
         </List>
