@@ -71,10 +71,8 @@ export async function getServerSideProps(context) {
 
   if (campaigns !== undefined) {
     campaigns.forEach((item) => {
-      campaign = {};
-      console.log(`THE NAME IS ${item.campaignName}`);
-
       if (item.campaignName === selectedCampaign) {
+        console.log(`THE NAME IS ${selectedCampaign}`);
         campaign['campaignName'] = `${item.campaignName}`;
         campaign['platform'] = `${item.platform}`;
         campaign['fundMethod'] = `${item.fundMethod}`;
@@ -89,6 +87,12 @@ export async function getServerSideProps(context) {
     });
   }
 
+  console.log(`${campaign.campaignName}`);
+  console.log(`${campaign.platform}`);
+  console.log(`${campaign.fundMethod}`);
+  console.log(`${campaign.fundDeadline}`);
+  console.log(`${campaign.addNotes}`);
+
   client.close();
   return {
     props: { session, campaign, profileType },
@@ -96,12 +100,12 @@ export async function getServerSideProps(context) {
 }
 
 class CampaignShow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isEditing: false,
-    };
-  }
+  //constructor(props) {
+  //  super(props);
+  state = {
+    isEditing: false,
+  };
+  //}
 
   changeEditState = () => {
     this.setState({ isEditing: !this.state.isEditing });
@@ -109,8 +113,7 @@ class CampaignShow extends Component {
 
   render() {
     //MAKE THIS A F***** POP UP, using a new page is bound to crash
-    console.log(`Props are${this.props}`);
-    const { campaign, session, profileType } = this.props;
+    const { session, campaign, profileType } = this.props;
     const currentItem = 'IDK';
     const panes = [
       {
@@ -171,7 +174,7 @@ class CampaignShow extends Component {
         <Segment color="red" raised padded>
           <Header
             as="h2"
-            style={{ fontSize: '2em', color: "rgba(182, 12, 12, 0.9)" }}
+            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
           >
             {campaign.campaignName}
             <Button
