@@ -177,14 +177,25 @@ class CampaignShow extends Component {
             style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
           >
             {campaign.campaignName}
-            <Button
-              secondary
-              floated="right"
-              onClick={this.changeEditState}
-              style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
-            >
-              Edit
-            </Button>
+            {!this.state.isEditing && (
+              <Button
+                secondary
+                floated="right"
+                onClick={this.changeEditState}
+                style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
+              >
+                Edit
+              </Button>
+            )}
+            {this.state.isEditing && (
+              <Button
+                floated="right"
+                onClick={this.changeEditState}
+                style={{ color: "rgba(212, 32, 32, 1.0)" }}
+              >
+                Save
+              </Button>
+            )}
           </Header>
           <Tab
             menu={{ color: "red", secondary: true, pointing: true }}
