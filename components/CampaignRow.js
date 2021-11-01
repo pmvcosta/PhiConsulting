@@ -15,7 +15,7 @@ class CampaignRow extends Component {
         <Cell>
           <Header as="h3" textAlign="center">
             <Link route={`/dashboard/${campaign.campaignName}`}>
-              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+              <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                 {campaign.campaignName}
               </a>
             </Link>

@@ -82,13 +82,13 @@ class DesktopContainer extends Component {
     const trigger = (
       <span
         style={{
-          color: "rgba(212, 32, 32, 1.0)",
+          color: "rgba(28, 173, 229, 1.0)",
         }}
       >
         <Icon
           name="user"
           style={{
-            color: "rgba(212, 32, 32, 1.0)",
+            color: "rgba(28, 173, 229, 1.0)",
           }}
         />{" "}
         User Profile
@@ -165,7 +165,7 @@ class DesktopContainer extends Component {
             </Menu.Item>
 
             {profileType == "Borrower" && (
-              <Menu.Item style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}>
+              <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
                     color: "rgba(220, 220, 220, 1.0)",
@@ -202,7 +202,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "activeCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Active</a>
               </Menu.Item>
             )}
 
@@ -212,7 +212,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "pendingCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Pending</a>
               </Menu.Item>
             )}
 
@@ -222,12 +222,12 @@ class DesktopContainer extends Component {
                 active={activeItem === "completedCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Completed</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Completed</a>
               </Menu.Item>
             )}
 
             {profileType == "Borrower" && (
-              <Menu.Item style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}>
+              <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
                     color: "rgba(220, 220, 220, 1.0)",
@@ -264,7 +264,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "pendingRequests"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Pending</a>
               </Menu.Item>
             )}
 
@@ -274,12 +274,12 @@ class DesktopContainer extends Component {
                 active={activeItem === "completedRequests"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Completed</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Completed</a>
               </Menu.Item>
             )}
 
             {profileType == "Funding Platform" && (
-              <Menu.Item style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}>
+              <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
                     color: "rgba(220, 220, 220, 1.0)",
@@ -316,7 +316,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "activeCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Active</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Active</a>
               </Menu.Item>
             )}
 
@@ -326,7 +326,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "pendingCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Pending</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Pending</a>
               </Menu.Item>
             )}
 
@@ -336,7 +336,7 @@ class DesktopContainer extends Component {
                 active={activeItem === "completedCampaigns"}
                 onClick={this.handleItemClick}
               >
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Completed</a>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Completed</a>
               </Menu.Item>
             )}
           </Menu>
@@ -353,7 +353,7 @@ class DesktopContainer extends Component {
             }}
           >
             <Menu.Item>
-              <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>Profile Type: </a>
+              <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>Profile Type: </a>
               <a style={{ color: "rgba(0, 0, 0, 1.0)" }}>
                 &nbsp; {profileType}
               </a>
@@ -361,28 +361,28 @@ class DesktopContainer extends Component {
 
             <Menu.Item>
               <Link route="/dashboard">
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                   Available Platforms
                 </a>
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link route="/dashboard">
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                   Funding Methods
                 </a>
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link route="/dashboard">
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                   Service Providers
                 </a>
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link route="/dashboard">
-                <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                   Terms & Conditions
                 </a>
               </Link>
@@ -419,7 +419,7 @@ class DesktopContainer extends Component {
               <Dropdown
                 direction="left"
                 trigger={trigger}
-                style={{ marginRight: "10px", color: "rgba(212, 32, 32, 1.0)" }}
+                style={{ marginRight: "10px", color: "rgba(28, 173, 229, 1.0)" }}
               >
                 <Dropdown.Menu>
                   <Dropdown.Header
@@ -435,7 +435,7 @@ class DesktopContainer extends Component {
                     }}
                   >
                     Signed in as: <br />
-                    <a style={{ color: "rgba(212, 32, 32, 1.0)" }}>
+                    <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
                       {session.user.email}
                     </a>
                   </Dropdown.Header>
@@ -595,7 +595,7 @@ class MobileContainer extends Component {
             style={{
               border: "0px",
               outline: "0px",
-              backgroundColor: "rgba(212, 32, 32, 0.9)",
+              backgroundColor: "rgba(28, 173, 229, 0.9)",
             }}
           >
             <Menu.Item onClick={this.handleToggle}>

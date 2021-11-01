@@ -106,7 +106,7 @@ class Dashboard extends Component {
           >
             <Header
               as="h2"
-              style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 1.0)' }}
+              style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 1.0)' }}
             >
               Recently Added
             </Header>
@@ -122,7 +122,7 @@ class Dashboard extends Component {
           <Segment color="red" raised padded style={{ marginTop: '20px' }}>
             <Header
               as="h2"
-              style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 1.0)' }}
+              style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 1.0)' }}
             >
               All Services
             </Header>
@@ -154,7 +154,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                    style={{ backgroundColor: 'rgba(28, 173, 229, 1.0)' }}
                   >
                     Request
                   </Button>
@@ -189,7 +189,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                    style={{ backgroundColor: 'rgba(28, 173, 229, 1.0)' }}
                   >
                     Request
                   </Button>
@@ -224,7 +224,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                    style={{ backgroundColor: 'rgba(28, 173, 229, 1.0)' }}
                   >
                     Request
                   </Button>
@@ -259,7 +259,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
+                    style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}
                   >
                     Request
                   </Button>
@@ -293,7 +293,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
+                    style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}
                   >
                     Request
                   </Button>

@@ -23,7 +23,7 @@ const CustomCardSlide = ({ icon, title, text, index }) => (
               <Icon
                 name={icon}
                 size="massive"
-                style={{ color: 'rgba(212, 32, 32, 1.0)' }}
+                style={{ color: 'rgba(28, 173, 229, 1.0)' }}
               />
 
               <Card.Header as="h2" centered style={{ fontSize: '1.5em' }}>
@@ -39,7 +39,7 @@ const CustomCardSlide = ({ icon, title, text, index }) => (
             style={{
               width: '300px',
               height: '250px',
-              backgroundColor: 'rgba(212, 32, 32, 1.0)',
+              backgroundColor: 'rgba(28, 173, 229, 1.0)',
             }}
           >
             <Card.Content textAlign="center">

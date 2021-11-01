@@ -39,7 +39,7 @@ class CustomCardSlide extends Component {
                   centered
                   secondary
                   onClick={this.showModal}
-                  style={{ backgroundColor: 'rgba(212, 32, 32, 1.0)' }}
+                  style={{ backgroundColor: 'rgba(28, 173, 229, 1.0)' }}
                 >
                   Request
                 </Button>

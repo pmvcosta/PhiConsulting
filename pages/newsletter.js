@@ -56,12 +56,7 @@ class Subscribe extends Component {
 
   render() {
     return (
-      <Grid
-        container
-        stackable
-        verticalAlign="middle"
-        style={{ padding: '0em 0em' }}
-      >
+      <Grid stackable verticalAlign="middle" style={{ padding: '0em 0em' }}>
         <Grid.Row>
           <Grid.Column>
             <Form
@@ -74,7 +69,16 @@ class Subscribe extends Component {
                   className="form-control mb-4 p-4"
                   required
                   type="email"
+                  size="tiny"
                   placeholder="Email"
+                  action={{
+                    color: 'blue',
+                    labelPosition: 'right',
+                    icon: 'mail',
+                    content: 'Subscribe',
+                    size: 'tiny',
+                  }}
+                  loading={this.state.loading}
                   value={this.state.email}
                   onChange={(event) =>
                     this.setState({ email: event.target.value })
@@ -90,17 +94,6 @@ class Subscribe extends Component {
                   header="Good news everyone!"
                   content={this.state.successMessage}
                 />
-                <Button
-                  loading={this.state.loading}
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.9)',
-                    color: 'rgba(212, 32, 32, 1.0)',
-                    marginTop: '10px',
-                  }}
-                  primary
-                >
-                  Keep Me Updated!
-                </Button>
               </Form.Field>
             </Form>
           </Grid.Column>

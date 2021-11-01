@@ -182,7 +182,7 @@ class CampaignShow extends Component {
                 secondary
                 floated="right"
                 onClick={this.changeEditState}
-                style={{ backgroundColor: "rgba(212, 32, 32, 1.0)" }}
+                style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}
               >
                 Edit
               </Button>
@@ -191,7 +191,7 @@ class CampaignShow extends Component {
               <Button
                 floated="right"
                 onClick={this.changeEditState}
-                style={{ color: "rgba(212, 32, 32, 1.0)" }}
+                style={{ color: "rgba(28, 173, 229, 1.0)" }}
               >
                 Save
               </Button>

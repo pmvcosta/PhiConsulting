@@ -360,7 +360,7 @@ class InfoForm extends Component {
           style={{
             fontSize: "2em",
             color: "rgba(255, 255, 255, 1.0)",
-            backgroundColor: "rgba(212, 32, 32, 1.0)",
+            backgroundColor: "rgba(28, 173, 229, 1.0)",
           }}
         >
           Borrower Details
@@ -369,7 +369,7 @@ class InfoForm extends Component {
           <Modal.Description>
             <Header
               as="h3"
-              style={{ fontSize: "2em", color: "rgba(212, 32, 32, 0.9)" }}
+              style={{ fontSize: "2em", color: "rgba(28, 173, 229, 0.9)" }}
               textAlign="left"
             >
               Tell Us About Your Business!

@@ -48,7 +48,7 @@ class CampaignList extends Component {
       <Segment color="red" raised padded style={{ textAlign: "center" }}>
         <Header
           as="h2"
-          style={{ fontSize: "3em", color: "rgba(212, 32, 32, 1.0)" }}
+          style={{ fontSize: "3em", color: "rgba(28, 173, 229, 1.0)" }}
         >
           Available Campaigns
         </Header>

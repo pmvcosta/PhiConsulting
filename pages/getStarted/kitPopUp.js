@@ -30,7 +30,7 @@ class KitPopUp extends Component {
         <div>
           <Header
             as="h3"
-            style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 0.9)' }}
+            style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 0.9)' }}
             textAlign="left"
           >
             Reccomended Platform:
@@ -51,7 +51,7 @@ class KitPopUp extends Component {
         <div>
           <Header
             as="h3"
-            style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 0.9)' }}
+            style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 0.9)' }}
             textAlign="left"
           >
             Reccomended Platform:
@@ -72,7 +72,7 @@ class KitPopUp extends Component {
         <div>
           <Header
             as="h3"
-            style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 0.9)' }}
+            style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 0.9)' }}
             textAlign="left"
           >
             Reccomended Platform:
@@ -94,7 +94,7 @@ class KitPopUp extends Component {
         <div>
           <Header
             as="h3"
-            style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 0.9)' }}
+            style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 0.9)' }}
             textAlign="left"
           >
             Reccomended Platform:
@@ -119,7 +119,7 @@ class KitPopUp extends Component {
           style={{
             fontSize: '2em',
             color: 'rgba(255, 255, 255, 1.0)',
-            backgroundColor: 'rgba(212, 32, 32, 1.0)',
+            backgroundColor: 'rgba(28, 173, 229, 1.0)',
           }}
         >
           Project Campaign Kit
@@ -130,7 +130,7 @@ class KitPopUp extends Component {
 
             <Header
               as="h3"
-              style={{ fontSize: '2em', color: 'rgba(212, 32, 32, 0.9)' }}
+              style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 0.9)' }}
               textAlign="left"
             >
               Reccomended Services and Estimated Costs
@@ -144,7 +144,7 @@ class KitPopUp extends Component {
                       as="h3"
                       style={{
                         fontSize: '1.5em',
-                        color: 'rgba(212, 32, 32, 0.9)',
+                        color: 'rgba(28, 173, 229, 0.9)',
                       }}
                       textAlign="left"
                     >
@@ -159,7 +159,7 @@ class KitPopUp extends Component {
                       as="h3"
                       style={{
                         fontSize: '1.5em',
-                        color: 'rgba(212, 32, 32, 0.9)',
+                        color: 'rgba(28, 173, 229, 0.9)',
                       }}
                       textAlign="left"
                     >
@@ -207,7 +207,7 @@ class KitPopUp extends Component {
             href="/subscribe"
             primary
             style={{
-              backgroundColor: 'rgba(212, 32, 32, 1.0)',
+              backgroundColor: 'rgba(28, 173, 229, 1.0)',
             }}
           >
             I'd Like to Know More! <Icon name="chevron right" />
@@ -216,7 +216,7 @@ class KitPopUp extends Component {
             onClick={this.props.hideModal}
             primary
             style={{
-              backgroundColor: 'rgba(212, 32, 32, 1.0)',
+              backgroundColor: 'rgba(28, 173, 229, 1.0)',
             }}
           >
             Proceed <Icon name="chevron right" />

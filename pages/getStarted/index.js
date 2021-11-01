@@ -372,7 +372,7 @@ class FormExampleFieldControl extends Component {
                 >
                   <Header
                     as="h3"
-                    style={{ fontSize: "3em", color: "rgba(212, 32, 32, 0.9)" }}
+                    style={{ fontSize: "3em", color: "rgba(28, 173, 229, 0.9)" }}
                     textAlign="center"
                   >
                     Tell Us About Your Business!

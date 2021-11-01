@@ -16,6 +16,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from '../routes';
 import PropTypes from 'prop-types';
+import LayoutMenu from './LayoutMenu';
 import HomePageHeading from './HomePageHeading';
 import { useSession, signOut } from 'next-auth/client'; //To keep track of wether user is logged in
 
@@ -41,7 +42,7 @@ const UseSession = ({ children }) => {
 };
 
 class DesktopContainer extends Component {
-  state = {};
+  state = { fixed: false };
 
   hideFixedMenu = () => this.setState({ fixed: false });
   showFixedMenu = () => this.setState({ fixed: true });
@@ -86,144 +87,19 @@ class DesktopContainer extends Component {
             onBottomPassed={this.showFixedMenu}
             onBottomPassedReverse={this.hideFixedMenu}
           >
-            <Menu
-              borderless
-              fixed={fixed ? 'top' : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="large"
-              style={{
-                border: '0px',
-                outline: '0px',
-                backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
-              }}
-            >
-              <Container fluid>
-                <Menu.Item>
-                  <Link route="/">
-                    <a>
-                      <Image
-                        src="/logo.png"
-                        centered
-                        style={{
-                          marginTop: '-2%',
-                          height: '45px',
-                          width: 'auto',
-                        }}
-                      />
-                    </a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link route="/">
-                    <a
-                      style={{
-                        color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
-                      }}
-                    >
-                      Home
-                    </a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link route="/openCampaigns">
-                    <a
-                      style={{
-                        color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
-                      }}
-                    >
-                      Campaigns
-                    </a>
-                  </Link>
-                </Menu.Item>
+            <LayoutMenu
+              isTop={true}
+              fixed={!fixed}
+              logoutHandler={this.logoutHandler}
+              session={session}
+            />
 
-                <Menu.Item>
-                  <Link route="/subscribe">
-                    <a
-                      style={{
-                        color: fixed
-                          ? 'rgba(212, 32, 32, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
-                      }}
-                    >
-                      Learn More
-                    </a>
-                  </Link>
-                </Menu.Item>
-                {session && (
-                  <Menu.Item>
-                    <Link route="/dashboard">
-                      <a
-                        style={{
-                          color: fixed
-                            ? 'rgba(212, 32, 32, 0.9)'
-                            : 'rgba(74, 74, 74, 0.9)',
-                        }}
-                      >
-                        Dashboard
-                      </a>
-                    </Link>
-                  </Menu.Item>
-                )}
-                {!session && (
-                  <Menu.Item position="right">
-                    <Link route="/login">
-                      <a>
-                        <Button
-                          secondary={fixed}
-                          style={{
-                            backgroundColor: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
-                          }}
-                        >
-                          Log in
-                        </Button>
-                      </a>
-                    </Link>
-                    <Link route="/register">
-                      <a>
-                        <Button
-                          primary={fixed}
-                          style={{
-                            marginLeft: '0.5em',
-                            backgroundColor: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
-                          }}
-                        >
-                          Sign Up
-                        </Button>
-                      </a>
-                    </Link>
-                  </Menu.Item>
-                )}
-                {session && (
-                  <Menu.Item position="right">
-                    <Link route="/subscribe">
-                      <a>
-                        <Button
-                          onClick={this.logoutHandler}
-                          secondary={fixed}
-                          style={{
-                            backgroundColor: fixed
-                              ? 'rgba(212, 32, 32, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
-                          }}
-                        >
-                          Log Out
-                        </Button>
-                      </a>
-                    </Link>
-                  </Menu.Item>
-                )}
-              </Container>
-            </Menu>
+            <LayoutMenu
+              isTop={false}
+              fixed={fixed}
+              logoutHandler={this.logoutHandler}
+              session={session}
+            />
           </Visibility>
         </Segment>
 
@@ -264,7 +140,7 @@ class MobileContainer extends Component {
           style={{
             border: '0px',
             outline: '0px',
-            backgroundColor: 'rgba(212, 32, 32, 1.0)',
+            backgroundColor: 'rgba(28, 173, 229, 1.0)',
           }}
         >
           <Menu.Item>
@@ -330,9 +206,9 @@ class MobileContainer extends Component {
                 secondary
                 size="large"
                 style={{
-                  border: "0px",
-                  outline: "0px",
-                  backgroundColor: fixed ? "rgba(255, 255, 255, 0.9)" : "",
+                  border: '0px',
+                  outline: '0px',
+                  backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
                 }}
               >
                 <Container>
@@ -341,8 +217,8 @@ class MobileContainer extends Component {
                       name="sidebar"
                       style={{
                         color: fixed
-                          ? "rgba(212, 32, 32, 0.9)"
-                          : "rgba(74, 74, 74, 0.9)",
+                          ? 'rgba(28, 173, 229, 0.9)'
+                          : 'rgba(74, 74, 74, 0.9)',
                       }}
                     />
                   </Menu.Item>
@@ -353,8 +229,8 @@ class MobileContainer extends Component {
                           secondary={fixed}
                           style={{
                             backgroundColor: fixed
-                              ? "rgba(212, 32, 32, 0.9)"
-                              : "rgba(255, 255, 255, 0.9)",
+                              ? 'rgba(28, 173, 229, 0.9)'
+                              : 'rgba(255, 255, 255, 0.9)',
                           }}
                         >
                           Log in
@@ -366,10 +242,10 @@ class MobileContainer extends Component {
                         <Button
                           primary={fixed}
                           style={{
-                            marginLeft: "0.5em",
+                            marginLeft: '0.5em',
                             backgroundColor: fixed
-                              ? "rgba(212, 32, 32, 0.9)"
-                              : "rgba(255, 255, 255, 0.9)",
+                              ? 'rgba(28, 173, 229, 0.9)'
+                              : 'rgba(255, 255, 255, 0.9)',
                           }}
                         >
                           Sign Up

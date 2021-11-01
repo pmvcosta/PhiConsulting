@@ -228,7 +228,7 @@ class Dashboard extends Component {
         <Segment color="red" padded raised fluid>
           <Header
             as="h2"
-            style={{ fontSize: "2em", color: "rgba(212, 32, 32, 1.0)" }}
+            style={{ fontSize: "2em", color: "rgba(28, 173, 229, 1.0)" }}
           >
             New Campaign
           </Header>
