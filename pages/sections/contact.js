@@ -57,7 +57,7 @@ class LayoutMenu extends Component {
           verticalAlign="middle"
           style={{
             backgroundColor: 'rgba(28, 173, 229, 1.0)',
-            padding: '2em 6em',
+            padding: '1em 6em',
             width: '30em',
           }}
         >
@@ -91,15 +91,45 @@ class LayoutMenu extends Component {
                 partners.
               </Header.Subheader>
             </Header>
-
-            <Newsletter />
-            <br />
-            <Header as="h1" style={{ marginBottom: '10px', marginTop: '10px' }}>
-              <Header.Subheader
-                style={{ marginTop: '15px', fontSize: '0.6em' }}
-              ></Header.Subheader>
-            </Header>
           </Grid.Column>
+        </Grid.Row>
+        <Grid.Row
+          fluid
+          style={{
+            backgroundColor: 'rgba(212, 32, 32, 0.0)',
+            marginBottom: '40px',
+          }}
+        >
+          <Grid.Column
+            floated="left"
+            width={5}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          ></Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={5}
+            style={{ paddingLeft: '1em', textAlign: 'left' }}
+          >
+            <Container
+              style={{
+                padding: '0em 1em',
+                paddingRight: '1em',
+              }}
+            >
+              <Transition
+                transitionOnMount="true"
+                animation="fade"
+                duration={500}
+              >
+                <Newsletter />
+              </Transition>
+            </Container>
+          </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={5}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          ></Grid.Column>
         </Grid.Row>
       </Grid>
     );
