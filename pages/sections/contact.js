@@ -144,19 +144,23 @@ class LayoutMenu extends Component {
           fluid
           style={{
             backgroundColor: 'rgba(28, 173, 229, 1.0)',
-            padding: '0em 8em',
+            padding: '0em 0em',
             paddingBottom: '4em',
             textAlign: 'center',
           }}
         >
-          <Grid.Column width={5} />
-          <Grid.Column width={6}>
+          <Grid.Column width={6} />
+          <Grid.Column
+            width={4}
+            style={{ paddingLeft: '0.3em', textAlign: 'center' }}
+          >
             <h1 style={{ fontSize: '1.3em' }}>
-              <Icon name="phone" />
-              Tlm: +351 911 981 929
+              <Icon name="telegram" size="big" />
+              +351 911 981 929
+              <Icon name="whatsapp" size="big" />
             </h1>
           </Grid.Column>
-          <Grid.Column width={5} />
+          <Grid.Column width={6} />
         </Grid.Row>
       </Grid>
     );
