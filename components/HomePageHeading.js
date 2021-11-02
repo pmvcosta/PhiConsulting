@@ -122,8 +122,8 @@ const HomepageHeading = ({ mobile }) => (
                 marginBottom: '20px',
               }}
             >
-              The only Iberian business support agency dedicated for Blockchain
-              & Crowdsourcing
+              The only Iberian business support agency dedicated to Blockchain &
+              Crowdsourcing
             </p>
           </Transition>
           <Container

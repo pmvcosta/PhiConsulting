@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import { createMedia } from "@artsy/fresnel";
+import React, { Component, useEffect, useState } from 'react';
+import { createMedia } from '@artsy/fresnel';
 import {
   Menu,
   Sidebar,
@@ -14,15 +14,15 @@ import {
   Divider,
   List,
   Image,
-} from "semantic-ui-react";
-import { Link } from "../routes";
-import { HashLink, NavHashLink } from "react-router-hash-link";
-import LayoutMenu from "./LayoutMenu";
-import LayoutMobileMenu from "./LayoutMobileMenu";
-import PropTypes from "prop-types";
-import scrollIntoViewIfNeeded from "scroll-into-view-if-needed";
-import HomePageHeading from "./HomePageHeading";
-import { useSession, signOut } from "next-auth/client"; //To keep track of wether user is logged in
+} from 'semantic-ui-react';
+import { Link } from '../routes';
+import { HashLink, NavHashLink } from 'react-router-hash-link';
+import LayoutMenu from './LayoutMenu';
+import LayoutMobileMenu from './LayoutMobileMenu';
+import PropTypes from 'prop-types';
+import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed';
+import HomePageHeading from './HomePageHeading';
+import { useSession, signOut } from 'next-auth/client'; //To keep track of wether user is logged in
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
     mobile: 0,
@@ -70,17 +70,17 @@ class DesktopContainer extends Component {
           inverted
           textAlign="center"
           style={{
-            padding: ".2em 0em",
+            padding: '.2em 0em',
             /*backgroundImage: 'url(/backgnd.jpg)',*/
-            backgroundColor: "rgba(0,0,0,1.0)",
+            backgroundColor: 'rgba(0,0,0,1.0)',
             /* Set a specific height */
-            minHeight: "180px",
+            minHeight: '180px',
 
             /* Create the parallax scrolling effect */
-            backgroundAttachment: "fixed",
-            backgroundPosition: "center",
-            backgroundRepeat: "no - repeat",
-            backgroundSize: "cover",
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
           }}
           vertical
         >
@@ -137,15 +137,15 @@ class MobileContainer extends Component {
         <Sidebar
           as={Menu}
           animation="overlay"
-          fixed={fixed ? "left" : null}
+          fixed={fixed ? 'left' : null}
           inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
           style={{
-            border: "0px",
-            outline: "0px",
-            backgroundColor: "rgba(28, 173, 229, 1.0)",
+            border: '0px',
+            outline: '0px',
+            backgroundColor: 'rgba(28, 173, 229, 1.0)',
           }}
         >
           <Menu.Item>
@@ -157,7 +157,7 @@ class MobileContainer extends Component {
           </Menu.Item>
           <Menu.Item>
             <Link route="/#Intro">
-              <a>Solutions</a>
+              <a>Home</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
@@ -196,15 +196,15 @@ class MobileContainer extends Component {
           fluid
           dimmed={sidebarOpened}
           style={{
-            height: "60px",
-            width: "100%",
-            backgroundColor: "rgba(0, 0, 0, 1.0)",
+            height: '60px',
+            width: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 1.0)',
             /*backgroundImage: 'url(/backgnd.jpg)',*/
             /* Create the parallax scrolling effect */
-            backgroundAttachment: "fixed",
-            backgroundPosition: "center",
-            backgroundRepeat: "no - repeat",
-            backgroundSize: "cover",
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
           }}
         >
           <Visibility

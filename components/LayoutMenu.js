@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Menu,
   Sidebar,
@@ -13,9 +13,9 @@ import {
   Divider,
   List,
   Image,
-} from "semantic-ui-react";
-import { Link } from "../routes";
-import { HashLink, NavHashLink } from "react-router-hash-link";
+} from 'semantic-ui-react';
+import { Link } from '../routes';
+import { HashLink, NavHashLink } from 'react-router-hash-link';
 
 class LayoutMenu extends Component {
   state = {
@@ -32,18 +32,18 @@ class LayoutMenu extends Component {
       <Transition visible={fixed} animation="fade" duration={500}>
         <Menu
           borderless
-          fixed={"top"}
+          fixed={'top'}
           inverted={isTop}
           pointing
           size="large"
           style={{
-            shadowColor: "rgba(0, 0, 0, 0.9)",
-            shadowRadius: "20",
-            border: "0px",
-            outline: "0px",
+            shadowColor: 'rgba(0, 0, 0, 0.9)',
+            shadowRadius: '20',
+            border: '0px',
+            outline: '0px',
             backgroundColor: isTop
-              ? "rgba(0, 0, 0, 0.0)"
-              : "rgba(28, 173, 229, 1.0)",
+              ? 'rgba(0, 0, 0, 0.0)'
+              : 'rgba(28, 173, 229, 1.0)',
           }}
         >
           <Container fluid>
@@ -51,12 +51,12 @@ class LayoutMenu extends Component {
               <Link route="/">
                 <a>
                   <Image
-                    src={isTop ? "/LogoS2.png" : "/LogoS21.png"}
+                    src={isTop ? '/LogoS2.png' : '/LogoS21.png'}
                     centered
                     style={{
-                      marginTop: "-2%",
-                      height: "45px",
-                      width: "auto",
+                      marginTop: '-2%',
+                      height: '45px',
+                      width: 'auto',
                     }}
                   />
                 </a>
@@ -67,11 +67,11 @@ class LayoutMenu extends Component {
                 <a
                   style={{
                     color: isTop
-                      ? "rgba(28, 173, 229, 0.9)"
-                      : "rgba(74, 74, 74, 0.9)",
+                      ? 'rgba(28, 173, 229, 0.9)'
+                      : 'rgba(240,240,240,1.0)',
                   }}
                 >
-                  Solutions
+                  Home
                 </a>
               </Link>
             </Menu.Item>
@@ -80,8 +80,8 @@ class LayoutMenu extends Component {
                 <a
                   style={{
                     color: isTop
-                      ? "rgba(28, 173, 229, 0.9)"
-                      : "rgba(74, 74, 74, 0.9)",
+                      ? 'rgba(28, 173, 229, 0.9)'
+                      : 'rgba(240,240,240,1.0)',
                   }}
                 >
                   Financing
@@ -93,8 +93,8 @@ class LayoutMenu extends Component {
                 <a
                   style={{
                     color: isTop
-                      ? "rgba(28, 173, 229, 0.9)"
-                      : "rgba(74, 74, 74, 0.9)",
+                      ? 'rgba(28, 173, 229, 0.9)'
+                      : 'rgba(240,240,240,1.0)',
                   }}
                 >
                   Platforms
@@ -106,8 +106,8 @@ class LayoutMenu extends Component {
                 <a
                   style={{
                     color: isTop
-                      ? "rgba(28, 173, 229, 0.9)"
-                      : "rgba(74, 74, 74, 0.9)",
+                      ? 'rgba(28, 173, 229, 0.9)'
+                      : 'rgba(240,240,240,1.0)',
                   }}
                 >
                   Legal Consultancy
@@ -119,8 +119,8 @@ class LayoutMenu extends Component {
                 <a
                   style={{
                     color: isTop
-                      ? "rgba(28, 173, 229, 0.9)"
-                      : "rgba(74, 74, 74, 0.9)",
+                      ? 'rgba(28, 173, 229, 0.9)'
+                      : 'rgba(240,240,240,1.0)',
                   }}
                 >
                   Contact Us
@@ -133,8 +133,8 @@ class LayoutMenu extends Component {
                   <a
                     style={{
                       color: isTop
-                        ? "rgba(28, 173, 229, 0.9)"
-                        : "rgba(74, 74, 74, 0.9)",
+                        ? 'rgba(28, 173, 229, 0.9)'
+                        : 'rgba(240,240,240,1.0)',
                     }}
                   >
                     Dashboard
@@ -149,13 +149,13 @@ class LayoutMenu extends Component {
                     <Button
                       onMouseEnter={() => this.setState({ isInvertedL: true })}
                       onMouseLeave={() => this.setState({ isInvertedL: false })}
-                      secondary={!isTop}
+                      primary={!isTop}
                       basic={isInvertedL}
-                      color={isInvertedL ? "red" : ""}
+                      color={isInvertedL ? 'blue' : 'blue'}
                       style={{
                         backgroundColor: !isTop
-                          ? "rgba(28, 173, 229, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(28, 173, 229, 0.9)'
+                          : 'rgba(28, 173, 229, 0.9)',
                       }}
                     >
                       Log in
@@ -170,15 +170,15 @@ class LayoutMenu extends Component {
                       onMouseLeave={() => this.setState({ isInverted: false })}
                       secondary={!isTop}
                       basic={isInverted}
-                      color={isInverted ? "red" : ""}
+                      color={isInverted ? 'blue' : 'blue'}
                       style={{
-                        marginLeft: "5px",
+                        marginLeft: '5px',
                         backgroundColor: !isTop
-                          ? "rgba(28, 173, 229, 0.9)"
-                          : "rgba(255, 255, 255, 0.9)",
+                          ? 'rgba(28, 173, 229, 0.9)'
+                          : 'rgba(28, 173, 229, 0.9)',
                       }}
                     >
-                      {" "}
+                      {' '}
                       Sign Up
                     </Button>
                   </a>
@@ -194,11 +194,11 @@ class LayoutMenu extends Component {
                     onMouseLeave={() => this.setState({ isInvertedOut: false })}
                     secondary={!isTop}
                     basic={isInvertedOut}
-                    color={isInvertedOut ? "red" : ""}
+                    color={isInvertedOut ? 'blue' : ''}
                     style={{
                       backgroundColor: !isTop
-                        ? "rgba(28, 173, 229, 0.9)"
-                        : "rgba(255, 255, 255, 0.9)",
+                        ? 'rgba(28, 173, 229, 0.9)'
+                        : 'rgba(255, 255, 255, 0.9)',
                     }}
                   >
                     Log Out

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Menu,
   Segment,
@@ -7,7 +7,7 @@ import {
   Header,
   Container,
   Button,
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 class Footer extends Component {
   render() {
@@ -16,66 +16,28 @@ class Footer extends Component {
         inverted
         vertical
         style={{
-          padding: "5em 1em",
-          backgroundColor: "rgba(0,0,0,1.0)",
+          padding: '5em 1em',
+          backgroundColor: 'rgba(0,0,0,1.0)',
           /*backgroundImage: 'url(/backgnd.jpg)',*/
           /* Set a specific height */
-          minHeight: "400px",
+          minHeight: '400px',
 
           /* Create the parallax scrolling effect */
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          backgroundRepeat: "no - repeat",
-          backgroundSize: "cover",
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no - repeat',
+          backgroundSize: 'cover',
         }}
       >
         <Container>
-          <Grid divided inverted stackable style={{ marginLeft: "10px" }}>
+          <Grid divided inverted stackable style={{ marginLeft: '10px' }}>
             <Grid.Row>
-              <Grid.Column width={3}>
-                <Header
-                  as="h4"
-                  content="About"
-                  style={{
-                    color: "rgba(28, 173, 229, 1.0)",
-                  }}
-                />
-                <List link>
-                  <List.Item
-                    as="a"
-                    href="/#Contact"
-                    style={{
-                      color: "rgba(230, 230, 230, 1.0)",
-                    }}
-                  >
-                    About us
-                  </List.Item>
-                  <List.Item
-                    as="a"
-                    href="/#Contact"
-                    style={{
-                      color: "rgba(230, 230, 230, 1.0)",
-                    }}
-                  >
-                    Contact Us
-                  </List.Item>
-                  <List.Item
-                    as="a"
-                    href="/#Contact"
-                    style={{
-                      color: "rgba(230, 230, 230, 1.0)",
-                    }}
-                  >
-                    Roadmap
-                  </List.Item>
-                </List>
-              </Grid.Column>
               <Grid.Column width={3}>
                 <Header
                   as="h4"
                   content="Services"
                   style={{
-                    color: "rgba(28, 173, 229, 1.0)",
+                    color: 'rgba(28, 173, 229, 1.0)',
                   }}
                 />
                 <List link>
@@ -83,7 +45,7 @@ class Footer extends Component {
                     as="a"
                     href="/#Contact"
                     style={{
-                      color: "rgba(230, 230, 230, 1.0)",
+                      color: 'rgba(230, 230, 230, 1.0)',
                     }}
                   >
                     Subscribe to Newsletter
@@ -93,43 +55,25 @@ class Footer extends Component {
                     href="https://hellolisbon.typeform.com/to/CnjqMpxq"
                     target="_blank"
                     style={{
-                      color: "rgba(230, 230, 230, 1.0)",
+                      color: 'rgba(230, 230, 230, 1.0)',
                     }}
                   >
                     Participate in Survey
                   </List.Item>
-                  <List.Item
-                    as="a"
-                    href="/#Contact"
-                    style={{
-                      color: "rgba(230, 230, 230, 1.0)",
-                    }}
-                  >
-                    How To Access
-                  </List.Item>
-                  <List.Item
-                    as="a"
-                    href="/#Contact"
-                    style={{
-                      color: "rgba(230, 230, 230, 1.0)",
-                    }}
-                  >
-                    FAQ
-                  </List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={7}>
+              <Grid.Column width={10}>
                 <Header
                   as="h4"
                   style={{
-                    color: "rgba(28, 173, 229, 1.0)",
+                    color: 'rgba(28, 173, 229, 1.0)',
                   }}
                 >
                   Additional Information
                 </Header>
                 <p
                   style={{
-                    color: "rgba(28, 173, 229, 1.0)",
+                    color: 'rgba(28, 173, 229, 1.0)',
                   }}
                 >
                   PHI is a consulting agency, promoting access to software
@@ -146,18 +90,6 @@ class Footer extends Component {
                   compensation in connection with the purchase or sale of
                   securities.
                 </p>
-                <Header
-                  as="h4"
-                  style={{
-                    color: "rgba(28, 173, 229, 1.0)",
-                  }}
-                >
-                  Reach us at:
-                </Header>
-                <Button circular color="facebook" icon="facebook" />
-                <Button circular color="twitter" icon="twitter" />
-                <Button circular color="linkedin" icon="linkedin" />
-                <Button circular color="google plus" icon="google plus" />
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -167,3 +99,17 @@ class Footer extends Component {
   }
 }
 export default Footer;
+
+/*
+<Header
+  as="h4"
+  style={{
+    color: 'rgba(28, 173, 229, 1.0)',
+  }}
+>
+  Reach us at:
+</Header>
+<Button circular color="facebook" icon="facebook" />
+<Button circular color="twitter" icon="twitter" />
+<Button circular color="linkedin" icon="linkedin" />
+<Button circular color="google plus" icon="google plus" />*/

@@ -57,13 +57,17 @@ class LayoutMenu extends Component {
           verticalAlign="middle"
           style={{
             backgroundColor: 'rgba(28, 173, 229, 1.0)',
-            padding: '1em 6em',
-            width: '30em',
+            padding: '1em 3em',
           }}
         >
           <Grid.Column
             floated="left"
-            width={16}
+            width={4}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          />
+          <Grid.Column
+            floated="left"
+            width={8}
             style={{
               padding: '0em 6em',
               textAlign: 'center',
@@ -73,7 +77,7 @@ class LayoutMenu extends Component {
               as="h1"
               style={{
                 marginBottom: '10px',
-                marginTop: '10px',
+                marginTop: '30px',
                 color: 'rgba(240,240,240,1.0)',
               }}
             >
@@ -82,7 +86,7 @@ class LayoutMenu extends Component {
                 style={{ marginTop: '15px', fontSize: '0.6em' }}
               >
                 Come and explore the possibilities that blockchain crypto-assets
-                can offer you!
+                and crowdsourcing can offer you!
                 <br />
                 <br />
                 Subscribe to our newsletter! By doing so, we'll be able to
@@ -92,6 +96,11 @@ class LayoutMenu extends Component {
               </Header.Subheader>
             </Header>
           </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={4}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          />
         </Grid.Row>
         <Grid.Row
           fluid
@@ -104,7 +113,7 @@ class LayoutMenu extends Component {
             floated="left"
             width={5}
             style={{ paddingLeft: '4em', textAlign: 'left' }}
-          ></Grid.Column>
+          />
           <Grid.Column
             floated="left"
             width={5}
@@ -129,7 +138,7 @@ class LayoutMenu extends Component {
             floated="left"
             width={5}
             style={{ paddingLeft: '4em', textAlign: 'left' }}
-          ></Grid.Column>
+          />
         </Grid.Row>
       </Grid>
     );

@@ -31,7 +31,7 @@ class LayoutMenu extends Component {
         id="Intro"
         stretched
         stackable
-        verticalAlign="middle"
+        verticalAlign="top"
         style={{
           padding: '2em 0em',
           /*backgroundImage: 'url(/backgnd.jpg)',*/
@@ -54,7 +54,12 @@ class LayoutMenu extends Component {
         >
           <Grid.Column
             floated="left"
-            width={16}
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          ></Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={12}
             style={{ paddingLeft: '4em', textAlign: 'center' }}
           >
             <Header as="h1" style={{ color: 'rgba(240,240,240,1.0)' }}>
@@ -63,60 +68,43 @@ class LayoutMenu extends Component {
                 style={{ color: 'rgba(210,210,210,1.0)', padding: '0em 1em' }}
               >
                 <br />
-                PHI is a consulting agency that, through a network of
-                established partners in the market, supports companies or
-                individuals to benefit from the potential of blockchain and
-                crypto assettechnology.
+                PHI Consulting is an agency that supports companies and
+                individuals making the best out of blockchain, crypto and
+                crowdsourcing, through a network of partner providers.
               </Header.Subheader>
             </Header>
           </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          ></Grid.Column>
         </Grid.Row>
         <Grid.Row
           fluid
           style={{
             backgroundColor: 'rgba(212, 32, 32, 0.0)',
-            padding: '0em 1em',
-            marginBottom: '70px',
+            padding: '0em 3em',
+            marginBottom: '2em',
           }}
         >
           <Grid.Column
             floated="left"
-            width={8}
-            style={{ paddingLeft: '4em', textAlign: 'center' }}
-          >
-            <Transition
-              transitionOnMount="true"
-              animation="fade"
-              duration={3000}
-            >
-              <Image
-                src="/business-3d.png"
-                size="large"
-                centered
-                style={{ marginBottom: '3px' }}
-              />
-            </Transition>
-          </Grid.Column>
+            width={2}
+            style={{
+              paddingLeft: '4em',
+
+              textAlign: 'left',
+            }}
+          ></Grid.Column>
           <Grid.Column
             floated="left"
-            width={8}
-            style={{ paddingLeft: '4em', textAlign: 'left' }}
+            width={6}
+            style={{
+              paddingLeft: '4em',
+              textAlign: 'left',
+            }}
           >
-            <Transition
-              transitionOnMount="true"
-              animation="fade"
-              duration={500}
-            >
-              <p
-                style={{
-                  fontSize: '1.5em',
-                  color: 'rgba(240, 240, 240, 1.0)',
-                  marginBottom: '20px',
-                }}
-              >
-                <b>We provide everything you need, from A to Z!</b>
-              </p>
-            </Transition>
             <List>
               <List.Item style={{ marginBottom: '10px' }}>
                 <List.Icon
@@ -126,51 +114,39 @@ class LayoutMenu extends Component {
                 />
                 <List.Content
                   style={{
-                    fontSize: '1.1em',
+                    fontSize: '1.3em',
                     color: 'rgba(240, 240, 240, 1.0)',
                   }}
                 >
                   PHI's portfolio includes access to the <b>financing models</b>{' '}
                   of companies and people in the alternative finance markets
-                  (Alt-Fi), crowdsourcing platforms, peer-to-peer financing
+                  (AltFi), crowdsourcing platforms, peer-to-peer financing
                   (private-to-private), initial crypto-currency offering (ICO),
                   and various modalities of Decentralized Finance.
+                  <br />
+                  <a
+                    style={{ color: 'rgba(0,33,89, 1.0)' }}
+                    href="/#ServiceGrid"
+                  >
+                    Learn More
+                    <Icon
+                      name="angle right"
+                      style={{ color: 'rgba(0,33,89, 1.0)' }}
+                    />
+                  </a>
                 </List.Content>
               </List.Item>
-              <List.Item style={{ marginBottom: '10px' }}>
-                <List.Icon
-                  name="check circle"
-                  size="large"
-                  style={{ color: 'rgba(240, 240, 240, 1.0)' }}
-                />
-                <List.Content
-                  style={{
-                    fontSize: '1.1em',
-                    color: 'rgba(240, 240, 240, 1.0)',
-                  }}
-                >
-                  Nowadays the use of crypto-currency payment methods is
-                  developing: we provide the means to create your own{' '}
-                  <b>e-commerce</b> in crypto-currency.
-                </List.Content>
-              </List.Item>
-              <List.Item style={{ marginBottom: '10px' }}>
-                <List.Icon
-                  name="check circle"
-                  size="large"
-                  style={{ color: 'rgba(240, 240, 240, 1.0)' }}
-                />
-                <List.Content
-                  style={{
-                    fontSize: '1.1em',
-                    color: 'rgba(240, 240, 240, 1.0)',
-                  }}
-                >
-                  The exponential growth of Uber-type on-demand services fuels
-                  the <b>platform industry</b>. Bring your business into that
-                  dimension and exponentiate your growth.
-                </List.Content>
-              </List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={6}
+            style={{
+              paddingLeft: '4em',
+              textAlign: 'left',
+            }}
+          >
+            <List>
               <List.Item style={{ marginBottom: '10px' }}>
                 <List.Icon
                   name="check circle"
@@ -179,8 +155,93 @@ class LayoutMenu extends Component {
                 />
                 <List.Content
                   style={{
-                    fontSize: '1.1em',
+                    fontSize: '1.3em',
                     color: 'rgba(240, 240, 240, 1.0)',
+                  }}
+                >
+                  The use of crypto-currency payments is developing: we provide
+                  the means to create your own <b>e-commerce</b> in
+                  crypto-currency.
+                  <br />
+                  <a style={{ color: 'rgba(0,33,89, 1.0)' }} href="/#Platforms">
+                    Learn More
+                    <Icon
+                      name="angle right"
+                      style={{ color: 'rgba(0,33,89, 1.0)' }}
+                    />
+                  </a>
+                </List.Content>
+              </List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          ></Grid.Column>
+        </Grid.Row>
+        <Grid.Row
+          fluid
+          style={{
+            backgroundColor: 'rgba(212, 32, 32, 0.0)',
+            padding: '0em 3em',
+            marginBottom: '70px',
+          }}
+        >
+          <Grid.Column
+            floated="left"
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: "left" }}
+          ></Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={6}
+            style={{ paddingLeft: "4em", textAlign: "left" }}
+          >
+            <List>
+              <List.Item style={{ marginBottom: "10px" }}>
+                <List.Icon
+                  name="check circle"
+                  size="large"
+                  style={{ color: "rgba(240, 240, 240, 1.0)" }}
+                />
+                <List.Content
+                  style={{
+                    fontSize: "1.3em",
+                    color: "rgba(240, 240, 240, 1.0)",
+                  }}
+                >
+                  The exponential growth of Uber-type on-demand services fuels
+                  the <b>platform</b> industry. Bring your business into the
+                  on-demand platforms and exponentiate your growth.
+                  <br />
+                  <a style={{ color: "rgba(0,33,89, 1.0)" }} href="/#Platforms">
+                    Learn More
+                    <Icon
+                      name="angle right"
+                      style={{ color: "rgba(0,33,89, 1.0)" }}
+                    />
+                  </a>
+                </List.Content>
+              </List.Item>
+            </List>
+          </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={6}
+            style={{ paddingLeft: "4em", textAlign: "left" }}
+          >
+            <List>
+              <List.Item style={{ marginBottom: "10px" }}>
+                <List.Icon
+                  name="check circle"
+                  size="large"
+                  style={{ color: "rgba(240, 240, 240,1.0)" }}
+                />
+                <List.Content
+                  style={{
+                    fontSize: "1.3em",
+                    color: "rgba(240, 240, 240, 1.0)",
                   }}
                 >
                   It is still difficult to navigate these waters in terms of
@@ -188,10 +249,26 @@ class LayoutMenu extends Component {
                   to offer <b>legal consultancy</b> in the fields of our
                   products and services, so you feel safe in the steps you are
                   taking.
+                  <br />
+                  <a
+                    style={{ color: "rgba(0,33,89, 1.0)" }}
+                    href="/#Juryconsult"
+                  >
+                    Learn More
+                    <Icon
+                      name="angle right"
+                      style={{ color: "rgba(0,33,89, 1.0)" }}
+                    />
+                  </a>
                 </List.Content>
               </List.Item>
             </List>
           </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={2}
+            style={{ paddingLeft: "4em", textAlign: "left" }}
+          ></Grid.Column>
         </Grid.Row>
       </Grid>
     );

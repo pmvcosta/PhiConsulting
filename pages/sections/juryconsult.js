@@ -43,7 +43,7 @@ class LayoutMenu extends Component {
         verticalAlign="middle"
         style={{
           /*backgroundImage: 'url(/backgnd.jpg)',*/
-          backgroundColor: 'rgba(255,255,255,1.0)',
+          backgroundColor: 'rgba(28, 173, 229, 1.0)',
           /* Create the parallax scrolling effect */
           backgroundAttachment: 'fixed',
           backgroundPosition: 'center',
@@ -54,22 +54,54 @@ class LayoutMenu extends Component {
         <Grid.Row
           fluid
           style={{
-            padding: '5em 0em',
             backgroundColor: 'rgba(28, 173, 229, 1.0)',
-            paddingBottom: '2em',
-            paddingTop: '5em',
+            marginTop: '50px',
+            paddingTop: '3em',
           }}
         >
           <Grid.Column
             floated="left"
-            width={16}
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          />
+          <Grid.Column
+            floated="left"
+            width={12}
+            style={{ paddingLeft: '2em', textAlign: 'center' }}
+          >
+            <Header as="h1" style={{ color: 'rgba(240,240,240,1.0)' }}>
+              Legal Consultancy
+            </Header>
+          </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={2}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
+          />
+        </Grid.Row>
+        <Grid.Row
+          fluid
+          style={{
+            padding: '1em 0em',
+            backgroundColor: 'rgba(28, 173, 229, 1.0)',
+            paddingBottom: '2em',
+          }}
+        >
+          <Grid.Column
+            floated="left"
+            width={4}
             style={{
-              paddingLeft: '18em',
-              paddingRight: '18em',
+              textAlign: 'center',
+            }}
+          />
+          <Grid.Column
+            floated="left"
+            width={8}
+            style={{
               textAlign: 'center',
             }}
           >
-            <Header as="h1" style={{ marginBottom: '10px', marginTop: '30px' }}>
+            <Header as="h2" style={{ marginBottom: '10px', marginTop: '0px' }}>
               Innovate, the safe way!
               <Header.Subheader
                 style={{ marginTop: '15px', fontSize: '0.6em' }}
@@ -78,20 +110,32 @@ class LayoutMenu extends Component {
               </Header.Subheader>
             </Header>
           </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={4}
+            style={{
+              textAlign: 'center',
+            }}
+          />
         </Grid.Row>
         <Grid.Row
           fluid
           style={{
             backgroundColor: 'rgba(28, 173, 229, 1.0)',
-            paddingBottom: '8em',
+            paddingBottom: '10em',
           }}
         >
           <Grid.Column
             floated="left"
-            width={16}
+            width={4}
             style={{
-              paddingLeft: '20em',
-              paddingRight: '18em',
+              textAlign: 'center',
+            }}
+          />
+          <Grid.Column
+            floated="left"
+            width={8}
+            style={{
               textAlign: 'left',
             }}
           >
@@ -137,7 +181,7 @@ class LayoutMenu extends Component {
                   onClick={this.handleClick}
                 >
                   <Icon name="dropdown" />
-                  <b style={{ fontSize: '1.3em' }}>Business Expansion</b>
+                  <b style={{ fontSize: '1.3em' }}>Tax legislation</b>
                 </Accordion.Title>
                 <Transition
                   visible={activeIndex === 1}
@@ -148,14 +192,7 @@ class LayoutMenu extends Component {
                     active={activeIndex === 1}
                     style={{ marginBottom: '0.8em' }}
                   >
-                    <p>
-                      The concept of <b>on-demand services</b> exploded with the
-                      advent of Uber. PHI supports companies that want to
-                      transport their business to digital using an{' '}
-                      <b>on-demand delivery</b> model, through a compatible,
-                      white-branded Android and iOS application, allowing them
-                      to scale their business and retain their clientele.
-                    </p>
+                    <p>Ensure compliance with all applicable tax laws.</p>
                   </Accordion.Content>
                 </Transition>
                 <br />
@@ -165,35 +202,14 @@ class LayoutMenu extends Component {
                   onClick={this.handleClick}
                 >
                   <Icon name="dropdown" />
-                  <b style={{ fontSize: '1.3em' }}>Tax legislation</b>
+                  <b style={{ fontSize: '1.3em' }}>Fraud and crime</b>
                 </Accordion.Title>
                 <Transition
                   visible={activeIndex === 2}
                   animation="fade down"
                   duration={160}
                 >
-                  <Accordion.Content
-                    active={activeIndex === 2}
-                    style={{ marginBottom: '0.8em' }}
-                  >
-                    <p>Ensure compliance with all applicable tax laws.</p>
-                  </Accordion.Content>
-                </Transition>
-                <br />
-                <Accordion.Title
-                  active={activeIndex === 3}
-                  index={3}
-                  onClick={this.handleClick}
-                >
-                  <Icon name="dropdown" />
-                  <b style={{ fontSize: '1.3em' }}>Fraud and crime</b>
-                </Accordion.Title>
-                <Transition
-                  visible={activeIndex === 3}
-                  animation="fade down"
-                  duration={160}
-                >
-                  <Accordion.Content active={activeIndex === 3}>
+                  <Accordion.Content active={activeIndex === 2}>
                     <p>
                       Protect your business against fraud and possible criminal
                       offences.
@@ -203,6 +219,13 @@ class LayoutMenu extends Component {
               </Accordion>
             </Transition>
           </Grid.Column>
+          <Grid.Column
+            floated="left"
+            width={4}
+            style={{
+              textAlign: 'center',
+            }}
+          />
         </Grid.Row>
       </Grid>
     );
