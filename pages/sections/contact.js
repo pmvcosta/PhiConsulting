@@ -106,7 +106,7 @@ class LayoutMenu extends Component {
           fluid
           style={{
             backgroundColor: 'rgba(212, 32, 32, 0.0)',
-            marginBottom: '40px',
+            marginBottom: '20px',
           }}
         >
           <Grid.Column
@@ -139,6 +139,24 @@ class LayoutMenu extends Component {
             width={5}
             style={{ paddingLeft: '4em', textAlign: 'left' }}
           />
+        </Grid.Row>
+        <Grid.Row
+          fluid
+          style={{
+            backgroundColor: 'rgba(28, 173, 229, 1.0)',
+            padding: '0em 8em',
+            paddingBottom: '4em',
+            textAlign: 'center',
+          }}
+        >
+          <Grid.Column width={5} />
+          <Grid.Column width={6}>
+            <h1 style={{ fontSize: '1.3em' }}>
+              <Icon name="phone" />
+              Tlm: +351 911 981 929
+            </h1>
+          </Grid.Column>
+          <Grid.Column width={5} />
         </Grid.Row>
       </Grid>
     );
