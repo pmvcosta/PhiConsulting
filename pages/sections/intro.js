@@ -138,6 +138,40 @@ class LayoutMenu extends Component {
               </List.Item>
             </List>
           </Grid.Column>
+
+          <Grid.Column
+            floated="left"
+            width={4}
+            style={{ paddingLeft: "4em", textAlign: "left" }}
+          >
+            <List>
+              <List.Item style={{ marginBottom: "10px" }}>
+                <List.Icon
+                  name="check circle"
+                  size="large"
+                  style={{ color: "rgba(240, 240, 240, 1.0)" }}
+                />
+                <List.Content
+                  style={{
+                    fontSize: "1.3em",
+                    color: "rgba(240, 240, 240, 1.0)",
+                  }}
+                >
+                  The exponential growth of Uber-type on-demand services fuels
+                  the <b>platform</b> industry. Bring your business into the
+                  on-demand platforms and exponentiate your growth.
+                  <br />
+                  <a style={{ color: "rgba(0,33,89, 1.0)" }} href="/#Platforms">
+                    Learn More
+                    <Icon
+                      name="angle right"
+                      style={{ color: "rgba(0,33,89, 1.0)" }}
+                    />
+                  </a>
+                </List.Content>
+              </List.Item>
+            </List>
+          </Grid.Column>
           <Grid.Column
             floated="left"
             width={4}
@@ -176,40 +210,6 @@ class LayoutMenu extends Component {
               </List.Item>
             </List>
           </Grid.Column>
-          <Grid.Column
-            floated="left"
-            width={4}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
-          >
-            <List>
-              <List.Item style={{ marginBottom: "10px" }}>
-                <List.Icon
-                  name="check circle"
-                  size="large"
-                  style={{ color: "rgba(240, 240, 240, 1.0)" }}
-                />
-                <List.Content
-                  style={{
-                    fontSize: "1.3em",
-                    color: "rgba(240, 240, 240, 1.0)",
-                  }}
-                >
-                  The exponential growth of Uber-type on-demand services fuels
-                  the <b>platform</b> industry. Bring your business into the
-                  on-demand platforms and exponentiate your growth.
-                  <br />
-                  <a style={{ color: "rgba(0,33,89, 1.0)" }} href="/#Platforms">
-                    Learn More
-                    <Icon
-                      name="angle right"
-                      style={{ color: "rgba(0,33,89, 1.0)" }}
-                    />
-                  </a>
-                </List.Content>
-              </List.Item>
-            </List>
-          </Grid.Column>
-
           <Grid.Column
             floated="left"
             width={2}
