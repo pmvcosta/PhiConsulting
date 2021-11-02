@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Menu,
   Sidebar,
@@ -13,8 +13,8 @@ import {
   Divider,
   List,
   Image,
-} from "semantic-ui-react";
-import { Link } from "../../routes";
+} from 'semantic-ui-react';
+import { Link } from '../../routes';
 
 class LayoutMenu extends Component {
   state = {
@@ -33,38 +33,38 @@ class LayoutMenu extends Component {
         stackable
         verticalAlign="top"
         style={{
-          padding: "0em 0em",
+          padding: '0em 0em',
           /*backgroundImage: 'url(/backgnd.jpg)',*/
-          backgroundColor: "rgba(0,0,0,1.0)",
+          backgroundColor: 'rgba(0,0,0,1.0)',
           /* Create the parallax scrolling effect */
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          backgroundRepeat: "no - repeat",
-          backgroundSize: "cover",
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no - repeat',
+          backgroundSize: 'cover',
         }}
       >
         <Grid.Row
           fluid
           style={{
-            padding: "2em 0em",
-            backgroundColor: "rgba(0, 0, 0, 1.0)",
-            marginTop: "70px",
-            marginBottom: "20px",
+            padding: '3em 0em',
+            backgroundColor: 'rgba(0, 0, 0, 1.0)',
+            marginTop: '70px',
+            marginBottom: '0em',
           }}
         >
           <Grid.Column
             floated="left"
             width={2}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
           />
           <Grid.Column
             floated="left"
             width={12}
-            style={{ paddingLeft: "0em", textAlign: "center" }}
+            style={{ paddingLeft: '0em', textAlign: 'center' }}
           >
-            <Header as="h1" style={{ color: "rgba(240,240,240,1.0)" }}>
+            <Header as="h1" style={{ color: 'rgba(240,240,240,1.0)' }}>
               Platforms
-              <Header.Subheader style={{ fontSize: "0.7em" }}>
+              <Header.Subheader style={{ fontSize: '0.7em' }}>
                 Enter the Blockchain: Join the new technological revolution!
               </Header.Subheader>
             </Header>
@@ -72,53 +72,52 @@ class LayoutMenu extends Component {
           <Grid.Column
             floated="left"
             width={2}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
           />
         </Grid.Row>
         <Grid.Row
           fluid
           style={{
-            backgroundColor: "rgba(0, 0, 0, 1.0)",
-            marginTop: "15px",
-            paddingBottom: "8em",
+            backgroundColor: 'rgba(0, 0, 0, 1.0)',
+            paddingBottom: '8em',
           }}
         >
           <Grid.Column
             floated="left"
             width={2}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
           />
           <Grid.Column
             floated="left"
             width={4}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
           >
             <List>
-              <List.Item style={{ marginBottom: "10px" }}>
+              <List.Item style={{ marginBottom: '10px' }}>
                 <List.Header
                   style={{
-                    fontSize: "1.3em",
-                    paddingBottom: "1em",
-                    color: "rgba(240,240,240,1.0)",
+                    fontSize: '1.3em',
+                    paddingBottom: '1em',
+                    color: 'rgba(240,240,240,1.0)',
                   }}
                 >
                   <Icon
                     name="check circle"
-                    style={{ color: "rgba(28, 173, 229, 1.0)" }}
+                    style={{ color: 'rgba(28, 173, 229, 1.0)' }}
                   />
                   Multi-service applications for on-demand services
                 </List.Header>
                 <List.Description
                   style={{
-                    fontSize: "1.2em",
-                    lineHeight: "22px",
-                    color: "rgba(200,200,200,1.0)",
+                    fontSize: '1.2em',
+                    lineHeight: '22px',
+                    color: 'rgba(200,200,200,1.0)',
                   }}
                 >
-                  The concept of{" "}
-                  <b style={{ color: "rgba(28, 173, 229, 1.0)" }}>
+                  The concept of{' '}
+                  <b style={{ color: 'rgba(28, 173, 229, 1.0)' }}>
                     on-demand services
-                  </b>{" "}
+                  </b>{' '}
                   exploded with the advent of Uber. PHI supports companies that
                   want to transport their business to digital using an on-demand
                   delivery model, through a compatible, white-branded Android
@@ -132,32 +131,32 @@ class LayoutMenu extends Component {
           <Grid.Column
             floated="left"
             width={4}
-            style={{ paddingLeft: "4em", textAlign: "left" }}
+            style={{ paddingLeft: '4em', textAlign: 'left' }}
           >
             <List>
-              <List.Item style={{ marginBottom: "10px" }}>
+              <List.Item style={{ marginBottom: '10px' }}>
                 <List.Header
                   style={{
-                    fontSize: "1.3em",
-                    paddingBottom: "1em",
-                    color: "rgba(240,240,240,1.0)",
+                    fontSize: '1.3em',
+                    paddingBottom: '1em',
+                    color: 'rgba(240,240,240,1.0)',
                   }}
                 >
                   <Icon
                     name="check circle"
-                    style={{ color: "rgba(28, 173, 229, 1.0)" }}
+                    style={{ color: 'rgba(28, 173, 229, 1.0)' }}
                   />
                   Logistics, Fleet Management, IoT and Telematics
                 </List.Header>
                 <List.Description
                   style={{
-                    fontSize: "1.2em",
-                    lineHeight: "22px",
-                    color: "rgba(200,200,200,1.0)",
+                    fontSize: '1.2em',
+                    lineHeight: '22px',
+                    color: 'rgba(200,200,200,1.0)',
                   }}
                 >
-                  The{" "}
-                  <b style={{ color: "rgba(28, 173, 229, 1.0)" }}>
+                  The{' '}
+                  <b style={{ color: 'rgba(28, 173, 229, 1.0)' }}>
                     turnkey solutions
                   </b>{" "}
                   we facilitate using blockchain technology enable you to build
