@@ -154,30 +154,51 @@ class MobileContainer extends Component {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/">
+            <Link route="/#Intro">
               <a>Home</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/getStarted">
-              <a>Solutions</a>
+            <Link route="/#ServiceGrid">
+              <a>Financing</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/subscribe">
-              <a>Learn More</a>
+            <Link route="/#Platforms">
+              <a>Platforms</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/login">
-              <a>Log in</a>
+            <Link route="/#Juryconsult">
+              <a>Legal Consultancy</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/register">
-              <a>Sign Up</a>
+            <Link route="/#Contact">
+              <a>Contact Us</a>
             </Link>
           </Menu.Item>
+          {!session && (
+            <Menu.Item>
+              <Link route="/login">
+                <a>Log in</a>
+              </Link>
+            </Menu.Item>
+          )}
+          {!session && (
+            <Menu.Item>
+              <Link route="/register">
+                <a>Sign Up</a>
+              </Link>
+            </Menu.Item>
+          )}
+          {session && (
+            <Menu.Item>
+              <Link route="/dashboard">
+                <a>Dashboard</a>
+              </Link>
+            </Menu.Item>
+          )}
         </Sidebar>
 
         <Sidebar.Pusher
