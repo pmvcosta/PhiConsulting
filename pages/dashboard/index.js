@@ -98,7 +98,7 @@ class Dashboard extends Component {
       >
         {profileType == 'Funding Platform' && (
           <Segment
-            color="red"
+            color="blue"
             padded
             raised
             fluid
@@ -119,21 +119,21 @@ class Dashboard extends Component {
         )}
 
         {profileType == 'Borrower' && (
-          <Segment color="red" raised padded style={{ marginTop: '20px' }}>
+          <Segment color="blue" raised padded style={{ marginTop: '20px' }}>
             <Header
               as="h2"
               style={{ fontSize: '2em', color: 'rgba(28, 173, 229, 1.0)' }}
             >
               All Services
             </Header>
-            <Card.Group itemsPerRow={4}>
-              <Card color="red">
+            <Card.Group itemsPerRow={4} stackable>
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: 'center',
                     background:
-                      'linear-gradient(rgba(212, 32, 32, 0.8),transparent)',
-                    backgroundColor: 'red',
+                      'linear-gradient(rgba(28, 173, 229, 1.0),transparent)',
+                    backgroundColor: 'deepskyblue',
                   }}
                 >
                   <Icon
@@ -161,13 +161,13 @@ class Dashboard extends Component {
                 </Card.Content>
               </Card>
 
-              <Card color="red">
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: 'center',
                     background:
-                      'linear-gradient(rgba(212, 32, 32, 0.8),transparent)',
-                    backgroundColor: 'red',
+                      'linear-gradient(rgba(28, 173, 229, 1.0),transparent)',
+                    backgroundColor: 'deepskyblue',
                   }}
                 >
                   <Icon
@@ -196,13 +196,13 @@ class Dashboard extends Component {
                 </Card.Content>
               </Card>
 
-              <Card color="red">
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: 'center',
                     background:
-                      'linear-gradient(rgba(212, 32, 32, 0.8),transparent)',
-                    backgroundColor: 'red',
+                      'linear-gradient(rgba(28, 173, 229, 1.0),transparent)',
+                    backgroundColor: 'deepskyblue',
                   }}
                 >
                   <Icon
@@ -231,13 +231,13 @@ class Dashboard extends Component {
                 </Card.Content>
               </Card>
 
-              <Card color="red">
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: 'center',
                     background:
-                      'linear-gradient(rgba(212, 32, 32, 0.8),transparent)',
-                    backgroundColor: 'red',
+                      'linear-gradient(rgba(28, 173, 229, 1.0),transparent)',
+                    backgroundColor: 'deepskyblue',
                   }}
                 >
                   <Icon
@@ -265,13 +265,13 @@ class Dashboard extends Component {
                   </Button>
                 </Card.Content>
               </Card>
-              <Card color="red">
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: "center",
                     background:
-                      "linear-gradient(rgba(212, 32, 32, 0.8),transparent)",
-                    backgroundColor: "red",
+                      "linear-gradient(rgba(28, 173, 229, 1.0),transparent)",
+                    backgroundColor: " deepskyblue ",
                   }}
                 >
                   <Icon
@@ -299,13 +299,13 @@ class Dashboard extends Component {
                   </Button>
                 </Card.Content>
               </Card>
-              <Card color="red">
+              <Card color="blue">
                 <Card.Content
                   style={{
                     textAlign: "center",
                     background:
-                      "linear-gradient(rgba(212, 32, 32, 0.8),transparent)",
-                    backgroundColor: "red",
+                      "linear-gradient(rgba(28, 173, 229, 1.0),transparent)",
+                    backgroundColor: "deepskyblue",
                   }}
                 >
                   <Icon
@@ -327,7 +327,7 @@ class Dashboard extends Component {
                   <Button
                     secondary
                     onClick={this.showModal}
-                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
+                    style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}
                   >
                     Request
                   </Button>

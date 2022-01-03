@@ -17,6 +17,7 @@ import {
 import { Link } from '../routes';
 import PropTypes from 'prop-types';
 import LayoutMenu from './LayoutMenu';
+import LayoutMobileMenu from './LayoutMobileMenu';
 import HomePageHeading from './HomePageHeading';
 import { useSession, signOut } from 'next-auth/client'; //To keep track of wether user is logged in
 
@@ -68,11 +69,11 @@ class DesktopContainer extends Component {
           inverted
           textAlign="center"
           style={{
-            minHeight: 10,
             padding: '.2em 0em',
-            backgroundImage: 'url(/backgnd.jpg)',
+            /*backgroundImage: 'url(/backgnd.jpg)',*/
+            backgroundColor: 'rgba(0,0,0,1.0)',
             /* Set a specific height */
-            minHeight: '60px',
+            minHeight: '72px',
 
             /* Create the parallax scrolling effect */
             backgroundAttachment: 'fixed',
@@ -114,7 +115,9 @@ DesktopContainer.propTypes = {
 };
 
 class MobileContainer extends Component {
-  state = {};
+  state = {
+    fixed: false,
+  };
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false });
 
@@ -146,7 +149,7 @@ class MobileContainer extends Component {
           <Menu.Item>
             <Link route="/">
               <a>
-                <Image src="/LogoS2.png" size="tiny" centered />
+                <Image src="/LogoS21.png" size="tiny" centered />
               </a>
             </Link>
           </Menu.Item>
@@ -166,100 +169,56 @@ class MobileContainer extends Component {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/subscribe">
+            <Link route="/login">
               <a>Log in</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/subscribe">
+            <Link route="/register">
               <a>Sign Up</a>
             </Link>
           </Menu.Item>
         </Sidebar>
 
-        <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            inverted
-            textAlign="center"
-            style={{ minHeight: 350, padding: '0.2em 0em' }}
-            vertical
-            style={{
-              minHeight: 10,
-              padding: '.2em 0em',
-              backgroundImage: 'url(/backgnd.jpg)',
-              /* Create the parallax scrolling effect */
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no - repeat',
-              backgroundSize: 'cover',
-            }}
+        <Sidebar.Pusher
+          fluid
+          dimmed={sidebarOpened}
+          style={{
+            height: '60px',
+            width: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 1.0)',
+            /*backgroundImage: 'url(/backgnd.jpg)',*/
+            /* Create the parallax scrolling effect */
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no - repeat',
+            backgroundSize: 'cover',
+          }}
+        >
+          <Visibility
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
           >
-            <Visibility
-              once={false}
-              onBottomPassed={this.showFixedMenu}
-              onBottomPassedReverse={this.hideFixedMenu}
-            >
-              <Menu
-                inverted
-                fixed={fixed ? 'top' : null}
-                pointing
-                secondary
-                size="large"
-                style={{
-                  border: '0px',
-                  outline: '0px',
-                  backgroundColor: fixed ? 'rgba(255, 255, 255, 0.9)' : '',
-                }}
-              >
-                <Container>
-                  <Menu.Item onClick={this.handleToggle}>
-                    <Icon
-                      name="sidebar"
-                      style={{
-                        color: fixed
-                          ? 'rgba(28, 173, 229, 0.9)'
-                          : 'rgba(74, 74, 74, 0.9)',
-                      }}
-                    />
-                  </Menu.Item>
-                  <Menu.Item position="right">
-                    <Link route="/subscribe">
-                      <a>
-                        <Button
-                          secondary={fixed}
-                          style={{
-                            backgroundColor: fixed
-                              ? 'rgba(28, 173, 229, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
-                          }}
-                        >
-                          Log in
-                        </Button>
-                      </a>
-                    </Link>
-                    <Link route="/subscribe">
-                      <a>
-                        <Button
-                          primary={fixed}
-                          style={{
-                            marginLeft: '0.5em',
-                            backgroundColor: fixed
-                              ? 'rgba(28, 173, 229, 0.9)'
-                              : 'rgba(255, 255, 255, 0.9)',
-                          }}
-                        >
-                          Sign Up
-                        </Button>
-                      </a>
-                    </Link>
-                  </Menu.Item>
-                </Container>
-              </Menu>
-            </Visibility>
-          </Segment>
+            <LayoutMobileMenu
+              isTop={true}
+              fixed={!fixed}
+              logoutHandler={this.logoutHandler}
+              session={session}
+              handleToggle={this.handleToggle}
+            />
 
-          {children}
+            <LayoutMobileMenu
+              isTop={false}
+              fixed={fixed}
+              logoutHandler={this.logoutHandler}
+              session={session}
+              handleToggle={this.handleToggle}
+            />
+          </Visibility>
         </Sidebar.Pusher>
+
+        {children}
       </Media>
     );
   }

@@ -111,14 +111,11 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" raised padded>
-          <Header
-            as="h2"
-            style={{ fontSize: '2em', color: 'rgba(182, 12, 12, 0.9)' }}
-          >
+        <Segment color="blue" raised padded>
+          <Header as="h2" style={{ fontSize: '2em', color: 'deepskyblue' }}>
             Pending Requests
           </Header>
-          <Table celled padded color="red">
+          <Table celled padded color="blue">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Request Name</Table.HeaderCell>

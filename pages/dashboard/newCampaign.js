@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -20,15 +20,15 @@ import {
   Form,
   Checkbox,
   Transition,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { useRouter } from 'next/router';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import KitPopUp from './servicePopUp';
-import { useSession, getSession } from 'next-auth/client';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { useRouter } from "next/router";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import KitPopUp from "./servicePopUp";
+import { useSession, getSession } from "next-auth/client";
 //import { connectToDatabase } from '../../lib/db';
 
 const { MediaContextProvider, Media } = createMedia({
@@ -40,17 +40,17 @@ const { MediaContextProvider, Media } = createMedia({
 });
 
 const options = [
-  { key: 'm', text: 'Within next 3 months', value: '3mo' },
-  { key: 'f', text: '3-6 months', value: '3-6mo' },
-  { key: 'o', text: '6+ months', value: '6mo+' },
+  { key: "m", text: "Within next 3 months", value: "3mo" },
+  { key: "f", text: "3-6 months", value: "3-6mo" },
+  { key: "o", text: "6+ months", value: "6mo+" },
 ];
 
 const optionsPlat = [
-  { key: 's', text: 'Seedrs', value: 'Seedrs' },
-  { key: 'r', text: 'Raize', value: 'Raize' },
-  { key: 'r', text: 'Crowdcube', value: 'Crowdcube' },
-  { key: 'r', text: 'PPL', value: 'PPL' },
-  { key: 'o', text: 'No Preference', value: 'NoPref' },
+  { key: "s", text: "Seedrs", value: "Seedrs" },
+  { key: "r", text: "Raize", value: "Raize" },
+  { key: "r", text: "Crowdcube", value: "Crowdcube" },
+  { key: "r", text: "PPL", value: "PPL" },
+  { key: "o", text: "No Preference", value: "NoPref" },
 ];
 
 export async function getServerSideProps(context) {
@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
@@ -87,17 +87,17 @@ class Dashboard extends Component {
     this.state = {
       isLoading: true,
       open: false,
-      shares: '',
-      value: '',
-      budget: '',
-      fundDate: '',
-      funding: '',
+      shares: "",
+      value: "",
+      budget: "",
+      fundDate: "",
+      funding: "",
       hasMedia: false,
       hasValuation: false,
       hasMarketingCampaign: false,
       hasCommunity: false,
       activeIndex: 0,
-      errorMessage: '',
+      errorMessage: "",
       loading: false,
     };
   }
@@ -118,8 +118,8 @@ class Dashboard extends Component {
     hasMarketingCampaign,
     hasCommunity
   ) => {
-    const response = await fetch('/api/user/newCampaign', {
-      method: 'PATCH',
+    const response = await fetch("/api/user/newCampaign", {
+      method: "PATCH",
       body: JSON.stringify({
         campaignName,
         fundMethod,
@@ -133,14 +133,14 @@ class Dashboard extends Component {
         hasCommunity,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Something went wrong!');
+      throw new Error(data.message || "Something went wrong!");
     }
 
     return data;
@@ -151,7 +151,7 @@ class Dashboard extends Component {
 
     this.setState({
       loading: true,
-      errorMessage: '',
+      errorMessage: "",
     });
 
     try {
@@ -168,7 +168,7 @@ class Dashboard extends Component {
         this.state.hasCommunity
       );
       console.log(result);
-      Router.pushRoute('/dashboard/pendingCampaigns');
+      Router.pushRoute("/dashboard/pendingCampaigns");
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
@@ -225,7 +225,7 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" padded raised fluid>
+        <Segment color="blue" padded raised fluid>
           <Header
             as="h2"
             style={{ fontSize: "2em", color: "rgba(28, 173, 229, 1.0)" }}

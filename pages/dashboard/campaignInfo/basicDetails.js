@@ -39,12 +39,12 @@ class BasicDetails extends Component {
       isEditing,
     } = this.props;
     return (
-      <Tab.Pane attached={false} color="red">
+      <Tab.Pane attached={false} color="blue">
         <List divided relaxed>
           <List.Item>
             <List.Content style={{ marginBottom: '5px' }}>
               <List.Header
-                style={{ color: 'rgba(182, 12, 12, 0.9)', marginBottom: '5px' }}
+                style={{ color: 'deepskyblue', marginBottom: '5px' }}
               >
                 Funding Method
               </List.Header>
@@ -54,7 +54,7 @@ class BasicDetails extends Component {
           <List.Item style={{ marginBottom: '5px' }}>
             <List.Content>
               <List.Header
-                style={{ color: 'rgba(182, 12, 12, 0.9)', marginBottom: '5px' }}
+                style={{ color: 'deepskyblue', marginBottom: '5px' }}
               >
                 Funding Goal
               </List.Header>
@@ -64,7 +64,7 @@ class BasicDetails extends Component {
           <List.Item style={{ marginBottom: '5px' }}>
             <List.Content>
               <List.Header
-                style={{ color: 'rgba(182, 12, 12, 0.9)', marginBottom: '5px' }}
+                style={{ color: 'deepskyblue', marginBottom: '5px' }}
               >
                 Platform
               </List.Header>
@@ -74,7 +74,7 @@ class BasicDetails extends Component {
           <List.Item style={{ marginBottom: '5px' }}>
             <List.Content>
               <List.Header
-                style={{ color: 'rgba(182, 12, 12, 0.9)', marginBottom: '5px' }}
+                style={{ color: 'deepskyblue', marginBottom: '5px' }}
               >
                 Deadline
               </List.Header>

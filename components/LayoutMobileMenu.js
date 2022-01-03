@@ -71,7 +71,7 @@ class LayoutMenu extends Component {
 
             {!session && (
               <Menu.Item position="right">
-                <Link route="/subscribe">
+                <Link route="/login">
                   <a>
                     <Button
                       secondary={fixed}
@@ -87,7 +87,7 @@ class LayoutMenu extends Component {
                   </a>
                 </Link>
 
-                <Link route="/subscribe">
+                <Link route="/register">
                   <a>
                     <Button
                       primary={fixed}

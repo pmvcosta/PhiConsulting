@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -18,16 +18,16 @@ import {
   Loader,
   Dimmer,
   Rating,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { useRouter } from 'next/router';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import { useSession, getSession } from 'next-auth/client';
-import { connectToDatabase } from '../../lib/db';
-import CampaignRow from '../../components/CampaignRow';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { useRouter } from "next/router";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import { useSession, getSession } from "next-auth/client";
+import { connectToDatabase } from "../../lib/db";
+import CampaignRow from "../../components/CampaignRow";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -46,14 +46,14 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection('users');
+  const usersCollection = client.db().collection("users");
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const campaigns = user.campaigns;
@@ -66,16 +66,16 @@ export async function getServerSideProps(context) {
       campaign = {};
       console.log(`THE NAME IS ${item.campaignName}`);
 
-      campaign['campaignName'] = `${item.campaignName}`;
-      campaign['platform'] = `${item.platform}`;
-      campaign['fundMethod'] = `${item.fundMethod}`;
-      campaign['fundGoal'] = `${item.fundGoal}`;
-      campaign['fundDeadline'] = `${item.fundDeadline}`;
-      campaign['addNotes'] = `${item.addNotes}`;
-      campaign['hasMedia'] = `${item.hasMedia}`;
-      campaign['hasValuation'] = `${item.hasValuation}`;
-      campaign['hasMarketingCampaign'] = `${item.hasMarketingCampaign}`;
-      campaign['hasCommunity'] = `${item.hasCommunity}`;
+      campaign["campaignName"] = `${item.campaignName}`;
+      campaign["platform"] = `${item.platform}`;
+      campaign["fundMethod"] = `${item.fundMethod}`;
+      campaign["fundGoal"] = `${item.fundGoal}`;
+      campaign["fundDeadline"] = `${item.fundDeadline}`;
+      campaign["addNotes"] = `${item.addNotes}`;
+      campaign["hasMedia"] = `${item.hasMedia}`;
+      campaign["hasValuation"] = `${item.hasValuation}`;
+      campaign["hasMarketingCampaign"] = `${item.hasMarketingCampaign}`;
+      campaign["hasCommunity"] = `${item.hasCommunity}`;
 
       campaignList.push(campaign);
     });
@@ -107,7 +107,7 @@ class Dashboard extends Component {
   render() {
     const { session, profileType } = this.props;
     const { percent, isLoading } = this.state;
-    const currentItem = 'pendingCampaigns';
+    const currentItem = "pendingCampaigns";
     return (
       <DashBar
         session={session}
@@ -116,20 +116,17 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" raised padded>
-          <Header
-            as="h2"
-            style={{ fontSize: '2em', color: 'rgba(182, 12, 12, 0.9)' }}
-          >
+        <Segment color="blue" raised padded>
+          <Header as="h2" style={{ fontSize: "2em", color: "deepskyblue" }}>
             Pending Campaigns
           </Header>
-          <Table celled padded color="red">
+          <Table celled padded color="blue">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Campaign Name</Table.HeaderCell>
                 <Table.HeaderCell singleLine>Platform</Table.HeaderCell>
                 <Table.HeaderCell>Funding Deadline</Table.HeaderCell>
-                <Table.HeaderCell singleLine style={{ width: '100px' }}>
+                <Table.HeaderCell singleLine style={{ width: "100px" }}>
                   Funding Goal
                 </Table.HeaderCell>
                 <Table.HeaderCell singleLine>Funding Method</Table.HeaderCell>

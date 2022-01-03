@@ -23,7 +23,7 @@ class CustomCardSlide extends Component {
     return (
       <Slide index={index}>
         <div style={{ padding: 10 }}>
-          <Card color="red" style={{ width: '320px' }}>
+          <Card color="blue" style={{ width: '320px' }}>
             <CampaignSlide width={'280px'} />
             <Card.Content style={{ textAlign: 'left' }}>
               <Card.Header>{header}</Card.Header>

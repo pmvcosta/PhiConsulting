@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Form,
   Button,
@@ -8,10 +8,10 @@ import {
   Divider,
   Segment,
   Header,
-} from 'semantic-ui-react';
-import Layout from '../components/Layout';
-import { Link, Router } from '../routes';
-import { signIn, useSession, getSession } from 'next-auth/client';
+} from "semantic-ui-react";
+import Layout from "../components/Layout";
+import { Link, Router } from "../routes";
+import { signIn, useSession, getSession } from "next-auth/client";
 
 export async function getServerSideProps(context) {
   //getSession automatically looks into request
@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
@@ -39,9 +39,9 @@ export async function getServerSideProps(context) {
 
 class CampaignNew extends Component {
   state = {
-    email: '',
-    password: '',
-    errorMessage: '',
+    email: "",
+    password: "",
+    errorMessage: "",
     loading: false,
   };
 
@@ -50,7 +50,7 @@ class CampaignNew extends Component {
 
     this.setState({
       loading: true,
-      errorMessage: '',
+      errorMessage: "",
     });
 
     /*try {
@@ -66,7 +66,7 @@ class CampaignNew extends Component {
       this.setState({ errorMessage: err.message });
     }*/
 
-    const result = await signIn('credentials', {
+    const result = await signIn("credentials", {
       redirect: false,
       email: this.state.email,
       password: this.state.password,
@@ -74,7 +74,7 @@ class CampaignNew extends Component {
     console.log(result);
 
     if (!result.error) {
-      Router.pushRoute('/dashboard');
+      Router.pushRoute("/dashboard");
     } else {
       this.setState({ errorMessage: result.error });
     }
@@ -95,12 +95,12 @@ class CampaignNew extends Component {
           container
           stackable
           verticalAlign="middle"
-          style={{ padding: '8em 0em' }}
+          style={{ padding: "8em 0em" }}
         >
           <Grid.Row>
             <Grid.Column width={8} textAlign="center">
-              <Segment color="red" padded raised fluid>
-                <Header as="h3" style={{ fontSize: '2em' }}>
+              <Segment color="blue" padded raised fluid>
+                <Header as="h3" style={{ fontSize: "2em" }}>
                   Log In
                 </Header>
                 <Form
@@ -109,7 +109,7 @@ class CampaignNew extends Component {
                 >
                   <Form.Field>
                     <Input
-                      style={{ marginBottom: '10px', width: '400px' }}
+                      style={{ marginBottom: "10px", width: "80%" }}
                       className="form-control mb-4 p-4"
                       required
                       type="email"
@@ -120,7 +120,7 @@ class CampaignNew extends Component {
                       }
                     />
                     <Input
-                      style={{ marginBottom: '10px', width: '400px' }}
+                      style={{ marginBottom: "10px", width: "80%" }}
                       required
                       type="password"
                       placeholder="Password"
@@ -137,7 +137,7 @@ class CampaignNew extends Component {
                     />
                     <Button
                       loading={this.state.loading}
-                      style={{ marginTop: '10px' }}
+                      style={{ marginTop: "10px" }}
                       primary
                     >
                       Log In
@@ -147,17 +147,17 @@ class CampaignNew extends Component {
               </Segment>
             </Grid.Column>
             <Grid.Column floated="right" width={7}>
-              <Header as="h3" style={{ fontSize: '2em' }}>
+              <Header as="h3" style={{ fontSize: "2em" }}>
                 Connecting the Future of Funding
               </Header>
-              <p style={{ fontSize: '1.33em' }}>
+              <p style={{ fontSize: "1.33em" }}>
                 We can assist your company in securing funding, by connecting
                 you directly to alternative finance platforms. If you're a
                 platform we can help you increase the influx of new businesses!
               </p>
               <Link route="/register">
                 <a>
-                  <Button style={{ marginTop: '10px' }} primary>
+                  <Button style={{ marginTop: "10px" }} primary>
                     Let's Go!
                   </Button>
                 </a>

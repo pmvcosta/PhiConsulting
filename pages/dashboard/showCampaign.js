@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from "react";
 import {
   Card,
   Button,
@@ -19,18 +19,18 @@ import {
   Tab,
   Dimmer,
   Rating,
-} from 'semantic-ui-react';
-import { Link, Router } from '../../routes';
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import DashBar from '../../components/DashLayout';
-import Featured from './featured';
-import { useSession, getSession } from 'next-auth/client';
-import { connectToDatabase } from '../../lib/db';
-import BasicDetails from './campaignInfo/basicDetails';
-import Community from './campaignInfo/community';
-import Marketing from './campaignInfo/marketing';
-import VisualMedia from './campaignInfo/visualMedia';
+} from "semantic-ui-react";
+import { Link, Router } from "../../routes";
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import DashBar from "../../components/DashLayout";
+import Featured from "./featured";
+import { useSession, getSession } from "next-auth/client";
+import { connectToDatabase } from "../../lib/db";
+import BasicDetails from "./campaignInfo/basicDetails";
+import Community from "./campaignInfo/community";
+import Marketing from "./campaignInfo/marketing";
+import VisualMedia from "./campaignInfo/visualMedia";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -55,14 +55,14 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection('users');
+  const usersCollection = client.db().collection("users");
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
   const campaigns = user.campaigns;
@@ -73,16 +73,16 @@ export async function getServerSideProps(context) {
     campaigns.forEach((item) => {
       if (item.campaignName === selectedCampaign) {
         console.log(`THE NAME IS ${selectedCampaign}`);
-        campaign['campaignName'] = `${item.campaignName}`;
-        campaign['platform'] = `${item.platform}`;
-        campaign['fundMethod'] = `${item.fundMethod}`;
-        campaign['fundGoal'] = `${item.fundGoal}`;
-        campaign['fundDeadline'] = `${item.fundDeadline}`;
-        campaign['addNotes'] = `${item.addNotes}`;
-        campaign['hasMedia'] = `${item.hasMedia}`;
-        campaign['hasValuation'] = `${item.hasValuation}`;
-        campaign['hasMarketingCampaign'] = `${item.hasMarketingCampaign}`;
-        campaign['hasCommunity'] = `${item.hasCommunity}`;
+        campaign["campaignName"] = `${item.campaignName}`;
+        campaign["platform"] = `${item.platform}`;
+        campaign["fundMethod"] = `${item.fundMethod}`;
+        campaign["fundGoal"] = `${item.fundGoal}`;
+        campaign["fundDeadline"] = `${item.fundDeadline}`;
+        campaign["addNotes"] = `${item.addNotes}`;
+        campaign["hasMedia"] = `${item.hasMedia}`;
+        campaign["hasValuation"] = `${item.hasValuation}`;
+        campaign["hasMarketingCampaign"] = `${item.hasMarketingCampaign}`;
+        campaign["hasCommunity"] = `${item.hasCommunity}`;
       }
     });
   }
@@ -114,13 +114,13 @@ class CampaignShow extends Component {
   render() {
     //MAKE THIS A F***** POP UP, using a new page is bound to crash
     const { session, campaign, profileType } = this.props;
-    const currentItem = 'IDK';
+    const currentItem = "IDK";
     const panes = [
       {
         menuItem: {
-          key: 'Basic Details',
-          content: 'Basic Details',
-          icon: 'info circle',
+          key: "Basic Details",
+          content: "Basic Details",
+          icon: "info circle",
         },
         render: () => (
           <BasicDetails
@@ -134,9 +134,9 @@ class CampaignShow extends Component {
       },
       {
         menuItem: {
-          key: 'Visual Media',
-          content: 'Visual Media',
-          icon: 'camera retro',
+          key: "Visual Media",
+          content: "Visual Media",
+          icon: "camera retro",
         },
         render: () => (
           <VisualMedia
@@ -146,7 +146,7 @@ class CampaignShow extends Component {
         ),
       },
       {
-        menuItem: { key: 'Community', content: 'Community', icon: 'users' },
+        menuItem: { key: "Community", content: "Community", icon: "users" },
         render: () => (
           <Community
             hasCommunity={campaign.hasCommunity}
@@ -155,7 +155,7 @@ class CampaignShow extends Component {
         ),
       },
       {
-        menuItem: { key: 'Marketing', content: 'Marketing', icon: 'bullhorn' },
+        menuItem: { key: "Marketing", content: "Marketing", icon: "bullhorn" },
         render: () => (
           <Marketing
             hasMarketingCampaign={campaign.hasMarketingCampaign}
@@ -171,11 +171,8 @@ class CampaignShow extends Component {
         profileType={profileType}
       >
         <br />
-        <Segment color="red" raised padded>
-          <Header
-            as="h2"
-            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
-          >
+        <Segment color="blue" raised padded>
+          <Header as="h2" style={{ fontSize: "2em", color: "deepskyblue" }}>
             {campaign.campaignName}
             {!this.state.isEditing && (
               <Button
@@ -198,7 +195,12 @@ class CampaignShow extends Component {
             )}
           </Header>
           <Tab
-            menu={{ color: "red", secondary: true, pointing: true }}
+            menu={{
+              color: "blue",
+              secondary: true,
+              pointing: true,
+              stackable: true,
+            }}
             panes={panes}
             renderActiveOnly={true}
           />

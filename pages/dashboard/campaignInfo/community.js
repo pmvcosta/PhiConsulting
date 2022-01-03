@@ -32,7 +32,7 @@ class Community extends Component {
   render() {
     const { hasCommunity, isEditing } = this.props;
     return (
-      <Tab.Pane attached={false} color="red">
+      <Tab.Pane attached={false} color="blue">
         <List divided relaxed>
           <List.Item>
             <List.Content style={{ marginBottom: '5px' }}>

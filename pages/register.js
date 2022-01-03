@@ -211,7 +211,7 @@ class CampaignNew extends Component {
         >
           <Grid.Row>
             <Grid.Column>
-              <Segment color="red" padded raised fluid>
+              <Segment color="blue" padded raised fluid>
                 <Header
                   as="h3"
                   centered

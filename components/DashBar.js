@@ -106,7 +106,6 @@ class DesktopContainer extends Component {
             style={{
               width: "100%",
               height: "100%",
-
               marginTop: "0px",
             }}
           >
@@ -144,7 +143,7 @@ class DesktopContainer extends Component {
           </Grid>
           <Menu
             vertical
-            color="red"
+            color="blue"
             pointing
             secondary
             fixed="top"
@@ -168,7 +167,7 @@ class DesktopContainer extends Component {
               <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
-                    color: "rgba(220, 220, 220, 1.0)",
+                    color: "rgba(240, 240, 240, 1.0)",
                   }}
                 >
                   <Icon
@@ -176,7 +175,7 @@ class DesktopContainer extends Component {
                     size="large"
                     style={{
                       marginRight: "6px",
-                      color: "rgba(220, 220, 220, 1.0)",
+                      color: "rgba(240, 240, 240, 1.0)",
                     }}
                   />
                   Funding Campaigns
@@ -188,7 +187,7 @@ class DesktopContainer extends Component {
                         marginLeft: "6px",
                         height: "10px",
                         width: "auto",
-                        color: "rgba(220, 220, 220, 1.0)",
+                        color: "rgba(240, 240, 240, 1.0)",
                       }}
                     />
                   </Link>
@@ -230,7 +229,7 @@ class DesktopContainer extends Component {
               <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
-                    color: "rgba(220, 220, 220, 1.0)",
+                    color: "rgba(240, 240, 240, 1.0)",
                   }}
                 >
                   <Icon
@@ -238,7 +237,7 @@ class DesktopContainer extends Component {
                     size="large"
                     style={{
                       marginRight: "10px",
-                      color: "rgba(220, 220, 220, 1.0)",
+                      color: "rgba(240, 240, 240, 1.0)",
                     }}
                   />
                   Service Requests
@@ -250,7 +249,7 @@ class DesktopContainer extends Component {
                         marginLeft: "10px",
                         height: "10px",
                         width: "auto",
-                        color: "rgba(220, 220, 220, 1.0)",
+                        color: "rgba(240, 240, 240, 1.0)",
                       }}
                     />
                   </Link>
@@ -282,7 +281,7 @@ class DesktopContainer extends Component {
               <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
                 <a
                   style={{
-                    color: "rgba(220, 220, 220, 1.0)",
+                    color: "rgba(240, 240, 240, 1.0)",
                   }}
                 >
                   <Icon
@@ -290,7 +289,7 @@ class DesktopContainer extends Component {
                     size="large"
                     style={{
                       marginRight: "6px",
-                      color: "rgba(220, 220, 220, 1.0)",
+                      color: "rgba(240, 240, 240, 1.0)",
                     }}
                   />
                   Funding Campaigns
@@ -302,7 +301,7 @@ class DesktopContainer extends Component {
                         marginLeft: "6px",
                         height: "10px",
                         width: "auto",
-                        color: "rgba(220, 220, 220, 1.0)",
+                        color: "rgba(240, 240, 240, 1.0)",
                       }}
                     />
                   </Link>
@@ -396,8 +395,8 @@ class DesktopContainer extends Component {
               shadowColor: "rgba(0, 0, 0, 0.9)",
               shadowRadius: "20",
               height: "48px",
-              backgroundColor: "rgba(220, 220, 220, 1.0)",
-              backgroundImage: "url(/backgnd.jpg)",
+              backgroundColor: "rgba(210, 210, 210, 1.0)",
+              /*backgroundImage: "url(/backgnd.jpg)",*/
               /* Set a specific height */
               minHeight: "48px",
 
@@ -419,7 +418,10 @@ class DesktopContainer extends Component {
               <Dropdown
                 direction="left"
                 trigger={trigger}
-                style={{ marginRight: "10px", color: "rgba(28, 173, 229, 1.0)" }}
+                style={{
+                  marginRight: "10px",
+                  color: "rgba(28, 173, 229, 1.0)",
+                }}
               >
                 <Dropdown.Menu>
                   <Dropdown.Header
@@ -483,33 +485,51 @@ class MobileContainer extends Component {
 
   handleToggle = () => this.setState({ sidebarOpened: true });
 
+  handleItemClick = (e, { name }) => {
+    if (name !== this.state.activeItem) {
+      try {
+        if (name === undefined || name == "dashboard") {
+          Router.pushRoute("/dashboard");
+        } else {
+          Router.pushRoute(`/dashboard/${name}`);
+        }
+      } catch (e) {
+        Router.pushRoute("/dashboard");
+      }
+
+      this.setState({ activeItem: name });
+      this.setState({ loading: true });
+    }
+  };
+
+  logoutHandler = () => {
+    signOut();
+  };
+
   render() {
-    const { children, session, isLoading } = this.props;
+    const {
+      children,
+      session,
+      isLoading,
+      profileType,
+      activeItem,
+    } = this.props;
     const { sidebarOpened } = this.state;
     const trigger = (
-      <span>
-        <Icon name="user" /> Hello, Bob
+      <span
+        style={{
+          color: "rgba(240, 240, 240, 1.0)",
+        }}
+      >
+        <Icon
+          name="user"
+          style={{
+            color: "rgba(240, 240, 240, 1.0)",
+          }}
+        />{" "}
+        User Profile
       </span>
     );
-
-    const options = [
-      {
-        key: "user",
-        text: (
-          <span>
-            Signed in as <strong>Bob Smith</strong>
-          </span>
-        ),
-        disabled: true,
-      },
-      { key: "profile", text: "Your Profile" },
-      { key: "stars", text: "Your Stars" },
-      { key: "explore", text: "Explore" },
-      { key: "integrations", text: "Integrations" },
-      { key: "help", text: "Help" },
-      { key: "settings", text: "Settings" },
-      { key: "sign-out", text: "Sign Out" },
-    ];
 
     return (
       <Media as={Sidebar.Pushable} at="mobile">
@@ -523,67 +543,176 @@ class MobileContainer extends Component {
           style={{
             border: "0px",
             outline: "0px",
-            backgroundColor: "rgba(182, 12, 12, 1.0)",
+            backgroundColor: "deepskyblue",
           }}
         >
           <Menu.Item centered>
-            <Link route="/">
-              <a>
-                <Image src="/LogoS2.png" size="tiny" centered />
-              </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link route="/">
-              <a>
-                <Icon name="home" style={{ marginRight: "10px" }} />
-                Home
-              </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link route="/OpenCampaigns">
-              <a>
-                <Icon name="trophy" style={{ marginRight: "10px" }} />
-                Ongoing Events
-              </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link route="/OpenCampaigns">
-              <a>
-                <Icon
-                  name="calendar alternate"
-                  style={{ marginRight: "10px" }}
-                />
-                Calendar
-              </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link route="/OpenCampaigns">
-              <a>
-                <Icon name="envelope" style={{ marginRight: "10px" }} />
-                Inbox
-              </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
             <Link route="/dashboard">
               <a>
-                <Icon name="compass" style={{ marginRight: "10px" }} />
-                Open Events
+                <Image src="/LogoS21.png" size="tiny" centered />
               </a>
             </Link>
           </Menu.Item>
-          <Menu.Item>
-            <Link route="/aboutUs">
-              <a>
-                <Icon name="archive" style={{ marginRight: "10px" }} />
-                Past Events
+
+          {profileType == "Borrower" && (
+            <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
+              <a
+                style={{
+                  color: "rgba(240, 240, 240, 1.0)",
+                }}
+              >
+                <Icon
+                  name="flag"
+                  size="large"
+                  style={{
+                    marginRight: "6px",
+                    color: "rgba(240, 240, 240, 1.0)",
+                  }}
+                />
+                Funding Campaigns
+                <Link route="/dashboard/newCampaign">
+                  <Icon
+                    name="plus circle"
+                    link="/dashboard/newCampaign"
+                    style={{
+                      marginLeft: "6px",
+                      height: "10px",
+                      width: "auto",
+                      color: "rgba(240, 240, 240, 1.0)",
+                    }}
+                  />
+                </Link>
               </a>
+            </Menu.Item>
+          )}
+
+          {profileType == "Borrower" && (
+            <Link route="/dashboard/activeCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Active</a>
+              </Menu.Item>
             </Link>
-          </Menu.Item>
+          )}
+
+          {profileType == "Borrower" && (
+            <Link route="/dashboard/pendingCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Pending</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Borrower" && (
+            <Link route="/dashboard/completedCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Completed</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Borrower" && (
+            <Menu.Item style={{ backgroundColor: "rgba(28, 173, 229, 1.0)" }}>
+              <a
+                style={{
+                  color: "rgba(240, 240, 240, 1.0)",
+                }}
+              >
+                <Icon
+                  name="paper plane"
+                  size="large"
+                  style={{
+                    marginRight: "10px",
+                    color: "rgba(240, 240, 240, 1.0)",
+                  }}
+                />
+                Service Requests
+                <Link route="/dashboard/newRequest">
+                  <Icon
+                    name="plus circle"
+                    link="/dashboard/newRequest"
+                    style={{
+                      marginLeft: "10px",
+                      height: "10px",
+                      width: "auto",
+                      color: "rgba(240, 240, 240, 1.0)",
+                    }}
+                  />
+                </Link>
+              </a>
+            </Menu.Item>
+          )}
+
+          {profileType == "Borrower" && (
+            <Link route="/dashboard/pendingRequests">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Pending</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Borrower" && (
+            <Link route="/dashboard/completedRequests">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Completed</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Funding Platform" && (
+            <Menu.Item style={{ backgroundColor: "rgba(240, 240, 240, 1.0)" }}>
+              <a
+                style={{
+                  color: "rgba(240, 240, 240, 1.0)",
+                }}
+              >
+                <Icon
+                  name="flag"
+                  size="large"
+                  style={{
+                    marginRight: "6px",
+                    color: "rgba(240, 240, 240, 1.0)",
+                  }}
+                />
+                Funding Campaigns
+                <Link route="/dashboard">
+                  <Icon
+                    name="plus circle"
+                    link="/dashboard/newCampaign"
+                    style={{
+                      marginLeft: "6px",
+                      height: "10px",
+                      width: "auto",
+                      color: "rgba(240, 240, 240, 1.0)",
+                    }}
+                  />
+                </Link>
+              </a>
+            </Menu.Item>
+          )}
+
+          {profileType == "Funding Platform" && (
+            <Link route="/dashboard/activeCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Active</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Funding Platform" && (
+            <Link route="/dashboard/pendingCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Pending</a>
+              </Menu.Item>
+            </Link>
+          )}
+
+          {profileType == "Funding Platform" && (
+            <Link route="/dashboard/completedCampaigns">
+              <Menu.Item>
+                <a style={{ color: "rgba(240, 240, 240, 1.0)" }}>Completed</a>
+              </Menu.Item>
+            </Link>
+          )}
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -591,6 +720,7 @@ class MobileContainer extends Component {
             inverted
             pointing
             secondary
+            fixed="top"
             size="large"
             style={{
               border: "0px",
@@ -602,10 +732,61 @@ class MobileContainer extends Component {
               <Icon name="sidebar" style={{ marginBottom: "10px" }} />
             </Menu.Item>
             <Menu.Item position="right">
-              <Dropdown trigger={trigger} options={options} />
+              <Dropdown
+                direction="left"
+                trigger={trigger}
+                style={{
+                  marginRight: "10px",
+                  color: "rgba(240, 240, 240, 1.0)",
+                }}
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Header
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    <Image centered src="/LogoS2.png" size="tiny" />
+                  </Dropdown.Header>
+                  <Dropdown.Header
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    Signed in as: <br />
+                    <a style={{ color: "rgba(28, 173, 229, 1.0)" }}>
+                      {session.user.email}
+                    </a>
+                  </Dropdown.Header>
+                  <Dropdown.Divider />
+                  <Dropdown.Header>Settings and Options</Dropdown.Header>
+                  <Dropdown.Item>
+                    <Icon name="cogs" />
+                    User Preferences
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <Icon name="book" />
+                    Documentation
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <Icon name="help" />
+                    Support
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <Icon name="bullhorn" />
+                    Give us feedback
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={this.logoutHandler}>
+                    <Icon name="log out" />
+                    Log Out
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Menu.Item>
           </Menu>
-
+          <br />
+          <br />
           {children}
         </Sidebar.Pusher>
       </Media>

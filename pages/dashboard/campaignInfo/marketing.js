@@ -32,7 +32,7 @@ class Marketing extends Component {
   render() {
     const { hasMarketingCampaign, isEditing } = this.props;
     return (
-      <Tab.Pane attached={false} color="red">
+      <Tab.Pane attached={false} color="blue">
         <List divided relaxed>
           <List.Item>
             <List.Content style={{ marginBottom: '5px' }}>

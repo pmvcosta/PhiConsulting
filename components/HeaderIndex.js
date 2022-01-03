@@ -181,12 +181,12 @@ class MobileContainer extends Component {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/#Contact">
+            <Link route="/login">
               <a>Log in</a>
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link route="/#Contact">
+            <Link route="/register">
               <a>Sign Up</a>
             </Link>
           </Menu.Item>

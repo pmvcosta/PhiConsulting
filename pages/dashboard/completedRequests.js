@@ -87,14 +87,11 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" raised padded>
-          <Header
-            as="h2"
-            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
-          >
+        <Segment color="blue" raised padded>
+          <Header as="h2" style={{ fontSize: "2em", color: "deepskyblue" }}>
             Completed Requests
           </Header>
-          <Table celled padded color="red">
+          <Table celled padded color="blue">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Platform</Table.HeaderCell>
@@ -129,11 +126,8 @@ class Dashboard extends Component {
                     <p>{percent * 150 * 0.01}.000/150.000€ </p>
                   </Progress>
                 </Table.Cell>
-                <Table.Cell textAlign="right">
-                  <Button
-                    secondary
-                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
-                  >
+                <Table.Cell textAlign="center">
+                  <Button secondary style={{ backgroundColor: "deepskyblue" }}>
                     Check Campaign
                   </Button>
                 </Table.Cell>
@@ -163,11 +157,8 @@ class Dashboard extends Component {
                     {percent * 0.5 * 25 * 0.01}.000/25.000€
                   </Progress>
                 </Table.Cell>
-                <Table.Cell textAlign="right">
-                  <Button
-                    secondary
-                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
-                  >
+                <Table.Cell textAlign="center">
+                  <Button secondary style={{ backgroundColor: "deepskyblue" }}>
                     Check Campaign
                   </Button>
                 </Table.Cell>

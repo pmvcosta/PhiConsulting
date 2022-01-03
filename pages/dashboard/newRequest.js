@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Card,
   Button,
@@ -20,16 +20,16 @@ import {
   Form,
   Checkbox,
   Transition,
-} from "semantic-ui-react";
-import { Link, Router } from "../../routes";
-import { useRouter } from "next/router";
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import DashBar from "../../components/DashLayout";
-import Featured from "./featured";
-import KitPopUp from "./servicePopUp";
-import { useSession, getSession } from "next-auth/client";
-import { connectToDatabase } from "../../lib/db";
+} from 'semantic-ui-react';
+import { Link, Router } from '../../routes';
+import { useRouter } from 'next/router';
+import { createMedia } from '@artsy/fresnel';
+import PropTypes from 'prop-types';
+import DashBar from '../../components/DashLayout';
+import Featured from './featured';
+import KitPopUp from './servicePopUp';
+import { useSession, getSession } from 'next-auth/client';
+import { connectToDatabase } from '../../lib/db';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -40,19 +40,19 @@ const { MediaContextProvider, Media } = createMedia({
 });
 
 const options = [
-  { key: "m", text: "Within next 3 months", value: "3" },
-  { key: "f", text: "3-6 months", value: "3-6" },
-  { key: "o", text: "6+ months", value: "6+" },
+  { key: 'm', text: 'Within next 3 months', value: '3' },
+  { key: 'f', text: '3-6 months', value: '3-6' },
+  { key: 'o', text: '6+ months', value: '6+' },
 ];
 
 const optionsPay = [
-  { key: "m", text: "Credit Card", value: "Credit Card" },
-  { key: "l", text: "Bank Transfer", value: "Bank Transfer" },
-  { key: "f", text: "Paypal", value: "Paypal" },
+  { key: 'm', text: 'Credit Card', value: 'Credit Card' },
+  { key: 'l', text: 'Bank Transfer', value: 'Bank Transfer' },
+  { key: 'f', text: 'Paypal', value: 'Paypal' },
   {
-    key: "o",
-    text: "Percentage of Campaign Funds",
-    value: "Percentage of Funds",
+    key: 'o',
+    text: 'Percentage of Campaign Funds',
+    value: 'Percentage of Funds',
   },
 ];
 
@@ -65,14 +65,14 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
     };
   }
 
   const client = await connectToDatabase();
-  const usersCollection = client.db().collection("users");
+  const usersCollection = client.db().collection('users');
 
   const userEmail = session.user.email;
   const user = await usersCollection.findOne({ email: userEmail });
@@ -86,13 +86,13 @@ export async function getServerSideProps(context) {
       campaign = {};
       console.log(`THE NAME IS ${item.campaignName}`);
 
-      campaign["key"] = `${item.campaignName}`;
-      campaign["text"] = `${item.campaignName}`;
-      campaign["value"] = `${item.campaignName}`;
-      campaign["hasMedia"] = `${item.hasMedia}`;
-      campaign["hasValuation"] = `${item.hasValuation}`;
-      campaign["hasMarketingCampaign"] = `${item.hasMarketingCampaign}`;
-      campaign["hasCommunity"] = `${item.hasCommunity}`;
+      campaign['key'] = `${item.campaignName}`;
+      campaign['text'] = `${item.campaignName}`;
+      campaign['value'] = `${item.campaignName}`;
+      campaign['hasMedia'] = `${item.hasMedia}`;
+      campaign['hasValuation'] = `${item.hasValuation}`;
+      campaign['hasMarketingCampaign'] = `${item.hasMarketingCampaign}`;
+      campaign['hasCommunity'] = `${item.hasCommunity}`;
 
       optionsCamp.push(campaign);
     });
@@ -111,8 +111,8 @@ class Dashboard extends Component {
       isLoading: true,
       open: false,
       activeIndex: 0,
-      campaignName: "",
-      reqName: "",
+      campaignName: '',
+      reqName: '',
       maxSpend: "",
       reqDeadline: "",
       addNotes: "",
@@ -231,7 +231,7 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" padded raised fluid>
+        <Segment color="blue" padded raised fluid>
           <Header
             as="h2"
             style={{ fontSize: "2em", color: "rgba(28, 173, 229, 1.0)" }}

@@ -144,7 +144,7 @@ class LayoutMenu extends Component {
             )}
             {!session && (
               <Menu.Item position="right">
-                <Link route="/#Contact">
+                <Link route="/login">
                   <a>
                     <Button
                       onMouseEnter={() => this.setState({ isInvertedL: true })}
@@ -163,7 +163,7 @@ class LayoutMenu extends Component {
                   </a>
                 </Link>
 
-                <Link route="/#Contact">
+                <Link route="/register">
                   <a>
                     <Button
                       onMouseEnter={() => this.setState({ isInverted: true })}

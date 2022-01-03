@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from 'react';
 import {
   Card,
   Button,
@@ -16,14 +16,14 @@ import {
   Table,
   Progress,
   Rating,
-} from "semantic-ui-react";
-import { Link, Router } from "../../routes";
-import { useRouter } from "next/router";
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import DashBar from "../../components/DashLayout";
-import Featured from "./featured";
-import { useSession, getSession } from "next-auth/client";
+} from 'semantic-ui-react';
+import { Link, Router } from '../../routes';
+import { useRouter } from 'next/router';
+import { createMedia } from '@artsy/fresnel';
+import PropTypes from 'prop-types';
+import DashBar from '../../components/DashLayout';
+import Featured from './featured';
+import { useSession, getSession } from 'next-auth/client';
 //import { connectToDatabase } from "../../lib/db";
 
 const { MediaContextProvider, Media } = createMedia({
@@ -43,7 +43,7 @@ export async function getServerSideProps(context) {
     //The followign resets the state of the app?
     return {
       redirect: {
-        destination: "/",
+        destination: '/',
         permanent: false,
       },
     };
@@ -79,7 +79,7 @@ class Dashboard extends Component {
   render() {
     const { session, profileType } = this.props;
     const { percent, isLoading } = this.state;
-    const currentItem = "completedCampaigns";
+    const currentItem = 'completedCampaigns';
     return (
       <DashBar
         session={session}
@@ -88,14 +88,11 @@ class Dashboard extends Component {
         isLoading={isLoading}
       >
         <br />
-        <Segment color="red" raised padded>
-          <Header
-            as="h2"
-            style={{ fontSize: "2em", color: "rgba(182, 12, 12, 0.9)" }}
-          >
+        <Segment color="blue" raised padded>
+          <Header as="h2" style={{ fontSize: '2em', color: 'deepskyblue' }}>
             Completed Campaigns
           </Header>
-          <Table celled padded color="red">
+          <Table celled padded color="blue">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell singleLine>Platform</Table.HeaderCell>
@@ -103,7 +100,7 @@ class Dashboard extends Component {
                   Campaign Duration
                 </Table.HeaderCell>
                 <Table.HeaderCell>Efficacy</Table.HeaderCell>
-                <Table.HeaderCell singleLine style={{ width: "200px" }}>
+                <Table.HeaderCell singleLine style={{ width: '200px' }}>
                   Funding Progress
                 </Table.HeaderCell>
                 <Table.HeaderCell singleLine>Campaign Page</Table.HeaderCell>
@@ -132,11 +129,8 @@ class Dashboard extends Component {
                     <p>{percent * 150 * 0.01}/150k€ </p>
                   </Progress>
                 </Table.Cell>
-                <Table.Cell textAlign="right">
-                  <Button
-                    secondary
-                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
-                  >
+                <Table.Cell textAlign="center">
+                  <Button secondary style={{ backgroundColor: 'deepskyblue' }}>
                     Check Campaign
                   </Button>
                 </Table.Cell>
@@ -166,11 +160,8 @@ class Dashboard extends Component {
                     {percent * 25 * 0.01}/25k€
                   </Progress>
                 </Table.Cell>
-                <Table.Cell textAlign="right">
-                  <Button
-                    secondary
-                    style={{ backgroundColor: "rgba(182, 12, 12, 0.9)" }}
-                  >
+                <Table.Cell textAlign="center">
+                  <Button secondary style={{ backgroundColor: 'deepskyblue' }}>
                     Check Campaign
                   </Button>
                 </Table.Cell>
